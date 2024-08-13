@@ -62,14 +62,14 @@ const ServiceComponent: React.FC = () => {
 
                                 <div className="switch-container flex bg-gray-100 w-max rounded-full mt-4 md:mt-0">
                                     <div
-                                        className={`switch-option px-4 py-3 md:px-7 md:py-4 cursor-pointer rounded-full transition-all ${selectedOption === "harga" ? "bg-orange-500 text-white" : "bg-gray-100 text-black"
+                                        className={`switch-option px-4 py-3 md:px-7 md:py-4 cursor-pointer rounded-full transition-all ${selectedOption === "harga" ? "bg-[#FEA500] text-white" : "bg-gray-100 text-black"
                                             }`}
                                         onClick={() => handleSwitch("harga")}
                                     >
                                         Harga
                                     </div>
                                     <div
-                                        className={`switch-option px-4 py-3 md:px-7 md:py-4 cursor-pointer rounded-full transition-all ${selectedOption === "syarat" ? "bg-orange-500 text-white" : "bg-gray-100 text-black"
+                                        className={`switch-option px-4 py-3 md:px-7 md:py-4 cursor-pointer rounded-full transition-all ${selectedOption === "syarat" ? "bg-[#FEA500] text-white" : "bg-gray-100 text-black"
                                             }`}
                                         onClick={() => handleSwitch("syarat")}
                                     >
@@ -101,7 +101,7 @@ const ServiceComponent: React.FC = () => {
                             >
                                 {plan.isPopular ? (
                                     <div className="flex justify-center w-full h-[20px] md:h-[30px] mb-2">
-                                        <div className="px-3 py-1 px-auto bg-yellow-400 text-white rounded-full text-center w-max">
+                                        <div className="px-3 py-1 px-auto bg-[#FEA500] text-white rounded-full text-center w-max">
                                             10 jt / 50% Off
                                         </div>
                                     </div>

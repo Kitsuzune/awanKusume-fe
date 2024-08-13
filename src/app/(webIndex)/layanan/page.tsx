@@ -33,13 +33,13 @@ const Page: React.FC = () => {
 
                             <div className="flex flex-col md:flex-row mt-3 md:mt-5 gap-3">
                                 <button
-                                    className="text-white rounded-[5px] text-[10px] md:text-[11px] px-[10px] md:px-[12px] py-[4px] md:py-[5px] bg-[#FEA500] hover:bg-[#FFB800]"
+                                    className="text-white rounded-[5px] text-[16px] px-[10px] md:px-[12px] py-[5px] bg-[#FEA500] hover:bg-[#FFB800]"
                                 >
                                     Pendirian PT
                                 </button>
 
                                 <button
-                                    className="text-white rounded-[5px] text-[10px] md:text-[11px] px-[10px] md:px-[12px] py-[4px] md:py-[5px] bg-[#FEA500] hover:bg-[#FFB800]"
+                                    className="text-white rounded-[5px] text-[16px] px-[10px] md:px-[12px] py-[5px] bg-[#FEA500] hover:bg-[#FFB800]"
                                 >
                                     Pendirian CV
                                 </button>

@@ -17,25 +17,25 @@ const Register = () => {
         <>
             <Row>
                 <Modal>
-                    <Col span={8}>
-                        <Row className='bg-[#1A2A3A] py-[80px] px-[40px] h-full'>
+                    <Col span={24} md={8}>
+                        <Row className='bg-[#1A2A3A] py-[60px] px-[20px] md:py-[80px] md:px-[40px] h-full'>
                             <div className='w-full'>
-                                <Text className='text-white text-[40px] font-[700]'>Welcome !</Text>
-                                <Text className='text-white text-[20px] font-[300]'>
+                                <Text className='text-white text-[30px] md:text-[40px] font-[700]'>Welcome !</Text>
+                                <Text className='text-white text-[16px] md:text-[20px] font-[300]'>
                                     Please Enter your details below.
                                 </Text>
 
-                                <div className='mt-8'>
+                                <div className='mt-4 md:mt-8'>
                                     <Text className='text-white text-[14px]'>Nama Lengkap</Text>
                                     <Input
                                         placeholder='Nama Lengkap'
-                                        className='mb-4 pr-0 pl-4 py-0 h-[45px] rounded-[8px] mt-2'
+                                        className='mb-4 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2'
                                         style={{
                                             backgroundColor: '#F8F8F8',
                                             border: 'none',
                                         }}
                                         suffix={
-                                            <div className='bg-[#007893] rounded-[8px] h-[45px] w-[60px] p-0 m-0 flex justify-center items-center'>
+                                            <div className='bg-[#007893] rounded-[8px] h-[40px] md:h-[45px] w-[50px] md:w-[60px] p-0 m-0 flex justify-center items-center'>
                                                 <UserOutlined className='text-white p-2' />
                                             </div>
                                         }
@@ -44,28 +44,28 @@ const Register = () => {
                                     <Text className='text-white text-[14px] mt-3'>Email</Text>
                                     <Input
                                         placeholder='Email'
-                                        className='mb-4 pr-0 pl-4 py-0 h-[45px] rounded-[8px] mt-2'
+                                        className='mb-4 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2'
                                         style={{
                                             backgroundColor: '#F8F8F8',
                                             border: 'none',
                                         }}
                                         suffix={
-                                            <div className='bg-[#007893] rounded-[8px] h-[45px] w-[60px] p-0 m-0 flex justify-center items-center'>
+                                            <div className='bg-[#007893] rounded-[8px] h-[40px] md:h-[45px] w-[50px] md:w-[60px] p-0 m-0 flex justify-center items-center'>
                                                 <MailOutlined className='text-white p-2' />
                                             </div>
                                         }
                                     />
 
-                                    <Text className='text-white text-[14px] mt-3'>No Tip</Text>
+                                    <Text className='text-white text-[14px] mt-3'>No Tlp</Text>
                                     <Input
                                         placeholder='No Tlp'
-                                        className='mb-4 pr-0 pl-4 py-0 h-[45px] rounded-[8px] mt-2'
+                                        className='mb-4 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2'
                                         style={{
                                             backgroundColor: '#F8F8F8',
                                             border: 'none',
                                         }}
                                         suffix={
-                                            <div className='bg-[#007893] rounded-[8px] h-[45px] w-[60px] p-0 m-0 flex justify-center items-center'>
+                                            <div className='bg-[#007893] rounded-[8px] h-[40px] md:h-[45px] w-[50px] md:w-[60px] p-0 m-0 flex justify-center items-center'>
                                                 <PhoneOutlined className='text-white p-2' />
                                             </div>
                                         }
@@ -74,14 +74,13 @@ const Register = () => {
                                     <Text className='text-white text-[14px] mt-3'>Bidang Usaha</Text>
                                     <Input
                                         placeholder='Bidang Usaha'
-                                        className='mb-4 pr-0 pl-4 py-0 h-[45px] rounded-[8px] mt-2'
+                                        className='mb-4 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2'
                                         style={{
                                             backgroundColor: '#F8F8F8',
                                             border: 'none',
                                         }}
-                                        type=''
                                         suffix={
-                                            <div className='bg-[#007893] rounded-[8px] h-[45px] w-[60px] p-0 m-0 flex justify-center items-center'>
+                                            <div className='bg-[#007893] rounded-[8px] h-[40px] md:h-[45px] w-[50px] md:w-[60px] p-0 m-0 flex justify-center items-center'>
                                                 <CalculatorOutlined className='text-white p-2' />
                                             </div>
                                         }
@@ -90,14 +89,14 @@ const Register = () => {
                                     <Text className='text-white text-[14px] mt-3'>Password</Text>
                                     <Input
                                         placeholder='Password'
-                                        className='mb-4 pr-0 pl-4 py-0 h-[45px] rounded-[8px] mt-2'
+                                        className='mb-4 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2'
                                         type={paswordVisible ? 'text' : 'password'}
                                         style={{
                                             backgroundColor: '#F8F8F8',
                                             border: 'none',
                                         }}
                                         suffix={
-                                            <div className='bg-[#007893] rounded-[8px] h-[45px] w-[60px] p-0 m-0 flex justify-center items-center'>
+                                            <div className='bg-[#007893] rounded-[8px] h-[40px] md:h-[45px] w-[50px] md:w-[60px] p-0 m-0 flex justify-center items-center'>
                                                 {paswordVisible ? (
                                                     <EyeOutlined
                                                         className='text-white p-2'
@@ -116,14 +115,14 @@ const Register = () => {
                                     <Text className='text-white text-[14px] mt-3'>Confirm Password</Text>
                                     <Input
                                         placeholder='Confirm Password'
-                                        className='mb-4 pr-0 pl-4 py-0 h-[45px] rounded-[8px] mt-2'
+                                        className='mb-4 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2'
                                         style={{
                                             backgroundColor: '#F8F8F8',
                                             border: 'none',
                                         }}
                                         type={confirmPaswordVisible ? 'text' : 'password'}
                                         suffix={
-                                            <div className='bg-[#007893] rounded-[8px] h-[45px] w-[60px] p-0 m-0 flex justify-center items-center'>
+                                            <div className='bg-[#007893] rounded-[8px] h-[40px] md:h-[45px] w-[50px] md:w-[60px] p-0 m-0 flex justify-center items-center'>
                                                 {confirmPaswordVisible ? (
                                                     <EyeOutlined
                                                         className='text-white p-2'
@@ -144,24 +143,24 @@ const Register = () => {
                                             type='primary'
                                             size='large'
                                             block
-                                            className='bg-[#008c9e] hover:bg-[#007884] text-white py-3 rounded-[8px]'
+                                            className='bg-[#008c9e] hover:bg-[#007884] text-white py-2 md:py-3 rounded-[8px]'
                                         >
                                             Register
                                         </Button>
                                     </ModalTrigger>
 
-                                    <ModalBody className='h-[50%]'>
+                                    <ModalBody className='h-[40%] md:h-[50%]'>
                                         <ModalContent>
                                             <div className='flex flex-col justify-center items-center h-full'>
                                                 <div className='text-center justify-center flex'>
                                                     <img src='/image/success1.svg' alt='Success' />
                                                 </div>
-                                                <Text className='text-[24px] font-[700] text-[#1A2A3A] justify-center flex text-center mt-7'>
-                                                    You Register
+                                                <Text className='text-[20px] md:text-[24px] font-[700] text-[#1A2A3A] justify-center flex text-center mt-7'>
+                                                    You Registered
                                                     <br />
                                                     successfully
                                                 </Text>
-                                                <Text className='text-[14px] text-[#1A2A3A] justify-center flex text-center mt-3'>
+                                                <Text className='text-[12px] md:text-[14px] text-[#1A2A3A] justify-center flex text-center mt-3'>
                                                     Lorem Ipsum is simply dummy text of the
                                                     <br />
                                                     printing and typesetting industry.
@@ -173,7 +172,7 @@ const Register = () => {
                                                             type='primary'
                                                             size='large'
                                                             block
-                                                            className='bg-[#1A2A3A] hover:bg-[#007884] text-white px-[100px] py-[16px] h-[56px] rounded-full'
+                                                            className='bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full'
                                                         >
                                                             Continue
                                                         </Button>
@@ -184,7 +183,7 @@ const Register = () => {
                                     </ModalBody>
 
                                     <div className='text-center mt-4'>
-                                        <Text className='text-white text-[14px]'>
+                                        <Text className='text-white text-[12px] md:text-[14px]'>
                                             Already have an account? <Link href='/auth/login'>Login</Link>
                                         </Text>
                                     </div>
@@ -193,11 +192,11 @@ const Register = () => {
                         </Row>
                     </Col >
 
-                    <Col span={16}>
-                        <Row className='bg-[#F8F8F8] py-[80px]'>
+                    <Col span={24} md={16}>
+                        <Row className='bg-[#F8F8F8] py-[40px] md:py-[80px] hidden md:block'>
                             <div className='container'>
                                 <div className='flex justify-end items-end'>
-                                    <img src='/image/navbar-logo.png' alt='Hero Image' className='p-10' />
+                                    <img src='/image/navbar-logo.png' alt='Hero Image' className='p-4 md:p-10' />
                                 </div>
                                 <OurClient slidesToShow={3} TopText={false} BottomText={false} />
                             </div>

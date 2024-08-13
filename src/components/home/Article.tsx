@@ -77,7 +77,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                             </Text>
                         </div>
 
-                        <div className="flex items-center gap-3 mt-4 md:mt-0 w-1/2 md:w-auto">
+                        <div className="flex items-center justify-end gap-3 mt-4 md:mt-0 w-1/2 md:w-auto">
                             <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                             <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                                 <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />

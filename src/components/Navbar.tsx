@@ -150,14 +150,16 @@ const Navbar = () => {
       {/* Mobile Offcanvas Menu */}
       <div className={`fixed top-0 right-0 h-full bg-white z-30 shadow-lg transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300`}>
         <div className="flex flex-col p-[20px]">
-          <Link href="/about-us" className="text-[24px] py-[10px]" onClick={() => setIsMobileMenuOpen(false)}>TENTANG KAMI</Link>
-          <Link href="/layanan" className="text-[24px] py-[10px]" onClick={() => setIsMobileMenuOpen(false)}>LAYANAN</Link>
+          <Link href="/about-us" className="text-[14px] md:text-[24px] py-[10px] hover:bg-slate-100 px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TENTANG KAMI</Link>
+          <Link href="/layanan" className="text-[14px] md:text-[24px] py-[10px] hover:bg-slate-100 px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>LAYANAN</Link>
           <Dropdown menu={{ items }} onVisibleChange={handleDropdownVisibleChange}>
-            <span className='text-[24px] cursor-pointer hover:text-[#FEA500] transition-all duration-300'>INFORMASI</span>
+            <span className='text-[14px] md:text-[24px] py-[10px] cursor-pointer hover:text-[#FEA500] hover:bg-slate-100 px-5 rounded-lg transition-all duration-300'>INFORMASI</span>
           </Dropdown>
-          <Link href="/tracking" className="text-[24px] py-[10px]" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
-          <Link href="/info-bisnis" className="text-[24px] py-[10px]" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
-          <Link href="/promo" className="text-[24px] py-[10px]" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
+          <Link href="/tracking" className="text-[14px] md:text-[24px] py-[10px] hover:bg-slate-100 px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
+          <Link href="/info-bisnis" className="text-[14px] md:text-[24px] py-[10px] hover:bg-slate-100 px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
+          <Link href="/promo" className="text-[14px] md:text-[24px] py-[10px] hover:bg-slate-100 px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
+          <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
+          <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>HUBUNGI KAMI</Button>
           <Select
             defaultValue="ID"
             className="w-[100px] text-[16px] bg-white mt-[20px]"
@@ -192,8 +194,6 @@ const Navbar = () => {
               CN
             </Option>
           </Select>
-          <Button className="bg-[#FEA500] text-white font-bold w-full py-[15px] mt-[20px] rounded-[35px]" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
-          <Button className="bg-[#FEA500] text-white font-bold w-full py-[15px] mt-[10px] rounded-[35px]" onClick={() => setIsMobileMenuOpen(false)}>HUBUNGI KAMI</Button>
         </div>
       </div>
     </div>
