@@ -8,7 +8,6 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 
 const { Text } = Typography;
 
-// Define the types for HeaderModel
 type HeaderModelType = 'CenterRight' | 'Between';
 
 interface ArticleProps {
@@ -70,17 +69,18 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
             case 'CenterRight':
                 return (
                     <div className="flex justify-between md:justify-center items-center">
-                        <div className="text-start flex flex-col mx-auto w-1/2 md:w-auto">
+                        <div className="text-start flex flex-col w-full md:mx-auto md:w-auto">
                             <Text className="text-[24px] md:text-[30px] font-bold">{title}</Text>
                             <Text className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
                             </Text>
                         </div>
-
-                        <div className="flex items-center justify-end gap-3 mt-4 md:mt-0 w-1/2 md:w-auto">
-                            <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
-                            <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
-                                <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
+                        <div className="hidden md:flex items-center justify-end gap-3 mt-4 md:mt-0 w-full md:w-auto">
+                            <div className="hover:bg-slate-200 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                                <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
+                                <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
+                                    <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,17 +89,18 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
             case 'Between':
                 return (
                     <div className="flex justify-between items-center md:mx-5">
-                        <div className="flex flex-col w-1/2 md:w-3/4">
+                        <div className="flex flex-col w-full md:w-3/4">
                             <Text className="text-[24px] md:text-[30px] font-bold">{title}</Text>
                             <Text className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
                             </Text>
                         </div>
-
-                        <div className="flex items-center gap-3 mt-4 md:mt-0 w-1/2 md:w-auto">
-                            <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
-                            <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
-                                <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
+                        <div className="hidden md:flex items-center gap-3 mt-4 md:mt-0 w-full md:w-auto">
+                            <div className="hover:bg-slate-200 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                                <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
+                                <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
+                                    <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,6 +144,18 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                         </div>
                     ))}
                 </Slider>
+            </div>
+
+            {/* Mobile View More Button */}
+            <div className="flex md:hidden justify-center">
+                <div className="flex items-center gap-3">
+                    <div className="hover:bg-slate-200 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                        <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
+                        <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
+                            <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
