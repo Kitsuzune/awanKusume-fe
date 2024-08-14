@@ -86,14 +86,16 @@ const Login = () => {
                         </Text>
 
                         <div className='mt-4'>
-                          <Button
-                            type='primary'
-                            size='large'
-                            block
-                            className='bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full'
-                          >
-                            Continue
-                          </Button>
+                          <Link href='/admin/dashboard'>
+                            <Button
+                              type='primary'
+                              size='large'
+                              block
+                              className='bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full'
+                            >
+                              Continue
+                            </Button>
+                          </Link>
                         </div>
                       </div>
                     </ModalContent>

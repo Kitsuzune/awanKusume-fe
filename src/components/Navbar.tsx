@@ -82,18 +82,18 @@ const Navbar = () => {
           </Col>
           <Col className="hidden 2xl:flex items-center justify-center">
             <div className="flex gap-[23px] font-bold">
-              <Link href="/about-us" className="text-[24px]">TENTANG KAMI</Link>
-              <Link href="/layanan" className="text-[24px]">LAYANAN</Link>
+              <Link href="/about-us" className="text-[24px] text-black">TENTANG KAMI</Link>
+              <Link href="/layanan" className="text-[24px] text-black">LAYANAN</Link>
               <Dropdown
                 menu={{ items }}
                 trigger={['click']}
                 onVisibleChange={handleDropdownVisibleChange}
               >
-                <span className='text-[24px] cursor-pointer hover:text-[#FEA500] transition-all duration-300'>INFORMASI</span>
+                <span className='text-[24px] text-black cursor-pointer hover:text-[#FEA500] transition-all duration-300'>INFORMASI</span>
               </Dropdown>
-              <Link href="/tracking" className="text-[24px]">TRACKING</Link>
-              <Link href="/info-bisnis" className="text-[24px]">INFO BISNIS</Link>
-              <Link href="/promo" className="text-[24px]">PROMO</Link>
+              <Link href="/tracking" className="text-[24px] text-black">TRACKING</Link>
+              <Link href="/info-bisnis" className="text-[24px] text-black">INFO BISNIS</Link>
+              <Link href="/promo" className="text-[24px] text-black">PROMO</Link>
             </div>
           </Col>
           <Col className="hidden 2xl:flex items-center justify-end gap-[11px]">
