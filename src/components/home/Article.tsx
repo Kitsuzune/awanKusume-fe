@@ -111,35 +111,39 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
     };
 
     return (
-        <div className="p-4 md:p-5">
-            {renderHeader()}
-            <Slider {...settings} className="mt-8">
-                {articles.map((article) => (
-                    <div key={article.id} className="px-2 md:px-4">
-                        <div className="relative">
-                            <img
-                                src={article.image}
-                                alt={article.title}
-                                className="rounded-lg w-full object-cover"
-                            />
-                            <div>
-                                <div className="absolute bottom-14 md:bottom-20 left-0 p-2 md:p-4 bg-white bg-opacity-75">
-                                    <Text className="font-bold text-sm md:text-base">{article.title}</Text>
-                                </div>
-                                <div className="absolute bottom-4 md:bottom-5 left-0 p-2 md:p-4 bg-white bg-opacity-75">
-                                    <Text className="text-xs md:text-sm">{article.description}</Text>
+        <div>
+            <div className="p-5">
+                {renderHeader()}
+            </div>
+            <div className="p-7 md:p-5">
+                <Slider {...settings} className="mt-0 md:mt-8">
+                    {articles.map((article) => (
+                        <div key={article.id} className="px-2 md:px-4">
+                            <div className="relative">
+                                <img
+                                    src={article.image}
+                                    alt={article.title}
+                                    className="rounded-lg w-full object-cover"
+                                />
+                                <div>
+                                    <div className="absolute bottom-14 md:bottom-20 left-0 p-2 md:p-4 bg-white bg-opacity-75">
+                                        <Text className="font-bold text-sm md:text-base">{article.title}</Text>
+                                    </div>
+                                    <div className="absolute bottom-4 md:bottom-5 left-0 p-2 md:p-4 bg-white bg-opacity-75">
+                                        <Text className="text-xs md:text-sm">{article.description}</Text>
+                                    </div>
                                 </div>
                             </div>
+                            <div className="flex flex-col">
+                                <Text className="mt-2 md:mt-4 text-[24px] md:text-[36px] font-[700]">
+                                    {article.title}
+                                </Text>
+                                <Text className="text-[12px] md:text-[14px] text-gray-500">{article.hashtags}</Text>
+                            </div>
                         </div>
-                        <div className="flex flex-col">
-                            <Text className="mt-2 md:mt-4 text-[24px] md:text-[36px] font-[700]">
-                                {article.title}
-                            </Text>
-                            <Text className="text-[12px] md:text-[14px] text-gray-500">{article.hashtags}</Text>
-                        </div>
-                    </div>
-                ))}
-            </Slider>
+                    ))}
+                </Slider>
+            </div>
         </div>
     );
 };

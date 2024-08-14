@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Typography } from "antd";
 import AnimatedCursor from "react-animated-cursor";
 
@@ -7,10 +7,24 @@ const Text = Typography;
 
 const Service = () => {
     const [isHovered, setIsHovered] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <div className="flex items-center">
-            {isHovered && (
+            {!isMobile && isHovered && (
                 <AnimatedCursor
                     innerSize={8}
                     outerSize={40}

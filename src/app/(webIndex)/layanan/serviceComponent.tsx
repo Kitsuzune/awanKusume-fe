@@ -1,17 +1,8 @@
 'use client';
 import React, { useState } from "react";
-import { Button, Col, Collapse, Row, Typography } from "antd";
+import { Button, Col, Row, Typography } from "antd";
 
 const Text = Typography;
-const { Panel } = Collapse;
-
-interface Plan {
-    price: string;
-    title: string;
-    description: string;
-    features: string[];
-    isPopular?: boolean;
-}
 
 const ServiceComponent: React.FC = () => {
     const [hoveredPlanIndex, setHoveredPlanIndex] = useState<number | null>(null);
@@ -21,7 +12,7 @@ const ServiceComponent: React.FC = () => {
         setSelectedOption(option);
     };
 
-    const plans: Plan[] = [
+    const plans = [
         {
             price: "2 jt",
             title: "Lorem Ipsum",
@@ -90,9 +81,12 @@ const ServiceComponent: React.FC = () => {
                                 key={index}
                                 span={24}
                                 md={7}
-                                className={`relative p-4 md:p-6 rounded-xl shadow-lg w-[300px] h-[350px] md:w-[600px] md:h-[600px] transition-transform transform hover:-translate-y-4 md:hover:-translate-y-8 hover:scale-105 md:hover:scale-110 cursor-pointer ${hoveredPlanIndex === index ? "bg-[#007893] text-white"
-                                    : "bg-white"
-                                    }`}
+                                className={`relative p-4 md:p-6 rounded-xl shadow-lg w-[300px] h-auto md:w-[600px] md:h-[600px] transition-transform cursor-pointer 
+                                ${hoveredPlanIndex === index && "bg-[#007893] text-white"}
+                                ${hoveredPlanIndex === index && "md:hover:-translate-y-8 md:hover:-translate-x-5 hover:scale-105 md:hover:scale-110"}
+                                ${hoveredPlanIndex !== index && "hover:bg-[#007893] hover:text-white"}
+                                ${hoveredPlanIndex === index ? "bg-[#007893] text-white" : "bg-white"}
+                                `}
                                 style={{
                                     boxShadow: hoveredPlanIndex === index ? "0px 42px 34px rgba(82, 67, 194, 0.295755)" : "0px 0px 10px rgba(0, 0, 0, 0.05)",
                                 }}
@@ -100,23 +94,24 @@ const ServiceComponent: React.FC = () => {
                                 onMouseLeave={() => setHoveredPlanIndex(null)}
                             >
                                 {plan.isPopular ? (
-                                    <div className="flex justify-center w-full h-[20px] md:h-[30px] mb-2">
+                                    <div className="flex justify-center w-full h-[30px] mb-2">
                                         <div className="px-3 py-1 px-auto bg-[#FEA500] text-white rounded-full text-center w-max">
                                             10 jt / 50% Off
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="flex justify-center w-full h-[20px] md:h-[30px] mb-2">
-                                    </div>
+                                    <div className="h-[30px] md:h-[40px]"></div>
                                 )}
-                                <span className="text-[24px] md:text-[36px] font-[700]">{plan.price}</span>
-                                <br />
-                                <span className="text-[20px] md:text-[28px] font-[600] mt-2">{plan.title}</span>
-                                <br />
-                                <span className="text-[12px] md:text-[15px] mt-2">
-                                    {plan.description}
-                                </span>
-                                <ul className="list-none mt-4 space-y-2 min-h-[100px] md:min-h-[150px]">
+                                <div className="min-h-[100px] md:h-[200px]">
+                                    <span className="text-[24px] md:text-[36px] font-[700]">{plan.price}</span>
+                                    <br />
+                                    <span className="text-[20px] md:text-[28px] font-[600] mt-2">{plan.title}</span>
+                                    <br />
+                                    <span className="text-[12px] md:text-[15px] mt-2">
+                                        {plan.description}
+                                    </span>
+                                </div>
+                                <ul className="list-none mt-4 space-y-2 min-h-[100px] md:h-[200px]">
                                     {plan.features.map((feature, i) => (
                                         <li key={i} className="flex gap-2 md:gap-3 items-center">
                                             <svg width="16" height="16" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
