@@ -81,14 +81,21 @@ const ServiceComponent: React.FC = () => {
                                 key={index}
                                 span={24}
                                 md={7}
-                                className={`relative p-4 md:p-6 rounded-xl shadow-lg w-[300px] h-auto md:w-[600px] md:h-[600px] transition-transform cursor-pointer 
+                                 //  className={`relative p-4 md:p-6 rounded-xl shadow-lg w-[300px] h-auto md:w-[600px] md:h-[600px] md:max-w-[600px] max-h-[600px] md:object-cover transition-transform cursor-pointer 
+                                className={`relative p-4 md:p-6 rounded-xl shadow-lg transition-transform cursor-pointer
                                 ${hoveredPlanIndex === index && "bg-[#007893] text-white"}
                                 ${hoveredPlanIndex === index && "md:hover:-translate-y-8 md:hover:-translate-x-5 hover:scale-105 md:hover:scale-110"}
                                 ${hoveredPlanIndex !== index && "hover:bg-[#007893] hover:text-white"}
                                 ${hoveredPlanIndex === index ? "bg-[#007893] text-white" : "bg-white"}
                                 `}
                                 style={{
-                                    boxShadow: hoveredPlanIndex === index ? "0px 42px 34px rgba(82, 67, 194, 0.295755)" : "0px 0px 10px rgba(0, 0, 0, 0.05)",
+                                    boxShadow: hoveredPlanIndex === index
+                                        ? "0px 42px 34px rgba(82, 67, 194, 0.295755)"
+                                        : "0px 0px 10px rgba(0, 0, 0, 0.05)",
+                                    maxWidth: "500px", 
+                                    width: "100%", 
+                                    height: "auto", 
+                                    objectFit: "cover", 
                                 }}
                                 onMouseEnter={() => setHoveredPlanIndex(index)}
                                 onMouseLeave={() => setHoveredPlanIndex(null)}

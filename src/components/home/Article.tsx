@@ -76,7 +76,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                             </Text>
                         </div>
                         <div className="hidden md:flex items-center justify-end gap-3 mt-4 md:mt-0 w-full md:w-auto">
-                            <div className="hover:bg-slate-200 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                            <div className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
                                 <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                                 <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                                     <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
@@ -96,7 +96,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                             </Text>
                         </div>
                         <div className="hidden md:flex items-center gap-3 mt-4 md:mt-0 w-full md:w-auto">
-                            <div className="hover:bg-slate-200 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                            <div className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
                                 <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                                 <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                                     <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
@@ -149,7 +149,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
             {/* Mobile View More Button */}
             <div className="flex md:hidden justify-center">
                 <div className="flex items-center gap-3">
-                    <div className="hover:bg-slate-200 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                    <div className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
                         <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                         <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                             <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />

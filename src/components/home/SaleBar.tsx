@@ -7,7 +7,7 @@ const SaleBar = () => {
     return (
         <Row className="w-full p-4 md:p-5">
             <Col span={24}>
-                <div className="w-full h-full bg-slate-500 rounded-xl bg-[url('/image/bar-1.png')] bg-cover bg-center p-4 md:p-5 py-[50px] md:py-[100px]">
+                <div className="w-full h-full bg-gray-500 rounded-xl bg-[url('/image/bar-1.png')] bg-cover bg-center p-4 md:p-5 py-[50px] md:py-[100px]">
                     <div className="flex justify-center items-center h-full">
                         <div className="text-start">
                             <Text className="text-[24px] md:text-[48px] w-full md:w-[60%] text-white font-[600]">
