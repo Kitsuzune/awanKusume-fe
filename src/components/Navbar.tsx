@@ -1,5 +1,5 @@
 'use client';
-import { RightOutlined, MenuOutlined, CloseOutlined } from '@ant-design/icons';
+import { RightOutlined, MenuOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Select, Dropdown, Menu, MenuProps } from 'antd';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -86,10 +86,12 @@ const Navbar = () => {
               <Link href="/layanan" className="text-[24px] text-black hover:text-orange">LAYANAN</Link>
               <Dropdown
                 menu={{ items }}
-                trigger={['click']}
                 onVisibleChange={handleDropdownVisibleChange}
               >
-                <span className='text-[24px] text-black cursor-pointer hover:text-orange transition-all duration-300'>INFORMASI</span>
+                <div className='hover:text-orange'>
+                  <span className='text-[24px] cursor-pointer transition-all duration-300'>INFORMASI</span>
+                  <DownOutlined className='text-[24px] ml-2 transition-all duration-300' />
+                </div>
               </Dropdown>
               <Link href="/tracking" className="text-[24px] text-black hover:text-orange">TRACKING</Link>
               <Link href="/info-bisnis" className="text-[24px] text-black hover:text-orange">INFO BISNIS</Link>
@@ -153,7 +155,15 @@ const Navbar = () => {
           <Link href="/about-us" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TENTANG KAMI</Link>
           <Link href="/layanan" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>LAYANAN</Link>
           <Dropdown menu={{ items }} onVisibleChange={handleDropdownVisibleChange}>
-            <span className='text-[14px] md:text-[24px] py-[10px] cursor-pointer hover:text-orange hover:bg-gray-100 px-5 rounded-lg transition-all duration-300'>INFORMASI</span>
+            {/* <span className='text-[14px] md:text-[24px] py-[10px] cursor-pointer hover:text-orange hover:bg-gray-100 px-5 rounded-lg transition-all duration-300'>INFORMASI</span>
+            {/* <div className='hover:text-orange'>
+              <span className='text-[24px] cursor-pointer transition-all duration-300'>INFORMASI</span>
+              <DownOutlined className='text-[24px] ml-2 transition-all duration-300' />
+            </div> */}
+            <div className='hover:text-orange hover:bg-gray-100 py-[10px] rounded-lg'>
+              <span className='text-[14px] md:text-[24px] cursor-pointer px-5 py-[10px] text-start'>INFORMASI</span>
+              <DownOutlined className='text-[14px] md:text-[24px] ml-2' />
+            </div>
           </Dropdown>
           <Link href="/tracking" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
           <Link href="/info-bisnis" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
