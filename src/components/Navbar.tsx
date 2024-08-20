@@ -155,11 +155,6 @@ const Navbar = () => {
           <Link href="/about-us" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TENTANG KAMI</Link>
           <Link href="/layanan" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>LAYANAN</Link>
           <Dropdown menu={{ items }} onVisibleChange={handleDropdownVisibleChange}>
-            {/* <span className='text-[14px] md:text-[24px] py-[10px] cursor-pointer hover:text-orange hover:bg-gray-100 px-5 rounded-lg transition-all duration-300'>INFORMASI</span>
-            {/* <div className='hover:text-orange'>
-              <span className='text-[24px] cursor-pointer transition-all duration-300'>INFORMASI</span>
-              <DownOutlined className='text-[24px] ml-2 transition-all duration-300' />
-            </div> */}
             <div className='hover:text-orange hover:bg-gray-100 py-[10px] rounded-lg'>
               <span className='text-[14px] md:text-[24px] cursor-pointer px-5 py-[10px] text-start'>INFORMASI</span>
               <DownOutlined className='text-[14px] md:text-[24px] ml-2' />
