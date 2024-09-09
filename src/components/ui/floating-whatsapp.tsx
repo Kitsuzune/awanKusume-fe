@@ -11,6 +11,11 @@ export default function FloatingWhatsAppClient() {
       statusMessage="Online"
       chatMessage="Hallo, apa yang bisa kami bantu?"
       darkMode={true}
+      style={{
+        position: 'absolute',
+        bottom: '20px',
+        right: '20px',
+      }}
     />
   );
 }
