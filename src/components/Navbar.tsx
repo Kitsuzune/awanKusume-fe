@@ -80,7 +80,7 @@ const Navbar = () => {
               onClick={() => window.location.href = '/'}
             />
           </Col>
-          <Col className="hidden 2xl:flex items-center justify-center">
+          <Col className="hidden 3xl:flex items-center justify-center">
             <div className="flex gap-[23px] font-bold">
               <Link href="/about-us" className="text-[24px] text-black hover:text-orange">TENTANG KAMI</Link>
               <Link href="/layanan" className="text-[24px] text-black hover:text-orange">LAYANAN</Link>
@@ -95,10 +95,10 @@ const Navbar = () => {
               </Dropdown>
               <Link href="/tracking" className="text-[24px] text-black hover:text-orange">TRACKING</Link>
               <Link href="/info-bisnis" className="text-[24px] text-black hover:text-orange">INFO BISNIS</Link>
-              <Link href="/promo" className="text-[24px] text-black hover:text-orange">PROMO</Link>
+              <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[24px] text-black hover:text-orange">PROMO</Link>
             </div>
           </Col>
-          <Col className="hidden 2xl:flex items-center justify-end gap-[11px]">
+          <Col className="hidden 3xl:flex items-center justify-end gap-[11px]">
             <Select
               defaultValue="ID"
               className="w-[100px] text-[16px] bg-white"
@@ -141,7 +141,7 @@ const Navbar = () => {
             </Button>
           </Col>
           {/* Mobile Menu Button */}
-          <Col className="flex 2xl:hidden items-center justify-end">
+          <Col className="flex 3xl:hidden items-center justify-end">
             <Button className="text-[24px]" onClick={handleMobileMenuClick}>
               {isMobileMenuOpen ? <CloseOutlined /> : <MenuOutlined />}
             </Button>
@@ -162,7 +162,7 @@ const Navbar = () => {
           </Dropdown>
           <Link href="/tracking" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
           <Link href="/info-bisnis" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
-          <Link href="/promo" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
+          <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
           <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
           <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>HUBUNGI KAMI</Button>
           <Select

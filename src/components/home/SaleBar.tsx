@@ -18,10 +18,14 @@ const SaleBar = () => {
                             <Text className="text-[14px] md:text-[20px] w-full md:w-[60%] mt-2 md:mt-4 text-white font-[300]">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit
                             </Text>
-                            <button
-                                className="bg-[#FEA500] text-white font-bold px-[20px] md:px-[43px] py-[10px] md:py-[18px] text-[14px] md:text-[15px] rounded-[25px] md:rounded-[35px] mt-3 md:mt-5 hover:bg-[#8f802b] transition-all duration-500">
-                                Selengkapnya 
-                            </button>
+                            <form action="https://www.instagram.com/awankusuma.legalitas/">
+                                <button
+                                    className="bg-[#FEA500] text-white font-bold px-[20px] md:px-[43px] py-[10px] md:py-[18px] text-[14px] md:text-[15px] rounded-[25px] md:rounded-[35px] mt-3 md:mt-5 hover:bg-[#8f802b] transition-all duration-500"
+                                    type="submit"
+                                >
+                                    Selengkapnya 
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
