@@ -11,6 +11,9 @@ export default function WebLayout({
   return (
 
     <>
+
+      <FloatingWhatsAppClient />
+      
       <Row>
         <Col span={24}>
           <Navbar />
@@ -28,8 +31,6 @@ export default function WebLayout({
           <Footer />
         </Col>
       </Row>
-
-      <FloatingWhatsAppClient />
 
     </>
   );

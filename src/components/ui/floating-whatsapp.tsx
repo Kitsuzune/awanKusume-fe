@@ -13,8 +13,6 @@ export default function FloatingWhatsAppClient() {
       darkMode={true}
       style={{
         position: 'absolute',
-        bottom: '20px',
-        right: '20px',
       }}
     />
   );
