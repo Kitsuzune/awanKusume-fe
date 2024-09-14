@@ -5,7 +5,7 @@ const VideoHero = () => {
         <Row className="shadow-xl">
             <Col span={24}>
                 <div className="relative h-[250px] md:h-[699px] w-full">
-                    <video autoPlay muted loop id="myVideo" className="h-[250px] md:h-[699px] w-full object-cover">
+                    <video autoPlay muted loop playsInline preload="auto"  id="myVideo" className="h-[250px] md:h-[699px] w-full object-cover">
                         <source src="/video/vid-1.mp4" type="video/mp4" />
                         Your browser does not support HTML5 video.
                     </video>
