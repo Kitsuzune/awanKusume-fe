@@ -2,12 +2,16 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Typography } from "antd";
 import AnimatedCursor from "react-animated-cursor";
+import useLanguage from "@/zustand/useLanguage";
+import { useTranslationCustom } from "@/i18n/client";
 
 const Text = Typography;
 
 const Service = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const { lng } = useLanguage();
+    const { t } = useTranslationCustom(lng, "HomePage");
 
     useEffect(() => {
         const handleResize = () => {
@@ -46,7 +50,8 @@ const Service = () => {
                 <Col span={24}>
                     <div>
                         <Text className="text-[24px] md:text-[40px] font-[700] text-center">
-                            SERVICE
+                            {/* SERVICE */}
+                            {t("service.Title")}
                         </Text>
 
                         <Text className="text-center text-[16px] md:text-[24px] mt-2 md:mt-4">

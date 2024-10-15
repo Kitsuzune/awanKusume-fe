@@ -1,26 +1,47 @@
-import React from "react";
-import { Col, Row, Typography } from "antd";
-import Logo1 from "@/../public/image/logo1.png";
-import Logo2 from "@/../public/image/logo2.png";
-import Logo3 from "@/../public/image/logo3.png";
-import Logo4 from "@/../public/image/logo4.png";
-import Logo5 from "@/../public/image/logo5.png";
+'use client';
+import React, { useEffect, useState } from "react";
+import { Col, message, Row, Typography } from "antd";
+import { apiRequest } from "@/utils/api";
 
 const { Text } = Typography;
 
+interface Partner {
+    id: string;
+    title: string;
+    image: string;
+    link: string;
+}
+
 const CompanyLogo = () => {
+    const [partners, setPartners] = useState<Partner[]>([]);
+
+    useEffect(() => {
+        const fetchPartners = async () => {
+            try {
+                // const response = await axios.get('/homepage/partners');
+                // if (response.data.code === 200) {
+                //     setPartners(response.data.data);
+                // }
+                const response = await apiRequest('get', '/homepage/partners');
+                setPartners(response.data.data);
+            } catch (error) {
+                message.error('Failed to fetch partners');
+                console.log(error);
+            }
+        };
+
+        fetchPartners();
+    }, []);
+
     return (
         <Row className="w-full p-4 md:p-5">
             <Col span={24}>
                 <div className="text-center flex flex-wrap justify-center items-center gap-10 md:gap-20 pb-5">
-                    <img src={Logo3.src} alt="logo1" className="h-[60px] md:h-auto" />
-                    <img src={Logo2.src} alt="logo2" className="h-[60px] md:h-auto" />
-                    <img src={Logo1.src} alt="logo3" className="h-[60px] md:h-auto" />
-                </div>
-
-                <div className="text-center flex flex-wrap justify-center items-center gap-10 md:gap-20 pt-5">
-                    <img src={Logo5.src} alt="logo4" className="h-[80px] md:h-auto" />
-                    <img src={Logo4.src} alt="logo5" className="h-[80px] md:h-auto" />
+                    {partners.map(partner => (
+                        <a key={partner.id} href={`http://${partner.link}`} target="_blank" rel="noopener noreferrer">
+                            <img src={partner.image} alt={partner.title} className="h-[80px] w-[80px]" />
+                        </a>
+                    ))}
                 </div>
             </Col>
 

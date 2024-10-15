@@ -2,7 +2,7 @@
 import { RightOutlined, MenuOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Select, Dropdown, Menu, MenuProps } from 'antd';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Flag from 'react-world-flags';
 
 const { Option } = Select;
@@ -10,6 +10,11 @@ const { Option } = Select;
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [language, setLanguage] = useState<number>(() => {
+    // Retrieve language from localStorage or default to 1 (Indonesian)
+    const storedLanguage = localStorage.getItem('language');
+    return storedLanguage ? parseInt(storedLanguage) : 1;
+  });
 
   const handleMobileMenuClick = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -18,6 +23,16 @@ const Navbar = () => {
   const handleDropdownVisibleChange = (visible: any) => {
     setIsDropdownOpen(visible);
   };
+
+  const handleLanguageChange = (value: number) => {
+    setLanguage(value);
+    localStorage.setItem('language', value.toString());
+    window.location.reload(); 
+  };
+
+  useEffect(() => {
+    localStorage.setItem('language', language.toString());
+  }, [language]);
 
   const items: MenuProps['items'] = [
     {
@@ -100,12 +115,13 @@ const Navbar = () => {
           </Col>
           <Col className="hidden 3xl:flex items-center justify-end gap-[11px]">
             <Select
-              defaultValue="ID"
+              value={language}
+              onChange={handleLanguageChange}
               className="w-[100px] text-[16px] bg-white"
               bordered={false}
               dropdownStyle={{ minWidth: '100px' }}
             >
-              <Option value="ID">
+              <Option value={1}>
                 <Flag
                   code="ID"
                   height="20"
@@ -114,7 +130,7 @@ const Navbar = () => {
                 />
                 ID
               </Option>
-              <Option value="EN">
+              <Option value={2}>
                 <Flag
                   code="GB"
                   height="20"
@@ -123,7 +139,7 @@ const Navbar = () => {
                 />
                 EN
               </Option>
-              <Option value="CN">
+              <Option value={3}>
                 <Flag
                   code="CN"
                   height="20"
@@ -166,12 +182,13 @@ const Navbar = () => {
           <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
           <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>HUBUNGI KAMI</Button>
           <Select
-            defaultValue="ID"
+            value={language}
+            onChange={handleLanguageChange}
             className="w-[100px] text-[16px] bg-white mt-[20px]"
             bordered={false}
             dropdownStyle={{ minWidth: '100px' }}
           >
-            <Option value="ID">
+            <Option value={1}>
               <Flag
                 code="ID"
                 height="20"
@@ -180,7 +197,7 @@ const Navbar = () => {
               />
               ID
             </Option>
-            <Option value="EN">
+            <Option value={2}>
               <Flag
                 code="GB"
                 height="20"
@@ -189,7 +206,7 @@ const Navbar = () => {
               />
               EN
             </Option>
-            <Option value="CN">
+            <Option value={3}>
               <Flag
                 code="CN"
                 height="20"
