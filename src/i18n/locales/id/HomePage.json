@@ -1,5 +1,37 @@
 {
     "service" : {
-        "Title" : "Layanan"
+        "Title" : "Layanan",
+        "SubTitle" : "Legalkan bisnis Anda dengan mendirikan badan usaha, seperti Perseroan Terbatas (PT), Commanditaire Venootschap (CV), dan lain sebagainya.",
+        "PendirianPerusahaan" : "Pendirian Perusahaan",
+        "SubPendirianPerusahaan" : "Anda tidak hanya melegalkan operasional bisnis Anda, tetapi juga membangun kredibilitas di mata pelanggan dan mitra. Mulai wujudkan impian bisnis Anda hari ini dengan proses pendirian yang cepat dan mudah!",
+        "IzinBusiness" : "Izin Bisnis",
+        "SubIzinBusiness" : "Anda tidak hanya memenuhi persyaratan hukum, tetapi juga membuka peluang untuk mendapatkan kepercayaan konsumen, akses ke pinjaman, dan kesempatan untuk berkembang di pasar global. Lindungi bisnis Anda dengan mendapatkan izin resmi sekarang!",
+        "MarketingAgency" : "Marketing Agency",
+        "SubMarketingAgency" : "kami membantu bisnis Anda tumbuh melalui kampanye digital yang efektif, strategi pemasaran yang terarah, dan konten yang menarik. Biarkan kami mengurus pemasaran Anda, sementara Anda fokus pada inovasi dan perkembangan bisnis.",
+        "Soon" : "Dalam Tahap Pengembangan",
+        "SubSoon" : ""
+    },
+    "about" : {
+        "Title" : "Tentang",
+        "SubTitle" : "Awankusuma.com adalah platform yang menyediakan solusi bagi Anda yang mencari peraturan dan regulasi di Indonesia. Kami terus meningkatkan dan mengembangkan teknologi untuk mempercepat proses legalitas yang dibutuhkan oleh para pelaku usaha dalam menjalankan bisnis mereka."
+    },
+    "ourclient" : {
+        "Title" : "Klien Kami",
+        "SubTitle" : "Klien yang telah memberikan kepercayaan kepada kami"
+    },
+    "salebar" : {
+        "Title" : "Temukan Penawaran Terbaik di Sini!",
+        "SubTitle" : "Dapatkan diskon hingga 50% untuk produk pilihan. Jangan lewatkan kesempatan emas ini untuk belanja hemat dan nikmati penawaran menarik lainnya.",
+        "Button" : "Selengkapnya"
+    },
+    "companylogo" : {
+        "Button" : "Gabung Kemitraan"
+    },
+    "aboutus" : {
+        "Title-1" : "Kenapa Awan Kusuma?",
+        "SubTitle-1" : "PT Awan Kusuma Group adalah penyedia jasa perizinan usaha yang berdedikasi untuk membantu bisnis Anda mencapai keberhasilan",
+        "Title-2" : "Visi Misi",
+        "SubTitle-2" : "Menjadi Garda Terdepan dalam Memberikan Solusi Hukum Inovatif dan Berkelanjutan"
     }
+
 }

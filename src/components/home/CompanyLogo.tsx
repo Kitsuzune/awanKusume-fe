@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Col, message, Row, Typography } from "antd";
 import { apiRequest } from "@/utils/api";
+import useLanguage from "@/zustand/useLanguage";
+import { useTranslationCustom } from "@/i18n/client";
 
 const { Text } = Typography;
 
@@ -14,6 +16,8 @@ interface Partner {
 
 const CompanyLogo = () => {
     const [partners, setPartners] = useState<Partner[]>([]);
+    const { lng } = useLanguage();
+    const { t } = useTranslationCustom(lng, "HomePage");
 
     useEffect(() => {
         const fetchPartners = async () => {
@@ -48,7 +52,8 @@ const CompanyLogo = () => {
             <Col span={24} className="mt-12 md:mt-16">
                 <div className="flex justify-center items-center mt-5 md:mt-10">
                     <button className="bg-[#FEA500] text-white font-bold px-[20px] md:px-[43px] py-[10px] md:py-[18px] text-[14px] md:text-[15px] rounded-[25px] md:rounded-[35px] hover:bg-[#8f802b] transition-all duration-500">
-                        Join Partnership 
+                        {/* BUTTON */}
+                        {t("companylogo.Button")}
                     </button>
                 </div>
             </Col>

@@ -7,6 +7,8 @@ import { Col, Row, Typography, message } from "antd";
 import quote from "@/../public/image/quote.svg";
 import { apiRequest } from "@/utils/api"; // Assuming you have an apiRequest utility
 import dynamic from "next/dynamic";
+import useLanguage from "@/zustand/useLanguage";
+import { useTranslationCustom } from "@/i18n/client";
 
 const { Text } = Typography;
 
@@ -35,6 +37,8 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
         }
         return 1;
     });
+    const { lng } = useLanguage();
+    const { t } = useTranslationCustom(lng, "HomePage");
 
     const fetchTestimonials = async () => {
         try {
@@ -82,9 +86,13 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
             <Col span={24}>
                 {TopText && (
                     <div className="text-center flex flex-col">
-                        <Text className="text-[24px] md:text-[40px] font-[700]">OUR CLIENT</Text>
+                        <Text className="text-[24px] md:text-[40px] font-[700]">
+                            {/* OURCLIENT */}
+                            {t("ourclient.Title")}
+                        </Text>
                         <Text className="text-[16px] md:text-[24px] mt-2 md:mt-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit
+                            {/* SUB OURCLIENT*/}
+                            {t("ourclient.SubTitle")}
                         </Text>
                     </div>
                 )}

@@ -1,5 +1,7 @@
 'use client';
+import { useTranslationCustom } from "@/i18n/client";
 import { apiRequest } from "@/utils/api";
+import useLanguage from "@/zustand/useLanguage";
 import { Col, Row, Typography } from "antd";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
@@ -15,6 +17,7 @@ interface About {
 }
 
 const About: React.FC = () => {
+    
     const [abouts, setAbouts] = useState<About[]>([]);
     const [language, setLanguage] = useState<number>(() => {
         if (typeof window !== 'undefined') {
@@ -23,6 +26,8 @@ const About: React.FC = () => {
         }
         return 1;
     });
+    const { lng } = useLanguage();
+    const { t } = useTranslationCustom(lng, "HomePage");
 
     const fetchAbouts = async () => {
         try {
@@ -43,11 +48,13 @@ const About: React.FC = () => {
                 <Col span={24}>
                     <div className="ml-7 md:ml-0">
                         <Text className="text-[24px] md:text-[40px] font-[700]">
-                            About
+                            {/* SERVICE */}
+                            {t("about.Title")}
                         </Text>
 
                         <Text className="text-[16px] md:text-[24px] mt-2 md:mt-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit
+                            {/* SUB SERVICE */}
+                            {t("about.SubTitle")}
                         </Text>
                     </div>
 

@@ -1,5 +1,36 @@
 {
     "service" : {
-        "Title" : "Service"
+        "Title" : "Services",
+        "SubTitle" : "Legalize your business by establishing a legal entity, such as a Limited Liability Company (PT), Commanditaire Venootschap (CV), and more.",
+        "PendirianPerusahaan" : "Company Establishment",
+        "SubPendirianPerusahaan" : "Not only will you legalize your business operations, but you'll also build credibility in the eyes of customers and partners. Start realizing your business dreams today with a quick and easy establishment process!",
+        "IzinBusiness" : "Business Licensing",
+        "SubIzinBusiness" : "Not only will you meet legal requirements, but you'll also open up opportunities to gain consumer trust, access loans, and expand in the global market. Protect your business by obtaining official licenses now!",
+        "MarketingAgency" : "Marketing Agency",
+        "SubMarketingAgency" : "We help your business grow through effective digital campaigns, targeted marketing strategies, and engaging content. Let us take care of your marketing while you focus on innovation and business growth.",
+        "Soon" : "In Development Stage",
+        "SubSoon" : ""
+    },
+    "about" : {
+        "Title" : "About",
+        "SubTitle" : "Awankusuma.com is a platform that provides solutions for those seeking regulations and legal frameworks in Indonesia. We continually enhance and develop technology to accelerate the legality process needed by entrepreneurs in running their businesses."
+    },
+    "ourclient" : {
+        "Title" : "Our Clients",
+        "SubTitle" : "Clients who have placed their trust in us"
+    },
+    "salebar" : {
+        "Title" : "Find the Best Deals Here!",
+        "SubTitle" : "Get up to 50% discount on selected products. Don't miss this golden opportunity to shop smart and enjoy other exciting offers.",
+        "Button" : "Learn More"
+    },
+    "companylogo" : {
+        "Button" : "Join Partnership"
+    },
+    "aboutus" : {
+        "Title-1" : "Why Awan Kusuma?",
+        "SubTitle-1" : "PT Awan Kusuma Group is a business licensing service provider dedicated to helping your business achieve success",
+        "Title-2" : "Vision & Mission",
+        "SubTitle-2" : "Becoming a Leading Force in Providing Innovative and Sustainable Legal Solutions"
     }
 }

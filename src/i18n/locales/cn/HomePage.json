@@ -1,5 +1,36 @@
 {
     "service" : {
-        "Title" : "CHING CHONG FANG"
+        "Title" : "服务",
+        "SubTitle" : "通过设立法律实体，如有限责任公司（PT）、有限合伙企业（CV）等，合法化您的业务。",
+        "PendirianPerusahaan" : "公司设立",
+        "SubPendirianPerusahaan" : "不仅使您的业务运营合法化，还能在客户和合作伙伴中建立信誉。通过快速便捷的设立流程，今天就开始实现您的商业梦想！",
+        "IzinBusiness" : "商业许可",
+        "SubIzinBusiness" : "不仅可以满足法律要求，还能为您赢得消费者信任，获得贷款机会，并在全球市场上扩展业务。现在就获取正式许可，保护您的业务！",
+        "MarketingAgency" : "营销代理",
+        "SubMarketingAgency" : "我们通过有效的数字营销活动、精准的营销策略和吸引人的内容帮助您的业务增长。让我们为您处理营销，您可以专注于创新和业务发展。",
+        "Soon" : "开发阶段中",
+        "SubSoon" : ""
+    },
+    "about" : {
+        "Title" : "关于我们",
+        "SubTitle" : "Awankusuma.com 是一个为寻求印尼法规和法律框架的用户提供解决方案的平台。我们不断改进和开发技术，以加速企业家在经营业务时所需的合法化流程。"
+    },
+    "ourclient" : {
+        "Title" : "我们的客户",
+        "SubTitle" : "那些信任我们的客户"
+    },
+    "salebar" : {
+        "Title" : "在这里找到最优惠的价格！",
+        "SubTitle" : "精选产品享受高达50%的折扣。不要错过这个聪明购物的黄金机会，享受其他精彩优惠。",
+        "Button" : "了解更多"
+    },
+    "companylogo" : {
+        "Button" : "加入合作"
+    },
+    "aboutus" : {
+        "Title-1" : "为什么选择 Awan Kusuma?",
+        "SubTitle-1" : "PT Awan Kusuma Group 是一家致力于帮助您的业务取得成功的商业许可服务提供商",
+        "Title-2" : "愿景与使命",
+        "SubTitle-2" : "成为提供创新和可持续法律解决方案的领导力量"
     }
 }
