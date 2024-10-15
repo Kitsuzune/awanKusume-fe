@@ -1,6 +1,7 @@
 'use client';
 import { apiRequest } from "@/utils/api";
 import { Col, Row, Typography } from "antd";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
 const Text = Typography;
@@ -16,8 +17,11 @@ interface About {
 const About: React.FC = () => {
     const [abouts, setAbouts] = useState<About[]>([]);
     const [language, setLanguage] = useState<number>(() => {
-        const storedLanguage = localStorage.getItem('language');
-        return storedLanguage ? parseInt(storedLanguage) : 1;
+        if (typeof window !== 'undefined') {
+            const storedLanguage = localStorage.getItem('language');
+            return storedLanguage ? parseInt(storedLanguage) : 1;
+        }
+        return 1;
     });
 
     const fetchAbouts = async () => {
@@ -51,11 +55,11 @@ const About: React.FC = () => {
                         {abouts.map((about) => (
                             <Col xs={24} md={12} key={about.id}>
                                 <div className="flex items-center justify-center md:justify-end mt-5 md:mt-0">
-                                    <div 
-                                        className="relative w-[90%] md:w-[650px] h-[200px] md:h-[444px] mr-0 md:mr-5 group mt-5 cursor-pointer" 
+                                    <div
+                                        className="relative w-[90%] md:w-[650px] h-[200px] md:h-[444px] mr-0 md:mr-5 group mt-5 cursor-pointer"
                                         onClick={() => {
-                                            const url = about.link.startsWith('http://') || about.link.startsWith('https://') 
-                                                ? about.link 
+                                            const url = about.link.startsWith('http://') || about.link.startsWith('https://')
+                                                ? about.link
                                                 : `http://${about.link}`;
                                             window.open(url, '_blank');
                                         }}
@@ -81,4 +85,6 @@ const About: React.FC = () => {
     );
 };
 
-export default About;
+export default dynamic(() => Promise.resolve(About), {
+    ssr:false,
+})

@@ -17,12 +17,16 @@ type Language = {
 const useLanguage = create(
   persist<Language>(
     (set) => ({
-      lng: languageMap[parseInt(localStorage.getItem("language") || "1")], // Default to English if not set
+      lng: typeof window !== 'undefined' 
+        ? languageMap[parseInt(localStorage.getItem("language") || "1")]
+        : languageMap[1], // Default to Indonesian if localStorage is not available
       setLng: (newLng: number) => {
         const languageCode = languageMap[newLng];
         if (languageCode) {
           console.log(`Setting language to: ${languageCode}`); // Debugging
-          localStorage.setItem("language", newLng.toString());
+          if (typeof window !== 'undefined') {
+            localStorage.setItem("language", newLng.toString());
+          }
           i18next.changeLanguage(languageCode);
           set({ lng: languageCode });
         } else {

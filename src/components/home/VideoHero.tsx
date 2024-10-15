@@ -1,6 +1,7 @@
 'use client'
 import { apiRequest } from "@/utils/api";
 import { Col, message, Row } from "antd";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
 const VideoHero = () => {
@@ -11,9 +12,12 @@ const VideoHero = () => {
         image: '',
     });
     const [language, setLanguage] = useState<number>(() => {
-        const storedLanguage = localStorage.getItem('language');
-        return storedLanguage ? parseInt(storedLanguage) : 1;
-    });
+        if (typeof window !== 'undefined') {
+          const storedLanguage = localStorage.getItem('language');
+          return storedLanguage ? parseInt(storedLanguage) : 1;
+        }
+        return 1; // Default language if localStorage is not available
+      });
 
     const fetchData = async () => {
         try {
@@ -54,4 +58,6 @@ const VideoHero = () => {
     );
 };
 
-export default VideoHero;
+export default dynamic(() => Promise.resolve(VideoHero), {
+    ssr:false,
+})

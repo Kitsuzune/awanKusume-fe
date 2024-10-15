@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Col, Row, Typography, message } from "antd";
 import quote from "@/../public/image/quote.svg";
 import { apiRequest } from "@/utils/api"; // Assuming you have an apiRequest utility
+import dynamic from "next/dynamic";
 
 const { Text } = Typography;
 
@@ -28,8 +29,11 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
     const [activeSlide, setActiveSlide] = useState(0);
     const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
     const [language, setLanguage] = useState<number>(() => {
-        const storedLanguage = localStorage.getItem('language');
-        return storedLanguage ? parseInt(storedLanguage) : 1;
+        if (typeof window !== 'undefined') {
+            const storedLanguage = localStorage.getItem('language');
+            return storedLanguage ? parseInt(storedLanguage) : 1;
+        }
+        return 1;
     });
 
     const fetchTestimonials = async () => {
@@ -120,4 +124,7 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
     );
 };
 
-export default OurClient;
+// export default OurClient;
+export default dynamic(() => Promise.resolve(OurClient), {
+    ssr:false,
+})
