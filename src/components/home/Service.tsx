@@ -55,7 +55,8 @@ const Service = () => {
                         </Text>
 
                         <Text className="text-center text-[16px] md:text-[24px] mt-2 md:mt-4">
-                        {t("service.SubTitle")}
+                            {/* SUB SERVICE */}
+                            {t("service.SubTitle")}
                         </Text>
                     </div>
 
@@ -73,8 +74,8 @@ const Service = () => {
                                         className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
                                     />
                                     <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">Pendirian Perusahaan</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
+                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.PendirianPerusahaan")}</Text>
+                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubPendirianPerusahaan")}</Text>
                                     </div>
                                 </div>
                             </div>
@@ -91,8 +92,8 @@ const Service = () => {
                                         className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
                                     />
                                     <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">Marketing Agency</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
+                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.MarketingAgency")}</Text>
+                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubMarketingAgency")}</Text>
                                     </div>
                                 </div>
                             </div>
@@ -111,8 +112,8 @@ const Service = () => {
                                         className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
                                     />
                                     <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">Izin Business</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
+                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.IzinBusiness")}</Text>
+                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubIzinBusiness")}</Text>
                                     </div>
                                 </div>
                             </div>
@@ -129,8 +130,8 @@ const Service = () => {
                                         className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
                                     />
                                     <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">Lorem Ipsum</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit</Text>
+                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.Soon")}</Text>
+                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubSoon")}</Text>
                                     </div>
                                 </div>
                             </div>
