@@ -55,7 +55,7 @@ const Service = () => {
                         </Text>
 
                         <Text className="text-center text-[16px] md:text-[24px] mt-2 md:mt-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet, consectetur adipiscing elit
+                        {t("service.SubTitle")}
                         </Text>
                     </div>
 

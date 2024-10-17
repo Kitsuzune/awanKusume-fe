@@ -1,7 +1,6 @@
 'use client';
 import { RightOutlined, MenuOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Select, Dropdown, Menu, MenuProps } from 'antd';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Flag from 'react-world-flags';
@@ -11,13 +10,16 @@ const { Option } = Select;
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [language, setLanguage] = useState<number>(() => {
+  const [language, setLanguage] = useState<number>(1); // Default language
+
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       const storedLanguage = localStorage.getItem('language');
-      return storedLanguage ? parseInt(storedLanguage) : 1;
+      if (storedLanguage) {
+        setLanguage(parseInt(storedLanguage));
+      }
     }
-    return 1;
-  });
+  }, []);
 
   const handleMobileMenuClick = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -29,13 +31,11 @@ const Navbar = () => {
 
   const handleLanguageChange = (value: number) => {
     setLanguage(value);
-    localStorage.setItem('language', value.toString());
-    window.location.reload(); 
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('language', value.toString());
+      window.location.reload();
+    }
   };
-
-  useEffect(() => {
-    localStorage.setItem('language', language.toString());
-  }, [language]);
 
   const items: MenuProps['items'] = [
     {
@@ -225,6 +225,4 @@ const Navbar = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Navbar), {
-  ssr:false,
-})
+export default Navbar;

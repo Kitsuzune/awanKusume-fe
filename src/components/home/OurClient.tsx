@@ -124,7 +124,4 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
     );
 };
 
-// export default OurClient;
-export default dynamic(() => Promise.resolve(OurClient), {
-    ssr:false,
-})
+export default OurClient;
