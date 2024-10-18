@@ -58,6 +58,4 @@ const VideoHero = () => {
     );
 };
 
-export default dynamic(() => Promise.resolve(VideoHero), {
-    ssr:false,
-})
+export default VideoHero;

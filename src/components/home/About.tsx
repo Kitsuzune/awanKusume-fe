@@ -92,6 +92,4 @@ const About: React.FC = () => {
     );
 };
 
-export default dynamic(() => Promise.resolve(About), {
-    ssr:false,
-})
+export default About;
