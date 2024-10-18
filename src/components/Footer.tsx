@@ -1,6 +1,12 @@
+"use client";
+
+import { useTranslationCustom } from "@/i18n/client";
+import useLanguage from "@/zustand/useLanguage";
 import React from "react";
 
 const Footer = () => {
+  const { lng } = useLanguage();
+  const { t } = useTranslationCustom(lng, "HomePage");
   return (
     <>
       <footer className="bg-[#007893] text-white py-20 md:py-40">
@@ -12,7 +18,7 @@ const Footer = () => {
               <div className="flex flex-col items-start justify-start md:items-center md:justify-center">
                 <img src="/image/footer-logo.png" alt="Logo" className="mb-4" />
                 <button className="bg-white text-black py-2 px-4 rounded-full font-semibold">
-                  BUTUH BANTUAN ?
+                  {t("footer.ButtonButuhBantuan")}
                 </button>
               </div>
             </div>

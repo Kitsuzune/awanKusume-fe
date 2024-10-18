@@ -1,4 +1,27 @@
 {
+
+    "navbar" : {
+        "TentanKami" : "TENTANG KAMI",
+        "Layanan" : "LAYANAN",
+        "Informasi" : "INFORMASI",
+        "InformasiKbli" : "KBLI",
+        "InformasiFaq" : "FAQ",
+        "InformasiLiveChat" : "LIVE CHAT",
+        "InformasiPartnership" : "KEMITRAAN",
+        "Tracking" : "TRACKING",
+        "InfoBisnis" : "INFO BISNIS",
+        "Promo" : "PROMO",
+        "ButtonHubungiKami" : "HUBUNGI KAMI"
+    },
+
+    "footer" : {
+        "ButtonButuhBantuan" : "BUTUH BANTUAN ?"
+    },
+
+    "wa" : {
+        "ChatWa" : "Hallo, apa yang bisa kami bantu?"
+    },
+
     "service" : {
         "Title" : "Layanan",
         "SubTitle" : "Legalkan bisnis Anda dengan mendirikan badan usaha, seperti Perseroan Terbatas (PT), Commanditaire Venootschap (CV), dan lain sebagainya.",

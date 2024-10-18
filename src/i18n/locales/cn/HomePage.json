@@ -1,4 +1,26 @@
 {
+    "navbar" : {
+        "TentanKami" : "关于我们",
+        "Layanan" : "服务",
+        "Informasi" : "信息",
+        "InformasiKbli" : "KBLI",
+        "InformasiFaq" : "常见问题",
+        "InformasiLiveChat" : "在线聊天",
+        "InformasiPartnership" : "合作伙伴关系",
+        "Tracking" : "跟踪",
+        "InfoBisnis" : "商业信息",
+        "Promo" : "促销",
+        "ButtonHubungiKami" : "联系我们"
+    },
+
+    "footer" : {
+        "ButtonButuhBantuan" : "需要帮助？"
+    },
+
+    "wa" : {
+        "ChatWa" : "您好，我们能帮您什么？"
+    },
+
     "service" : {
         "Title" : "服务",
         "SubTitle" : "通过设立法律实体，如有限责任公司（PT）、有限合伙企业（CV）等，合法化您的业务。",

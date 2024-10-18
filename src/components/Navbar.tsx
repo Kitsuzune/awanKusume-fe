@@ -1,4 +1,6 @@
 'use client';
+import { useTranslationCustom } from '@/i18n/client';
+import useLanguage from '@/zustand/useLanguage';
 import { RightOutlined, MenuOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Select, Dropdown, Menu, MenuProps } from 'antd';
 import dynamic from 'next/dynamic';
@@ -18,6 +20,8 @@ const Navbar = () => {
     }
     return 1;
   });
+  const { lng } = useLanguage();
+  const { t } = useTranslationCustom(lng, "HomePage");
 
   const handleMobileMenuClick = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -42,7 +46,7 @@ const Navbar = () => {
       key: '1',
       label: (
         <Link href="/kbli" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-          <span>KBLI</span>
+          <span>{t("navbar.InformasiKbli")}</span>
           <RightOutlined />
         </Link>
       )
@@ -51,7 +55,7 @@ const Navbar = () => {
       key: '2',
       label: (
         <Link href="/faq" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-          <span>FAQ</span>
+          <span>{t("navbar.InformasiFaq")}</span>
           <RightOutlined />
         </Link>
       )
@@ -60,7 +64,7 @@ const Navbar = () => {
       key: '3',
       label: (
         <Link href="/live-chat" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-          <span>LIVE CHAT</span>
+          <span>{t("navbar.InformasiLiveChat")}</span>
           <RightOutlined />
         </Link>
       )
@@ -69,7 +73,7 @@ const Navbar = () => {
       key: '4',
       label: (
         <Link href="/partnership" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-          <span>PARTNERSHIP</span>
+          <span>{t("navbar.InformasiPartnership")}</span>
           <RightOutlined />
         </Link>
       )
@@ -100,20 +104,20 @@ const Navbar = () => {
           </Col>
           <Col className="hidden 3xl:flex items-center justify-center">
             <div className="flex gap-[23px] font-bold">
-              <Link href="/about-us" className="text-[24px] text-black hover:text-orange">TENTANG KAMI</Link>
-              <Link href="/layanan" className="text-[24px] text-black hover:text-orange">LAYANAN</Link>
+              <Link href="/about-us" className="text-[24px] text-black hover:text-orange">{t("navbar.TentangKami")}</Link>
+              <Link href="/layanan" className="text-[24px] text-black hover:text-orange">{t("navbar.Layanan")}</Link>
               <Dropdown
                 menu={{ items }}
                 onVisibleChange={handleDropdownVisibleChange}
               >
                 <div className='hover:text-orange'>
-                  <span className='text-[24px] cursor-pointer transition-all duration-300'>INFORMASI</span>
+                  <span className='text-[24px] cursor-pointer transition-all duration-300'>{t("navbar.Informasi")}</span>
                   <DownOutlined className='text-[24px] ml-2 transition-all duration-300' />
                 </div>
               </Dropdown>
-              <Link href="/tracking" className="text-[24px] text-black hover:text-orange">TRACKING</Link>
-              <Link href="/info-bisnis" className="text-[24px] text-black hover:text-orange">INFO BISNIS</Link>
-              <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[24px] text-black hover:text-orange">PROMO</Link>
+              <Link href="/tracking" className="text-[24px] text-black hover:text-orange">{t("navbar.Tracking")}</Link>
+              <Link href="/info-bisnis" className="text-[24px] text-black hover:text-orange">{t("navbar.InfoBisnis")}</Link>
+              <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[24px] text-black hover:text-orange">{t("navbar.Promo")}</Link>
             </div>
           </Col>
           <Col className="hidden 3xl:flex items-center justify-end gap-[11px]">
@@ -156,7 +160,7 @@ const Navbar = () => {
               <Link href="/auth/login">LOGIN</Link>
             </Button>
             <Button className="bg-[#FEA500] text-white font-bold px-[43px] py-[25px] text-[16px] rounded-[35px]">
-              <Link href="/hubungi-kami">HUBUNGI KAMI</Link>
+              <Link href="/hubungi-kami">{t("navbar.ButtonHubungiKami")}</Link>
             </Button>
           </Col>
           {/* Mobile Menu Button */}

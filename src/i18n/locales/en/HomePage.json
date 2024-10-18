@@ -1,4 +1,26 @@
 {
+    "navbar" : {
+        "TentanKami" : "ABOUT US",
+        "Layanan" : "SERVICES",
+        "Informasi" : "INFORMATION",
+        "InformasiKbli" : "KBLI",
+        "InformasiFaq" : "FAQ",
+        "InformasiLiveChat" : "LIVE CHAT",
+        "InformasiPartnership" : "PARTNERSHIP",
+        "Tracking" : "TRACKING",
+        "InfoBisnis" : "BUSINESS INFO",
+        "Promo" : "PROMO",
+        "ButtonHubungiKami" : "CONTACT US"
+    },
+
+    "footer" : {
+        "ButtonButuhBantuan" : "NEED HELP?"
+    },
+
+    "wa" : {
+        "ChatWa" : "Hello, how can we assist you?"
+    },
+    
     "service" : {
         "Title" : "Services",
         "SubTitle" : "Legalize your business by establishing a legal entity, such as a Limited Liability Company (PT), Commanditaire Venootschap (CV), and more.",
