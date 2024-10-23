@@ -13,6 +13,7 @@ const config = {
   prefix: "",
   theme: {
     colors: {
+      main: "#007893",
       transparent: "transparent",
       current: "currentColor",
       black: "#000000",
