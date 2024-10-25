@@ -61,7 +61,7 @@ const Page: React.FC = () => {
                                 {post?.image && (
                                     <img
                                         // src={post.image}
-                                        src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post.image}`}
+                                        src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post.id}/${post.image}`}
                                         alt="blog"
                                         className="w-full h-[400px] object-cover"
                                     />

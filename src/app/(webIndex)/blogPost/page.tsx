@@ -86,7 +86,7 @@ const page: React.FC = () => {
                                     <Link href={`/blogPost/${post[0].id}`}>
                                         <div>
                                             <img
-                                                src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[0].image}`}
+                                                src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[0].id}/${post[0].image}`}
                                                 alt={post[0].title}
                                                 className="w-full h-[200px] object-cover"
                                             />
@@ -116,7 +116,7 @@ const page: React.FC = () => {
                                                 <Row gutter={16} className="w-full p-5 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-100">
                                                     <Col span={10}>
                                                         <img
-                                                            src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[1].image}`}
+                                                            src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[1].id}/${post[1].image}`}
                                                             alt={post[1].title}
                                                             className="w-full h-[200px] object-cover"
                                                         />
@@ -143,7 +143,7 @@ const page: React.FC = () => {
                                                 <Row gutter={24} className="w-full p-5 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-100">
                                                     <Col span={10}>
                                                         <img
-                                                            src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[2].image}`}
+                                                            src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[2].id}/${post[2].image}`}
                                                             alt={post[2].title}
                                                             className="w-full h-[200px] object-cover"
                                                         />
@@ -175,7 +175,7 @@ const page: React.FC = () => {
 
                                     <Col span={12} className="my-5 flex items-center">
                                         <div className="w-full h-full flex items-center justify-center">
-                                            <img src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[3].image}`} alt={post[3].title} className="w-full h-[200px] object-cover" />
+                                            <img src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[3].id}/${post[3].image}`} alt={post[3].title} className="w-full h-[200px] object-cover" />
                                         </div>
                                     </Col>
 
@@ -234,7 +234,7 @@ const page: React.FC = () => {
                                 >
                                     <Link href={`/blogPost/${item.id}`}>
                                         {/* <img src="https://via.placeholder.com/150" alt="Blog post" className="w-full h-[200px] object-cover" /> */}
-                                        <img src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${item.image}`} alt={item.title} className="w-full h-[200px] object-cover" />
+                                        <img src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${item.id}/${item.image}`} alt={item.title} className="w-full h-[200px] object-cover" />
 
                                         <div className="mt-5 flex flex-col">
                                             <span className="text-main inline-block font-semibold">

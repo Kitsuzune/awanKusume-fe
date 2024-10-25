@@ -160,7 +160,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                         <div key={article.id} className="px-2 md:px-4">
                             <Link href={`/blogPost/${article.id}`} className="relative">
                                 <img
-                                    src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${article.image}`}
+                                    src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${article.id}/${article.image}`}
                                     alt={article.title}
                                     className="rounded-lg object-cover w-full aspect-square"
                                 />

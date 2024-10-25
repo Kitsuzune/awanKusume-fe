@@ -1,30 +1,62 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import { Col, Row, Typography } from "antd";
+import { Col, message, Row, Typography } from "antd";
 import AnimatedCursor from "react-animated-cursor";
 import useLanguage from "@/zustand/useLanguage";
 import { useTranslationCustom } from "@/i18n/client";
+import { apiRequest } from "@/utils/api";
+import Link from "next/link";
 
 const Text = Typography;
 
-const Service = () => {
+interface ServiceData {
+    id: string;
+    title: string;
+    subTitle: string;
+    image: string;
+    show: boolean;
+    updatedAt?: string;
+    createdBy?: string;
+}
+
+interface ServiceProps {
+    showHeader?: boolean;
+}
+
+const Service: React.FC<ServiceProps> = ({ showHeader = true }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [services, setServices] = useState<ServiceData[]>([]);
     const { lng } = useLanguage();
     const { t } = useTranslationCustom(lng, "HomePage");
+    const [language, setLanguage] = useState<number>(() => {
+        if (typeof window !== 'undefined') {
+            const storedLanguage = localStorage.getItem('language');
+            return storedLanguage ? parseInt(storedLanguage) : 1;
+        }
+        return 1; // Default language if localStorage is not available
+    });
+
+    const fetchData = async () => {
+        try {
+            const response = await apiRequest('get', `/homepage/services/${language}`);
+            setServices(response.data.data);
+        } catch (error) {
+            message.error('Server Unreachable, Please Check Your Internet Connection');
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
+        const handleResize = () => setIsMobile(window.innerWidth <= 768);
         handleResize();
         window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    useEffect(() => {
+        fetchData();
+    }, [language]);
 
     return (
         <div className="flex items-center">
@@ -38,104 +70,40 @@ const Service = () => {
                     outerScale={1.5}
                     hasBlendMode={true}
                     showSystemCursor={true}
-                    outerStyle={{
-                        border: "3px solid #1A2A3A",
-                    }}
-                    innerStyle={{
-                        backgroundColor: "#FEA500",
-                    }}
+                    outerStyle={{ border: "3px solid #1A2A3A" }}
+                    innerStyle={{ backgroundColor: "#FEA500" }}
                 />
             )}
-            <Row className="w-[100%] lg:w-[65%] mx-auto">
+
+            <Row className="w-full lg:w-2/3 mx-auto">
                 <Col span={24}>
-                    <div>
-                        <Text className="text-[24px] md:text-[40px] font-[700] text-center">
-                            {/* SERVICE */}
-                            {t("service.Title")}
-                        </Text>
-
-                        <Text className="text-center text-[16px] md:text-[24px] mt-2 md:mt-4">
-                            {/* SUB SERVICE */}
-                            {t("service.SubTitle")}
-                        </Text>
-                    </div>
-
-                    <Row className="mt-5 md:mt-10">
-                        <Col xs={24} md={12}>
-                            <div
-                                className="flex items-center justify-center md:justify-end mt-5 md:mt-0 cursor-none"
-                                onMouseEnter={() => setIsHovered(true)}
-                                onMouseLeave={() => setIsHovered(false)}
-                            >
-                                <div className="relative w-[90%] md:w-[650px] h-[200px] md:h-[444px] group md:mr-5">
+                    {showHeader && (
+                        <div className="text-center">
+                            <Text className="text-2xl md:text-4xl font-bold">{t("service.Title")}</Text>
+                            <Text className="text-base md:text-lg mt-2 md:mt-4">{t("service.SubTitle")}</Text>
+                        </div>
+                    )}
+                    <Row gutter={[16, 16]} className="mt-5 md:mt-10">
+                        {services.map((service, index) => (
+                            <Col key={service.id} xs={24} md={12} className={`${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} flex items-center`}>
+                                <Link 
+                                    href={`/layanan/${service.id}`}
+                                    className="relative w-11/12 md:w-[650px] h-[200px] md:h-[444px] group cursor-none"
+                                    onMouseEnter={() => setIsHovered(true)}
+                                    onMouseLeave={() => setIsHovered(false)}
+                                >
                                     <img
-                                        src="https://www.thestatesman.com/wp-content/uploads/2019/04/Physics-and-business.jpg"
-                                        alt="service-1"
-                                        className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
+                                        src={service.image}
+                                        alt={`service-${index + 1}`}
+                                        className="rounded-2xl w-full h-[200px] md:h-[444px] aspect-auto object-fill transition-opacity duration-300 group-hover:opacity-30"
                                     />
-                                    <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.PendirianPerusahaan")}</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubPendirianPerusahaan")}</Text>
+                                    <div className="absolute inset-0 flex flex-col text-white px-4 md:px-8 pt-5 md:pt-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                        <Text className="text-sm md:text-lg font-bold text-start">{service.title}</Text>
+                                        <Text className="text-sm md:text-lg mt-3 w-4/5 md:w-3/5">{service.subTitle}</Text>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className="flex items-center justify-center md:justify-end mt-10 cursor-none"
-                                onMouseEnter={() => setIsHovered(true)}
-                                onMouseLeave={() => setIsHovered(false)}
-                            >
-                                <div className="relative w-[90%] md:w-[650px] h-[200px] md:h-[444px] group md:mr-5">
-                                    <img
-                                        src="https://img.freepik.com/free-photo/african-american-business-woman-by-window_1303-10869.jpg"
-                                        alt="service-1"
-                                        className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
-                                    />
-                                    <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.MarketingAgency")}</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubMarketingAgency")}</Text>
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col xs={24} md={12}>
-                            <div
-                                className="flex items-center justify-center md:justify-start mt-10 md:mt-24 cursor-none"
-                                onMouseEnter={() => setIsHovered(true)}
-                                onMouseLeave={() => setIsHovered(false)}
-                            >
-                                <div className="relative w-[90%] md:w-[650px] h-[200px] md:h-[444px] group md:ml-5">
-                                    <img
-                                        src="https://img.freepik.com/free-photo/group-diverse-people-having-business-meeting_53876-25060.jpg"
-                                        alt="service-1"
-                                        className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
-                                    />
-                                    <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.IzinBusiness")}</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubIzinBusiness")}</Text>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className="flex items-center justify-center md:justify-start mt-10 md:mt-10 cursor-none"
-                                onMouseEnter={() => setIsHovered(true)}
-                                onMouseLeave={() => setIsHovered(false)}
-                            >
-                                <div className="relative w-[90%] md:w-[650px] h-[200px] md:h-[444px] group md:ml-5">
-                                    <img
-                                        src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2019/10/business_with_esa/21093947-3-eng-GB/Business_with_ESA_pillars.jpg"
-                                        alt="service-1"
-                                        className="rounded-[20px] opacity-100 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-30"
-                                    />
-                                    <div className="absolute inset-0 flex flex-col text-white px-[16px] md:px-[34px] pt-[20px] md:pt-[51px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-[14px] md:text-[20px] font-[800] text-start">{t("service.Soon")}</Text>
-                                        <Text className="text-[14px] md:text-[20px] mt-3 md:mt-5 w-[90%] md:w-[70%]">{t("service.SubSoon")}</Text>
-                                    </div>
-                                </div>
-                            </div>
-                        </Col>
+                                </Link>
+                            </Col>
+                        ))}
                     </Row>
                 </Col>
             </Row>
