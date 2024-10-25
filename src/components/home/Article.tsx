@@ -79,10 +79,9 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                 createdBy: item.createdBy,
             }));
 
-            // Jika jumlah post kurang dari 4, ulangi datanya
             if (posts.length < 4) {
-                const repeatCount = Math.ceil(4 / posts.length); // Berapa kali data harus diulang
-                posts = Array(repeatCount).fill(posts).flat().slice(0, 4); // Ulangi dan slice untuk mencapai 4
+                const repeatCount = Math.ceil(4 / posts.length); 
+                posts = Array(repeatCount).fill(posts).flat().slice(0, 4);
             }
 
             setPost(posts);

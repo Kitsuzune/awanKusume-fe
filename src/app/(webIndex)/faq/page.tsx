@@ -1,14 +1,51 @@
 'use client';
-import React from "react";
-import { Col, Row, Typography } from "antd";
+import React, { useEffect, useState } from "react";
+import { Col, message, Row, Typography } from "antd";
 import { Collapse } from 'antd';
 import Article from "@/components/home/Article";
 import SaleBar from "@/components/home/SaleBar";
+import { apiRequest } from "@/utils/api";
 
 const Text = Typography;
 const { Panel } = Collapse;
 
-const page = () => {
+interface FaqData {
+  id: number;
+  languageId: number;
+  uuid: string;
+  title: string;
+  subTitle: string;
+  show: number;
+  question: string;
+  answer: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+const page: React.FC = () => {
+  const [data, setData] = useState<FaqData[]>([]);
+  const [language, setLanguage] = useState<number>(() => {
+    if (typeof window !== 'undefined') {
+      const storedLanguage = localStorage.getItem('language');
+      return storedLanguage ? parseInt(storedLanguage) : 1;
+    }
+    return 1;
+  });
+
+  const fetchData = async () => {
+    try {
+      const response = await apiRequest('get', `/homepage/faqs/${language}`);
+      setData(response.data.data);
+    } catch (error) {
+      message.error('Server Unreachable, Please Check Your Internet Connection');
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [language]);
+
   return (
     <>
 
@@ -25,8 +62,8 @@ const page = () => {
             </div>
           </Row>
 
-          {[1, 2, 3].map((index) => (
-            <Row className="w-full lg:w-[70%] mx-auto my-[80px] md:my-[160px]" key={index}>
+   
+            <Row className="w-full lg:w-[70%] mx-auto my-[80px] md:my-[160px]">
               <Col span={24} md={8}>
                 <div className="flex flex-col mb-4 md:mb-0">
                   <Text className="text-[24px] md:text-[40px] font-[600] text-start">
@@ -55,26 +92,20 @@ const page = () => {
                     </div>
                   )}
                 >
-                  <Panel
-                    header="Lorem ipsum dolor sit amet?"
-                    key="1"
-                    className="text-[20px] md:text-[30px] font-[600]"
-                    style={{ borderBottom: '1px solid #1A2A3A' }}
-                  >
-                    <Text>This is the content for the first panel.</Text>
-                  </Panel>
-                  <Panel
-                    header="Lorem ipsum dolor sit amet?"
-                    key="2"
-                    className="text-[20px] md:text-[30px] font-[600]"
-                    style={{ borderBottom: '1px solid #1A2A3A' }}
-                  >
-                    <Text>This is the content for the second panel.</Text>
-                  </Panel>
+                  {data.map((item, index) => (
+                    <Panel
+                      header={item.question}
+                      key={index + 1}
+                      className="text-[20px] md:text-[30px] font-[600]"
+                      style={{ borderBottom: '1px solid #1A2A3A' }}
+                    >
+                      <Text>{item.answer}</Text>
+                    </Panel>
+                  ))}
                 </Collapse>
               </Col>
             </Row>
-          ))}
+
         </Col>
       </Row>
 
