@@ -1,14 +1,31 @@
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import { Input, Button, Row, Col, Typography } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
 import OurClient from '@/components/home/OurClient';
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from '@/components/ui/animated-modal';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { apiRequest } from '@/utils/api';
 
 const Text = Typography;
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      const response = await apiRequest('post', '/auth/login', { email, password, remember: false });
+      if (response.status === 200) {
+        console.log(response.data);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
       <Row>
@@ -34,6 +51,9 @@ const Login = () => {
                   <Text className='text-white text-[14px]'>Email</Text>
                   <Input
                     placeholder='Email'
+                    name='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className='mb-4 pr-0 pl-4 py-0 h-[45px] md:h-[50px] rounded-[8px] mt-2'
                     style={{
                       backgroundColor: '#F8F8F8',
@@ -46,9 +66,12 @@ const Login = () => {
                     }
                   />
 
-                  <Text className='text-white text-[14px] mt-3'>Unique Number</Text>
+                  <Text className='text-white text-[14px] mt-3'>Password</Text>
                   <Input
-                    placeholder='Unique Number'
+                    placeholder='Password'
+                    name='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className='mb-4 pr-0 pl-4 py-0 h-[45px] md:h-[50px] rounded-[8px] mt-2'
                     size='large'
                     style={{
@@ -63,6 +86,7 @@ const Login = () => {
                       size='large'
                       block
                       className='bg-[#008c9e] hover:bg-[#007884] text-white py-3 md:py-4 rounded-[8px]'
+                      onClick={handleLogin}
                     >
                       Login
                     </Button>
