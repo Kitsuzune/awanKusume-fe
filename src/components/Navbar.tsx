@@ -63,10 +63,13 @@ const Navbar = () => {
     {
       key: '3',
       label: (
-        <Link href="/live-chat" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
+        <div
+          className="flex items-center justify-between gap-[10px]"
+          onClick={() => window.open('https://api.whatsapp.com/send/?phone=628158968885', '_blank')}
+        >
           <span>{t("navbar.InformasiLiveChat")}</span>
           <RightOutlined />
-        </Link>
+        </div>
       )
     },
     {
