@@ -116,7 +116,7 @@ const Navbar = () => {
                 </div>
               </Dropdown>
               <Link href="/tracking" className="text-[24px] text-black hover:text-orange">{t("navbar.Tracking")}</Link>
-              <Link href="/info-bisnis" className="text-[24px] text-black hover:text-orange">{t("navbar.InfoBisnis")}</Link>
+              <Link href="/blogPost" className="text-[24px] text-black hover:text-orange">{t("navbar.InfoBisnis")}</Link>
               <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[24px] text-black hover:text-orange">{t("navbar.Promo")}</Link>
             </div>
           </Col>
@@ -184,7 +184,7 @@ const Navbar = () => {
             </div>
           </Dropdown>
           <Link href="/tracking" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
-          <Link href="/info-bisnis" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
+          <Link href="/blogPost" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
           <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
           <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
           <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>HUBUNGI KAMI</Button>

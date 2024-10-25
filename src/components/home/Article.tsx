@@ -1,10 +1,14 @@
 'use client';
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { Typography } from "antd";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowRightOutlined } from '@ant-design/icons';
+import { apiRequest } from "@/utils/api";
+import { truncateText } from "@/const/truncateText";
+import { formatDate } from "@/const/dateFormat";
+import Link from "next/link";
 
 const { Text } = Typography;
 
@@ -15,30 +19,22 @@ interface ArticleProps {
     HeaderModel: HeaderModelType;
 }
 
+interface Post {
+    id: string;
+    title: string;
+    content: string;
+    image: string;
+    show: boolean;
+    updatedAt?: string;
+    createdBy?: string;
+}
+
 const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
-    const articles = [
-        {
-            id: 1,
-            title: "Lorem Ipsum dolor",
-            description: "Lorem ipsum dolor sit amet, consec",
-            image: "https://via.placeholder.com/300",
-            hashtags: "#Lorem #Ipsum #Dolor"
-        },
-        {
-            id: 2,
-            title: "Another Ipsum Article",
-            description: "Dolor sit amet, consectetur adipiscing elit",
-            image: "https://via.placeholder.com/300",
-            hashtags: "#Lorem #Dolor #Adipiscing"
-        },
-        {
-            id: 3,
-            title: "Third Ipsum dolor",
-            description: "Adipiscing elit Lorem ipsum dolor",
-            image: "https://via.placeholder.com/300",
-            hashtags: "#Lorem #Adipiscing #Elit"
-        },
-    ];
+    const [post, setPost] = useState<Post[]>([]);
+    const [pagination, setPagination] = useState({ page: 1, perPage: 4, totalData: 1 });
+    const [order, setOrder] = useState({
+        order: 'desc',
+    });
 
     const settings = {
         infinite: true,
@@ -64,6 +60,48 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
         ],
     };
 
+    const fetchPost = async () => {
+        try {
+            const response = await apiRequest('get', '/blog', {}, {
+                page: pagination.page,
+                perPage: pagination.perPage,
+                where: "",
+                orderBy: "id:desc"
+            });
+
+            let posts = response.data.data.map((item: any) => ({
+                id: item.id,
+                title: item.title,
+                content: item.content.replace(/<[^>]+>/g, ''),
+                image: item.image,
+                show: false,
+                updatedAt: item.updatedAt,
+                createdBy: item.createdBy,
+            }));
+
+            // Jika jumlah post kurang dari 4, ulangi datanya
+            if (posts.length < 4) {
+                const repeatCount = Math.ceil(4 / posts.length); // Berapa kali data harus diulang
+                posts = Array(repeatCount).fill(posts).flat().slice(0, 4); // Ulangi dan slice untuk mencapai 4
+            }
+
+            setPost(posts);
+
+            setPagination({
+                page: response.data.meta.current_page,
+                perPage: response.data.meta.per_page,
+                totalData: response.data.meta.total,
+            });
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        fetchPost();
+    }, []);
+
     const renderHeader = () => {
         switch (HeaderModel) {
             case 'CenterRight':
@@ -76,12 +114,12 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                             </Text>
                         </div>
                         <div className="hidden md:flex items-center justify-end gap-3 mt-4 md:mt-0 w-full md:w-auto">
-                            <div className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                            <Link href={'/blogPost'} className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
                                 <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                                 <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                                     <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 );
@@ -96,12 +134,12 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                             </Text>
                         </div>
                         <div className="hidden md:flex items-center gap-3 mt-4 md:mt-0 w-full md:w-auto">
-                            <div className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                            <Link href={'/blogPost'} className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
                                 <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                                 <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                                     <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 );
@@ -118,28 +156,31 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
             </div>
             <div className="p-7 md:p-5">
                 <Slider {...settings} className="mt-0 md:mt-8">
-                    {articles.map((article) => (
+                    {post.map((article) => (
                         <div key={article.id} className="px-2 md:px-4">
-                            <div className="relative">
+                            <Link href={`/blogPost/${article.id}`} className="relative">
                                 <img
-                                    src={article.image}
+                                    src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${article.image}`}
                                     alt={article.title}
-                                    className="rounded-lg w-full object-cover"
+                                    className="rounded-lg object-cover w-full aspect-square"
                                 />
                                 <div>
                                     <div className="absolute bottom-14 md:bottom-20 left-0 p-2 md:p-4 bg-white bg-opacity-75">
-                                        <Text className="font-bold text-sm md:text-base">{article.title}</Text>
+                                        <Text className="font-bold text-sm md:text-base">{formatDate(article.updatedAt)}</Text>
                                     </div>
                                     <div className="absolute bottom-4 md:bottom-5 left-0 p-2 md:p-4 bg-white bg-opacity-75">
-                                        <Text className="text-xs md:text-sm">{article.description}</Text>
+                                        <Text className="text-xs md:text-sm">
+                                            {/* {article.content} */}
+                                            {truncateText(article.content, 15)}
+                                        </Text>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                             <div className="flex flex-col">
                                 <Text className="mt-2 md:mt-4 text-[24px] md:text-[36px] font-[700]">
-                                    {article.title}
+                                    {/* {article.title} */}
+                                    {truncateText(article.title, 10)}
                                 </Text>
-                                <Text className="text-[12px] md:text-[14px] text-gray-500">{article.hashtags}</Text>
                             </div>
                         </div>
                     ))}
@@ -149,12 +190,12 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
             {/* Mobile View More Button */}
             <div className="flex md:hidden justify-center">
                 <div className="flex items-center gap-3">
-                    <div className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
+                    <Link href={'/blogPost'} className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
                         <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                         <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                             <ArrowRightOutlined className="text-[16px] md:text-[18px] text-[#007893]" />
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
