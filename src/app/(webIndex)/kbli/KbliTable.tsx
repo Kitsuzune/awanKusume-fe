@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Col, Row, Typography, Table, Input, Select, message } from "antd";
+import React, { use, useEffect, useState } from "react";
+import { Col, Row, Typography, Table, Input, Select, message, Modal, Collapse } from "antd";
 import { CustomPagination } from "@/components/ui/Table/CustomPagination";
 import { apiRequest } from "@/utils/api";
+import KBLIModalDetail from "./KbliModal";
 
 const { Text } = Typography;
 const { Option } = Select;
-
 const KbliTable = () => {
   const [dataSource, setDataSource] = useState([]);
   const [pagination, setPagination] = useState({ page: 1, perPage: 10, totalData: 1 });
   const [search, setSearch] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedData, setSelectedData] = useState(null);
   const [order, setOrder] = useState({
     key: 'id',
     order: 'asc',
@@ -49,18 +51,42 @@ const KbliTable = () => {
       title: 'Kode KBLI',
       dataIndex: 'kode',
       key: 'kode',
+      render: (text: string, record: any) => (
+        <a onClick={() => handleRowClick(record)}>{text}</a>
+      ),
     },
     {
       title: 'KBLI',
       dataIndex: 'judul',
       key: 'judul',
+      render: (text: string, record: any) => (
+        <a onClick={() => handleRowClick(record)}>{text}</a>
+      ),
     },
     {
       title: 'Deskripsi',
       dataIndex: 'uraian',
       key: 'uraian',
+      render: (text: string, record: any) => (
+        <a onClick={() => handleRowClick(record)}>{text}</a>
+      ),
     },
   ];
+
+  const handleRowClick = async (record: any) => {
+    try {
+      const response = await apiRequest("get", `/kbli/${record.id}`);
+      setSelectedData(response.data.data);
+      setIsModalVisible(true);
+    } catch (error) {
+      message.error("Failed to fetch data. Please try again.");
+      console.log(error);
+    }
+  };
+  const handleCloseModal = () => {
+    setIsModalVisible(false);
+    setSelectedData(null);
+  };
 
   useEffect(() => {
     fetchData();
@@ -93,19 +119,19 @@ const KbliTable = () => {
                 <div className="mt-5 md:mt-10 mx-5 md:mx-10">
                   <Row justify="space-between" align="middle" className="mb-4">
                     <Col>
-                    <span className="text-[15px] mr-3">Query For: </span>
-                        <Select
-                          defaultValue={pagination.perPage}
-                          style={{ width: 80 }}
-                          onChange={(value) => {
-                            setPagination({ ...pagination, perPage: value });
-                          }}
-                        >
-                          <Option value={10}>10</Option>
-                          <Option value={20}>20</Option>
-                          <Option value={30}>30</Option>
-                        </Select>
-                        <span className="text-[15px] ml-3">Items Per Page</span>
+                      <span className="text-[15px] mr-3">Query For: </span>
+                      <Select
+                        defaultValue={pagination.perPage}
+                        style={{ width: 80 }}
+                        onChange={(value) => {
+                          setPagination({ ...pagination, perPage: value });
+                        }}
+                      >
+                        <Option value={10}>10</Option>
+                        <Option value={20}>20</Option>
+                        <Option value={30}>30</Option>
+                      </Select>
+                      <span className="text-[15px] ml-3">Items Per Page</span>
                     </Col>
                     <Col>
                       <Input.Search
@@ -144,6 +170,14 @@ const KbliTable = () => {
                       });
                     }}
                   />
+
+                  {selectedData && (
+                    <KBLIModalDetail
+                      visible={isModalVisible}
+                      onClose={handleCloseModal}
+                      data={selectedData}
+                    />
+                  )}
                 </div>
 
               </div>
