@@ -68,18 +68,18 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
           </div>
           <div className="bg-black py-2 px-5 rounded-r-md">
             <Text className="text-white font-semibold">
-              {data.kode}
+              {data.kode || "Kode tidak tersedia"}
             </Text>
           </div>
         </div>
 
         <div className="mt-5">
           <Text className="font-bold text-[20px]">
-            {data.judul}
+            {data.judul || "Judul tidak tersedia"}
           </Text>
 
           <Text className="mt-1 inline-block font-semibold text-justify">
-            {data.uraian}
+            {data.uraian || "Uraian tidak tersedia"}
           </Text>
         </div>
       </div>
@@ -89,29 +89,29 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
         <Collapse accordion className="my-2">
           {/* Render ruangLingkup data */}
           {data.ruangLingkup?.map((item, index) => (
-            <Panel header={`${item.uraian}`} key={`ruangLingkup-${index}`}>
+            <Panel header={`${item.uraian || "Uraian tidak tersedia"}`} key={`ruangLingkup-${index}`}>
               {item.ruangLingkupDetail.map((detail, detailIndex) => (
                 <div key={`ruangLingkupDetail-${detailIndex}`} className="border-b-2 p-4">
                   <div className="grid grid-cols-3 gap-4">
                     <div className="col-span-1">
                       <Text strong>Skala</Text>
                     </div>
-                    <div className="col-span-2">: {detail.skala}</div>
+                    <div className="col-span-2">: {detail.skala || "Tidak tersedia"}</div>
 
                     <div className="col-span-1">
                       <Text strong>Luas Lahan</Text>
                     </div>
-                    <div className="col-span-2">: {detail.luasLahan}</div>
+                    <div className="col-span-2">: {detail.luasLahan || "Tidak tersedia"}</div>
 
                     <div className="col-span-1">
                       <Text strong>Risiko</Text>
                     </div>
-                    <div className="col-span-2">: {detail.risiko}</div>
+                    <div className="col-span-2">: {detail.risiko || "Tidak tersedia"}</div>
 
                     <div className="col-span-1">
                       <Text strong>Perizinan Berusaha</Text>
                     </div>
-                    <div className="col-span-2">: {detail.perizinanBerusaha}</div>
+                    <div className="col-span-2">: {detail.perizinanBerusaha || "Tidak tersedia"}</div>
 
                     <div className="col-span-1">
                       <Text strong>Parameter</Text>
@@ -119,9 +119,9 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
                     <div className="col-span-2 flex">
                       <span>:</span>
                       <div className="ml-2">
-                        {detail.parameter.map((param, i) => (
+                        {detail.parameter.length > 0 ? detail.parameter.map((param, i) => (
                           <div key={i}>{i + 1}. {param}</div>
-                        ))}
+                        )) : "Tidak tersedia"}
                       </div>
                     </div>
 
@@ -131,9 +131,9 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
                     <div className="col-span-2 flex">
                       <span>:</span>
                       <div className="ml-2">
-                        {detail.kewenangan.map((kew, i) => (
+                        {detail.kewenangan.length > 0 ? detail.kewenangan.map((kew, i) => (
                           <div key={i}>{i + 1}. {kew}</div>
-                        ))}
+                        )) : "Tidak tersedia"}
                       </div>
                     </div>
                   </div>
@@ -205,7 +205,7 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
                 </div>
               ))}
               <div className="mt-4">
-                <Text strong>Referensi Peraturan:</Text> {item.referensiPeraturan.judul} - {item.referensiPeraturan.uraian}
+                <Text strong>Referensi Peraturan:</Text> {item.referensiPeraturan.judul || "Tidak tersedia"} - {item.referensiPeraturan.uraian || "Tidak tersedia"}
               </div>
             </Panel>
           ))}
@@ -217,7 +217,7 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
         {/* Render umkm data */}
         <Collapse accordion className="my-2">
           {data.umkm?.map((umkmItem, umkmIndex) => (
-            <Panel header={`${umkmItem.uraian}`} key={`umkm-${umkmIndex}`}>
+            <Panel header={`${umkmItem.uraian || "Uraian tidak tersedia"}`} key={`umkm-${umkmIndex}`}>
               {umkmItem.umkmDetail.map((detail, detailIndex) => (
                 <div key={`umkmDetail-${detailIndex}`} style={{ marginBottom: '10px' }}>
 
@@ -225,12 +225,12 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
                     <div className="col-span-1">
                       <Text strong>Parameter</Text>
                     </div>
-                    <div className="col-span-2">: {detail.parameter}</div>
+                    <div className="col-span-2">: {detail.parameter || "Tidak tersedia"}</div>
 
                     <div className="col-span-1">
                       <Text strong>Kewenangan</Text>
                     </div>
-                    <div className="col-span-2">: {detail.kewenangan}</div>
+                    <div className="col-span-2">: {detail.kewenangan || "Tidak tersedia"}</div>
                   </div>
 
                   <div className="mt-4">
