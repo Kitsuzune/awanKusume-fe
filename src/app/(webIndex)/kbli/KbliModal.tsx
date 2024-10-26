@@ -84,6 +84,7 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
         </div>
       </div>
 
+      {data.ruangLingkup && data.ruangLingkup.length > 0 && (
       <div className="my-5">
         <Text className="text-[18px] font-semibold">Ruang Lingkup</Text>
         <Collapse accordion className="my-2">
@@ -204,14 +205,21 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
                   </div>
                 </div>
               ))}
-              <div className="mt-4">
+              {/* <div className="mt-4">
                 <Text strong>Referensi Peraturan:</Text> {item.referensiPeraturan.judul || "Tidak tersedia"} - {item.referensiPeraturan.uraian || "Tidak tersedia"}
-              </div>
+              </div> */}
+              { item.referensiPeraturan && (
+                <div className="mt-4">
+                  <Text strong>Referensi Peraturan:</Text> {item.referensiPeraturan.judul || "Tidak tersedia"} - {item.referensiPeraturan.uraian || "Tidak tersedia"}
+                </div>
+              ) }
             </Panel>
           ))}
         </Collapse>
       </div>
+      )}
 
+      {data.umkm && data.umkm.length > 0 && (
       <div className="my-5">
         <Text className="text-[18px] font-semibold">PB UMKU</Text>
         {/* Render umkm data */}
@@ -273,6 +281,7 @@ const KBLIModalDetail: React.FC<KBLIModalDetailProps> = ({ visible, onClose, dat
           ))}
         </Collapse>
       </div>
+      )}
     </Modal>
   );
 };
