@@ -31,7 +31,7 @@ const page: React.FC = () => {
 
     const fetchPost = async () => {
         try {
-            const response = await apiRequest('get', '/blog', {}, {
+            const response = await apiRequest('get', '/homepage/blog', {}, {
                 page: pagination.page,
                 perPage: pagination.perPage,
                 where: "",

@@ -27,7 +27,7 @@ const Page: React.FC = () => {
     const fetchPost = async () => {
         try {
             if (!id) return;
-            const response = await apiRequest('get', `/blog/${id}`);
+            const response = await apiRequest('get', `/homepage/blog/${id}`);
             setPost(response.data.data);
         } catch (error) {
             console.error(error);
