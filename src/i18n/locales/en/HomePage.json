@@ -54,5 +54,8 @@
         "SubTitle-1" : "PT Awan Kusuma Group is a business licensing service provider dedicated to helping your business achieve success",
         "Title-2" : "Vision & Mission",
         "SubTitle-2" : "Becoming a Leading Force in Providing Innovative and Sustainable Legal Solutions"
+    },
+    "kbli" : {
+        "Pengertian" : "KBLI is a reference classification used to categorize Indonesia's economic activities into several business sectors/fields, differentiated based on the type of economic activities that produce products/outputs in the form of goods or services. Please note that with the implementation of OSS RBA, business operators in the field of company establishment services must use the 2020 KBLI."
     }
 }
