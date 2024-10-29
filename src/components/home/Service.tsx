@@ -34,7 +34,7 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true }) => {
             const storedLanguage = localStorage.getItem('language');
             return storedLanguage ? parseInt(storedLanguage) : 1;
         }
-        return 1; // Default language if localStorage is not available
+        return 1;
     });
 
     const fetchData = async () => {
@@ -83,9 +83,14 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true }) => {
                             <Text className="text-base md:text-lg mt-2 md:mt-4">{t("service.SubTitle")}</Text>
                         </div>
                     )}
-                    <Row gutter={[16, 16]} className="mt-5 md:mt-10">
+                    <Row gutter={[16, 16]} className="mt-5 md:mt-10 justify-center">
                         {services.map((service, index) => (
-                            <Col key={service.id} xs={24} md={12} className={`${index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'} flex items-center`}>
+                            <Col 
+                                key={service.id} 
+                                xs={24} 
+                                md={12} 
+                                className="flex justify-center md:justify-start items-center"
+                            >
                                 <Link 
                                     href={`/layanan/${service.id}`}
                                     className="relative w-11/12 md:w-[650px] h-[200px] md:h-[444px] group cursor-none"
@@ -95,11 +100,11 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true }) => {
                                     <img
                                         src={service.image}
                                         alt={`service-${index + 1}`}
-                                        className="rounded-2xl w-full h-[200px] md:h-[444px] aspect-auto object-fill transition-opacity duration-300 group-hover:opacity-30"
+                                        className="rounded-2xl w-full h-[200px] md:h-[444px] object-cover transition-opacity duration-300 group-hover:opacity-30"
                                     />
                                     <div className="absolute inset-0 flex flex-col text-white px-4 md:px-8 pt-5 md:pt-12 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                                        <Text className="text-sm md:text-lg font-bold text-start">{service.title}</Text>
-                                        <Text className="text-sm md:text-lg mt-3 w-4/5 md:w-3/5">{service.subTitle}</Text>
+                                        <Text className="text-sm md:text-lg font-bold text-center md:text-start">{service.title}</Text>
+                                        <Text className="text-sm md:text-lg mt-3 text-center md:text-start w-4/5 md:w-3/5 mx-auto md:mx-0">{service.subTitle}</Text>
                                     </div>
                                 </Link>
                             </Col>

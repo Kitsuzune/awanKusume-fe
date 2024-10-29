@@ -12,7 +12,7 @@ import Link from "next/link";
 
 const { Text } = Typography;
 
-type HeaderModelType = 'CenterRight' | 'Between';
+type HeaderModelType = 'CenterRight' | 'Between' | 'None';
 
 interface ArticleProps {
     title: string;
@@ -26,7 +26,7 @@ interface Post {
     image: string;
     show: boolean;
     updatedAt?: string;
-    createdBy?: string;
+    createdBy: string;
 }
 
 const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
@@ -143,6 +143,9 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                     </div>
                 );
 
+            case 'None':
+                return null;
+
             default:
                 return null;
         }
@@ -170,7 +173,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                                     <div className="absolute bottom-4 md:bottom-5 left-0 p-2 md:p-4 bg-white bg-opacity-75">
                                         <Text className="text-xs md:text-sm">
                                             {/* {article.content} */}
-                                            {truncateText(article.content, 15)}
+                                            {truncateText(article.createdBy, 30)}
                                         </Text>
                                     </div>
                                 </div>
@@ -178,7 +181,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                             <div className="flex flex-col">
                                 <Text className="mt-2 md:mt-4 text-[24px] md:text-[36px] font-[700]">
                                     {/* {article.title} */}
-                                    {truncateText(article.title, 10)}
+                                    {truncateText(article.title, 20)}
                                 </Text>
                             </div>
                         </div>

@@ -80,7 +80,7 @@ const Page: React.FC = () => {
                     </Col>
                 </Row>
 
-                <Row className="my-20 w-full lg:w-[75%] mx-auto md:my-[60px]">
+                <Row className="my-20 w-full lg:w-[75%] mx-auto md:my-[60px] hidden md:block">
                     <Col span={24}>
                         <Article title={"More Artikel"} HeaderModel={"Between"} />
                     </Col>
