@@ -1,30 +1,46 @@
-'use client'
 
-import React, { useState } from 'react';
-import { Input, Button, Row, Col, Typography } from 'antd';
+"use client";
+import React, { useState, useEffect } from 'react';
+import { Input, Button, Row, Col, Typography, message } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
 import OurClient from '@/components/home/OurClient';
 import { Modal, ModalBody, ModalContent, ModalFooter, ModalTrigger } from '@/components/ui/animated-modal';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { apiRequest } from '@/utils/api';
+import { useRouter } from 'next/navigation';
 
 const Text = Typography;
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
+  const [timer, setTimer] = useState(10);
+  const router = useRouter();
 
+  // Function to handle login
   const handleLogin = async () => {
     try {
       const response = await apiRequest('post', '/auth/login', { email, password, remember: false });
       if (response.status === 200) {
+        setIsLoginSuccessful(true);
         console.log(response.data);
       }
     } catch (error) {
+      setIsLoginSuccessful(false);
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    if (isLoginSuccessful && timer > 0) {
+      const countdown = setTimeout(() => setTimer(timer - 1), 1000);
+      return () => clearTimeout(countdown); 
+    } else if (isLoginSuccessful && timer === 0) {
+      router.push('/');
+    }
+  }, [isLoginSuccessful, timer, router]);
 
   return (
     <>
@@ -67,12 +83,12 @@ const Login = () => {
                   />
 
                   <Text className='text-white text-[14px] mt-3'>Password</Text>
-                  <Input
+                  <Input.Password
                     placeholder='Password'
                     name='password'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className='mb-4 pr-0 pl-4 py-0 h-[45px] md:h-[50px] rounded-[8px] mt-2'
+                    className='mb-4 pr-5 pl-4 py-0 h-[45px] md:h-[50px] rounded-[8px] mt-2'
                     size='large'
                     style={{
                       backgroundColor: '#F8F8F8',
@@ -92,38 +108,40 @@ const Login = () => {
                     </Button>
                   </ModalTrigger>
 
-                  <ModalBody className='h-[50%]'>
-                    <ModalContent>
-                      <div className='flex flex-col justify-center items-center h-full'>
-                        <div className='text-center justify-center flex'>
-                          <img src='/image/success1.svg' alt='Success' />
-                        </div>
-                        <Text className='text-[20px] md:text-[24px] font-[700] text-[#1A2A3A] justify-center flex text-center mt-7'>
-                          You have logged in
-                          <br />
-                          successfully
-                        </Text>
-                        <Text className='text-[12px] md:text-[14px] text-[#1A2A3A] justify-center flex text-center mt-3'>
-                          Lorem Ipsum is simply dummy text of the
-                          <br />
-                          printing and typesetting industry.
-                        </Text>
+                  {isLoginSuccessful && (
+                    <ModalTrigger className="w-full m-0 p-0 mt-3">
+                      <ModalBody className="h-[50%]">
+                        <ModalContent>
+                          <div className="flex flex-col justify-center items-center h-full">
+                            <div className="text-center justify-center flex">
+                              <img src="/image/success1.svg" alt="Success" />
+                            </div>
+                            <Text className="text-[20px] md:text-[24px] font-[700] text-[#1A2A3A] justify-center flex text-center mt-7">
+                              You have logged in
+                              <br />
+                              successfully
+                            </Text>
+                            <Text className="text-[12px] md:text-[14px] text-[#1A2A3A] justify-center flex text-center mt-3">
+                              Redirecting in {timer} seconds...
+                            </Text>
 
-                        <div className='mt-4'>
-                          <Link href='/admin/dashboard'>
-                            <Button
-                              type='primary'
-                              size='large'
-                              block
-                              className='bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full'
-                            >
-                              Continue
-                            </Button>
-                          </Link>
-                        </div>
-                      </div>
-                    </ModalContent>
-                  </ModalBody>
+                            <div className="mt-4">
+                              <Link href="/">
+                                <Button
+                                  type="primary"
+                                  size="large"
+                                  block
+                                  className="bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full"
+                                >
+                                  Continue
+                                </Button>
+                              </Link>
+                            </div>
+                          </div>
+                        </ModalContent>
+                      </ModalBody>
+                    </ModalTrigger>
+                  )}
 
                   <div className='text-center mt-4'>
                     <Text className='text-white text-[14px]'>

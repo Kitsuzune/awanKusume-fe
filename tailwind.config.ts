@@ -21,6 +21,7 @@ const config = {
       gray: colors.gray,
       slate: colors.slate,
       indigo: colors.indigo,
+      red: colors.red,
       orange: "#FFA500",
     },
     screens: {

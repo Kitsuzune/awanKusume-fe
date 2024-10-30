@@ -48,11 +48,11 @@ const TrackingTable = ({ data, pagination, order, search, setSearch, setPaginati
     return (
         <Row className="w-full">
             <Col span={24}>
-                <div className="p-5 md:p-10 md:m-10 rounded-lg">
+                <div className="rounded-lg">
                     <Row>
                         <Col span={24}>
                             <div className="flex flex-col">
-                                <div className="mt-5 md:mt-10 mx-5 md:mx-10">
+                                <div className="mt-5 md:mt-10">
                                     <Row justify="space-between" align="middle" className="mb-4">
                                         <Col>
                                             <Select defaultValue="10" style={{ width: 120 }}>
@@ -63,17 +63,24 @@ const TrackingTable = ({ data, pagination, order, search, setSearch, setPaginati
                                             </Select>
                                         </Col>
                                         <Col>
-                                            <Input.Search placeholder="Search..."
-                                                onSearch={(value) => {
-                                                    setSearch(value);
-                                                    setPagination({
-                                                        ...pagination,
-                                                        page: 1,
-                                                    });
-                                                    setSearchUnique(false);
-                                                }}
-                                            />
-                                            <button className="bg-orange text-white px-4 py-2 rounded-md w-[200px]" onClick={() => { fetchData(); setSearchUnique(false) }}>Refresh</button>
+                                            <div className="flex gap-3">
+                                            <button 
+                                                className="bg-orange text-white px-4 rounded-md w-[200px] hover:bg-[#ff7f50] transition-all duration-300 ease-in-out"
+                                                onClick={() => { fetchData(); setSearchUnique(false) }}
+                                            >
+                                                    Refresh
+                                                </button>
+                                                <Input.Search placeholder="Search By User Project Only..."
+                                                    onSearch={(value) => {
+                                                        setSearch(value);
+                                                        setPagination({
+                                                            ...pagination,
+                                                            page: 1,
+                                                        });
+                                                        setSearchUnique(false);
+                                                    }}
+                                                />
+                                            </div>
                                         </Col>
                                     </Row>
 

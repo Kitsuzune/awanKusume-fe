@@ -94,11 +94,11 @@ export async function apiRequest(
 
 					if (response.status === 200 || response.status === 201) {
 						return response;
-					}
+					} 
 				}
 			} catch (refreshError: any) {
-				if (window.location.pathname !== '/web/login') {
-					window.location.href = '/web/login';
+				if (window.location.pathname !== '/auth/login') {
+					window.location.href = '/auth/login';
 				} else {
 					message.error(refreshError.response.data.message);
 				}
