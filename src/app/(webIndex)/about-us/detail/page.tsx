@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { Row, Col, Typography, Collapse } from "antd";
+import React, { useEffect, useState } from "react";
+import { Row, Col, Typography, Collapse, message } from "antd";
 import Slider from "react-slick";
 import { FaCircleArrowLeft, FaCircleArrowRight } from "react-icons/fa6";
 import "slick-carousel/slick/slick.css";
@@ -9,6 +9,7 @@ import ImageCarouselDetail from "./imageCarousellDetail";
 import SaleBar from "@/components/home/SaleBar";
 import Article from "@/components/home/Article";
 import ImageCarouselDetail2 from "./imageCarousellDetail2";
+import { apiRequest } from "@/utils/api";
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -49,7 +50,43 @@ function SamplePrevArrow(props: any) {
     );
 }
 
+interface FaqData {
+    id: number;
+    languageId: number;
+    uuid: string;
+    title: string;
+    subTitle: string;
+    show: number;
+    question: string;
+    answer: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
 const page = () => {
+    const [data, setData] = useState<FaqData[]>([]);
+    const [language, setLanguage] = useState<number>(() => {
+        if (typeof window !== 'undefined') {
+            const storedLanguage = localStorage.getItem('language');
+            return storedLanguage ? parseInt(storedLanguage) : 1;
+        }
+        return 1;
+    });
+
+    const fetchData = async () => {
+        try {
+            const response = await apiRequest('get', `/homepage/faqs/${language}?category=ALL`);
+            setData(response.data.data);
+        } catch (error) {
+            message.error('Server Unreachable, Please Check Your Internet Connection');
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, [language]);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -118,7 +155,7 @@ const page = () => {
                         </div>
                         <div className="flex flex-col items-center justify-center">
                             <div className="absolute -z-40 bottom-[-110px]">
-                            <svg width="1300" height="300" viewBox="0 0 1300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="1300" height="300" viewBox="0 0 1300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="650" cy="650" r="650" fill="#E6F3F6" />
                                 </svg>
 
@@ -130,7 +167,7 @@ const page = () => {
                 <Row className="w-full mx-auto mt-[190px]">
                     <ImageCarouselDetail />
                 </Row>
-                
+
 
                 <Row className="w-full mx-auto my-[60px] md:my-[80px]">
                     <Col span={24} md={12} className="flex flex-col items-center md:items-start">
@@ -151,22 +188,16 @@ const page = () => {
                                 </div>
                             )}
                         >
-                            <Panel
-                                header="Lorem ipsum dolor sit amet?"
-                                key="1"
-                                className="text-[18px] md:text-[30px] font-[600]"
-                                style={{ borderBottom: '1px solid #1A2A3A' }}
-                            >
-                                <Text>This is the content for the first panel.</Text>
-                            </Panel>
-                            <Panel
-                                header="Lorem ipsum dolor sit amet?"
-                                key="2"
-                                className="text-[18px] md:text-[30px] font-[600]"
-                                style={{ borderBottom: '1px solid #1A2A3A' }}
-                            >
-                                <Text>This is the content for the second panel.</Text>
-                            </Panel>
+                            {data.map((item, index) => (
+                                <Panel
+                                    header={item.question}
+                                    key={index + 1}
+                                    className="text-[20px] md:text-[30px] font-[600]"
+                                    style={{ borderBottom: '1px solid #1A2A3A' }}
+                                >
+                                    <Text>{item.answer}</Text>
+                                </Panel>
+                            ))}
                         </Collapse>
                     </Col>
 
@@ -237,7 +268,7 @@ const page = () => {
                         </div>
                         <div className="flex flex-col items-center justify-center">
                             <div className="absolute -z-40 bottom-[-110px]">
-                            <svg width="1300" height="300" viewBox="0 0 1300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="1300" height="300" viewBox="0 0 1300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="650" cy="650" r="650" fill="#E6F3F6" />
                                 </svg>
 

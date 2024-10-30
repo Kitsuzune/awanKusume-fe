@@ -34,7 +34,7 @@ const page: React.FC = () => {
 
   const fetchData = async () => {
     try {
-      const response = await apiRequest('get', `/homepage/faqs/${language}`);
+      const response = await apiRequest('get', `/homepage/faqs/${language}?category=ALL`);
       setData(response.data.data);
     } catch (error) {
       message.error('Server Unreachable, Please Check Your Internet Connection');
