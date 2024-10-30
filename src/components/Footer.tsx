@@ -18,7 +18,7 @@ const Footer = () => {
               <div className="flex flex-col items-start justify-start xl:items-center xl:justify-center">
                 <img src="/image/footer-logo.png" alt="Logo" className="mb-4" />
                 <button 
-                  className="bg-white text-black py-2 px-4 rounded-full font-semibold"
+                  className="bg-white text-black py-2 px-4 rounded-full font-semibold hover:bg-gray-300 transition-all duration-300"
                   onClick={() => window.open('https://wa.me/628158968885?text=Hello%2C%20I%20have%20a%20question%20about%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
                 >
                   {t("footer.ButtonButuhBantuan")}
