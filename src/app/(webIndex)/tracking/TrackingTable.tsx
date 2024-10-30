@@ -5,18 +5,18 @@ import { CustomPagination } from "@/components/ui/Table/CustomPagination";
 const { Text } = Typography;
 const { Option } = Select;
 
-const TrackingTable = () => {
+const TrackingTable = ({ data, pagination, order, search, setSearch, setPagination, setSearchUnique, fetchData }: { data: any, pagination: any, order: any, search: any, setSearch: any, setPagination: any, setSearchUnique: any, fetchData: any }) => {
 
     const columns = [
-        {
-            title: 'no',
-            dataIndex: 'number',
-            key: 'number',
-        },
+        // {
+        //     title: 'no',
+        //     dataIndex: 'number',
+        //     key: 'number',
+        // },
         {
             title: 'nama',
-            dataIndex: 'nama',
-            key: 'nama',
+            dataIndex: 'fullName',
+            key: 'fullName',
         },
         {
             title: 'Serial-Code',
@@ -38,90 +38,11 @@ const TrackingTable = () => {
             dataIndex: 'status',
             key: 'status',
         },
-    ];
-
-    const dataSource = [
         {
-            key: '1',
-            number: 1,
-            nama: 'John Brown',
-            serialCode: '0001',
-            badanUsaha: 'PT. Abc',
-            jenisLegalitas: 'CV',
-            status: 'Active',
-        },
-        {
-            key: '2',
-            number: 2,
-            nama: 'Jim Green',
-            serialCode: '0002',
-            badanUsaha: 'PT. Def',
-            jenisLegalitas: 'PT',
-            status: 'Inactive',
-        },
-        {
-            key: '3',
-            number: 3,
-            nama: 'Joe Black',
-            serialCode: '0003',
-            badanUsaha: 'PT. Ghi',
-            jenisLegalitas: 'CV',
-            status: 'Active',
-        },
-        {
-            key: '4',
-            number: 4,
-            nama: 'Jim Red',
-            serialCode: '0004',
-            badanUsaha: 'PT. Jkl',
-            jenisLegalitas: 'PT',
-            status: 'Inactive',
-        },
-        {
-            key: '5',
-            number: 5,
-            nama: 'John Brown',
-            serialCode: '0005',
-            badanUsaha: 'PT. Mno',
-            jenisLegalitas: 'CV',
-            status: 'Active',
-        },
-        {
-            key: '6',
-            number: 6,
-            nama: 'Jim Green',
-            serialCode: '0006',
-            badanUsaha: 'PT. Pqr',
-            jenisLegalitas: 'PT',
-            status: 'Inactive',
-        },
-        {
-            key: '7',
-            number: 7,
-            nama: 'Joe Black',
-            serialCode: '0007',
-            badanUsaha: 'PT. Stu',
-            jenisLegalitas: 'CV',
-            status: 'Active',
-        },
-        {
-            key: '8',
-            number: 8,
-            nama: 'Jim Red',
-            serialCode: '0008',
-            badanUsaha: 'PT. Vwx',
-            jenisLegalitas: 'PT',
-            status: 'Inactive',
-        },
-        {
-            key: '9',
-            number: 9,
-            nama: 'John Brown',
-            serialCode: '0009',
-            badanUsaha: 'PT. Yz',
-            jenisLegalitas: 'CV',
-            status: 'Active',
-        },
+            title: 'Payment Status',
+            dataIndex: 'paymentStatus',
+            key: 'paymentStatus',
+        }
     ];
 
     return (
@@ -142,22 +63,42 @@ const TrackingTable = () => {
                                             </Select>
                                         </Col>
                                         <Col>
-                                            <Input.Search placeholder="Search..." />
+                                            <Input.Search placeholder="Search..."
+                                                onSearch={(value) => {
+                                                    setSearch(value);
+                                                    setPagination({
+                                                        ...pagination,
+                                                        page: 1,
+                                                    });
+                                                    setSearchUnique(false);
+                                                }}
+                                            />
+                                            <button className="bg-orange text-white px-4 py-2 rounded-md w-[200px]" onClick={() => { fetchData(); setSearchUnique(false) }}>Refresh</button>
                                         </Col>
                                     </Row>
 
                                     <Table
-                                        dataSource={dataSource}
+                                        dataSource={data}
                                         columns={columns}
                                         pagination={{ pageSize: 10, position: ['bottomCenter'], showSizeChanger: true, style: { display: "none" } }}
                                         bordered
                                         scroll={{ x: 768 }}
                                     />
                                     <CustomPagination
-                                        data={dataSource}
-                                        pagination={{ page: 1, perPage: 10, totalData: 1 }}
-                                        changeLimit={() => { }}
-                                        changePage={() => { }}
+                                        data={data}
+                                        pagination={pagination}
+                                        changeLimit={(perPage) => {
+                                            setPagination({
+                                                ...pagination,
+                                                perPage,
+                                            });
+                                        }}
+                                        changePage={(page) => {
+                                            setPagination({
+                                                ...pagination,
+                                                page,
+                                            });
+                                        }}
                                     />
                                 </div>
 
