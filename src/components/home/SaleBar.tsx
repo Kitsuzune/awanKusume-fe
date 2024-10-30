@@ -13,6 +13,7 @@ const SaleBar = () => {
     const [data, setData] = useState({
         link: '',
         name: '',
+        image: ''
     });
     const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -68,16 +69,15 @@ const SaleBar = () => {
                 <Row className="w-full h-full">
                     <Col span={24}>
 
-                        <div className="flex justify-center items-center text-[24px] md:text-[32px]">
+                        <div className="flex justify-center items-center text-[24px] md:text-[28px] pb-5">
                             {data.name}
                         </div>
 
-                        <iframe
-                            src={`${data.link}/embed`}
-                            width="100%"
-                            height="480"
-                            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-                            style={{ border: "none", overflow: "hidden" }}
+                        <img 
+                            src={data.image} 
+                            alt="Promotion" 
+                            className="w-[600px] h-[600px] object-cover cursor-pointer hover:backdrop-filter hover:opacity-90 transition-all duration-300"
+                            onClick={() => window.open(data.link, '_blank')}
                         />
 
                     </Col>

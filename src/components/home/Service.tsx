@@ -21,9 +21,10 @@ interface ServiceData {
 
 interface ServiceProps {
     showHeader?: boolean;
+    type?: "PT" | "CV" | "ALL"; 
 }
 
-const Service: React.FC<ServiceProps> = ({ showHeader = true }) => {
+const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "ALL" }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [services, setServices] = useState<ServiceData[]>([]);
@@ -39,7 +40,11 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true }) => {
 
     const fetchData = async () => {
         try {
-            const response = await apiRequest('get', `/homepage/services/${language}`);
+            const statusQuery = type !== "ALL" ? `?status=${type}` : "";
+            const response = await apiRequest(
+                'get',
+                `/homepage/services/${language}${statusQuery}`
+            );
             setServices(response.data.data);
         } catch (error) {
             message.error('Server Unreachable, Please Check Your Internet Connection');
@@ -56,7 +61,7 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true }) => {
 
     useEffect(() => {
         fetchData();
-    }, [language]);
+    }, [language, type]);  // Include type as a dependency
 
     return (
         <div className="flex items-center">
