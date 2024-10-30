@@ -65,7 +65,7 @@ const page = () => {
             <Col span={24}>
                 <Row className="w-full mx-auto">
                     <Col span={24} className="mt-10 md:mt-[124px]">
-                        <div className="flex flex-col items-center justify-center z-10">
+                        <div className="flex flex-col items-center justify-center z-10" id="kenapa-awan-kusuma">
                             <div className="flex justify-center">
                                 <Text className="text-center text-[40px] font-semibold inline-block">
                                     Kenapa Awan Kusuma?
@@ -184,7 +184,7 @@ const page = () => {
 
                 <Row className="w-full mx-auto">
                     <Col span={24} className="mt-10 md:mt-[124px]">
-                        <div className="flex flex-col items-center justify-center z-10">
+                        <div className="flex flex-col items-center justify-center z-10" id="visi-misi">
                             <div className="flex justify-center">
                                 <Text className="text-center text-[40px] font-semibold inline-block">
                                     Visi & Misi

@@ -5,6 +5,7 @@ import { ArrowRightOutlined } from "@ant-design/icons";
 import ImageCarousel from "./imageCarousell";
 import useLanguage from "@/zustand/useLanguage";
 import { useTranslationCustom } from "@/i18n/client";
+import { useRouter } from "next/navigation";
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -12,6 +13,16 @@ const { Panel } = Collapse;
 const page = () => {
     const { lng } = useLanguage();
     const { t } = useTranslationCustom(lng, "HomePage");
+    const router = useRouter();
+
+    const handleKenapaAwanKusumaClick = () => {
+        router.push("/about-us/detail#kenapa-awan-kusuma");
+    };
+
+    const handleVisiMisiClick = () => {
+        router.push("/about-us/detail#visi-misi");
+    };
+
     return (
         <Row className="w-full p-5">
             <Col span={24}>
@@ -31,7 +42,7 @@ const page = () => {
                         <Text className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
                             {t("aboutus.SubTitle-1")}
                         </Text>
-                        <div className="flex items-center gap-3 mt-4 w-auto">
+                        <div className="flex items-center gap-3 mt-4 w-auto hover:cursor-pointer hover:bg-gray-200 rounded-md p-3 transition-all duration-300" onClick={handleKenapaAwanKusumaClick}>
                             <Text className="text-[14px] md:text-[18px] font-bold">View More</Text>
                             <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                                 <ArrowRightOutlined className="text-[14px] md:text-[18px] text-[#007893]" />
@@ -56,7 +67,7 @@ const page = () => {
                         <Text className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
                             {t("aboutus.SubTitle-2")}
                         </Text>
-                        <div className="flex items-center gap-3 mt-4 w-auto">
+                        <div className="flex items-center gap-3 mt-4 w-auto hover:cursor-pointer hover:bg-gray-200 rounded-md p-3 transition-all duration-300" onClick={handleVisiMisiClick}>
                             <Text className="text-[14px] md:text-[18px] font-bold">View More</Text>
                             <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
                                 <ArrowRightOutlined className="text-[14px] md:text-[18px] text-[#007893]" />

@@ -5,8 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Col, Row, Typography, message } from "antd";
 import quote from "@/../public/image/quote.svg";
-import { apiRequest } from "@/utils/api"; // Assuming you have an apiRequest utility
-import dynamic from "next/dynamic";
+import { apiRequest } from "@/utils/api";
 import useLanguage from "@/zustand/useLanguage";
 import { useTranslationCustom } from "@/i18n/client";
 
@@ -25,7 +24,6 @@ interface Testimonial {
     name: string;
     hastag: string;
 }
-
 
 const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, BottomText = true }) => {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -53,6 +51,8 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
     useEffect(() => {
         fetchTestimonials();
     }, [language]);
+
+    const repeatedTestimonials = Array.from({ length: 10 }, (_, i) => testimonials[i % testimonials.length]);
 
     const settings = {
         loop: true,
@@ -99,34 +99,50 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
 
                 <div className="mt-4">
                     <Slider {...settings}>
-                        {testimonials.map((testimonial, index) => (
-                            <>
-                                <div key={testimonial?.id} className={`px-2 md:px-4 py-10 md:py-20 transform transition-transform duration-300 ease-in-out ${index === activeSlide ? 'scale-105 md:scale-110' : 'scale-95 md:scale-90 opacity-70 md:opacity-50'}`}>
-                                    <div className="shadow-effect bg-white p-3 md:p-5 pt-[50px] md:pt-[70px] rounded-[20px] md:rounded-[35px] text-center">
-                                        <img src={quote.src} alt="quote" className="absolute top-8 md:top-11 right-8 md:right-10 w-[60px] md:w-[78px]" />
-                                        <p className="text-sm md:text-lg text-start font-light px-3 md:px-5 text-gray-700 mb-4 md:mb-6">{testimonial.description}</p>
-                                        <img
-                                            className="img-circle mx-auto mt-3 md:mt-5 mb-3 md:mb-4 rounded-full w-[70px] md:w-[90px] object-cover h-[70px] md:h-[90px]"
-                                            src={testimonial?.image}
-                                            alt={testimonial?.name}
-                                        />
-                                    </div>
+                        {repeatedTestimonials.map((testimonial, index) => (
+                            <div
+                                key={`${testimonial?.id}-${index}`}
+                                className={`px-2 md:px-4 py-10 md:py-10 transform transition-transform duration-300 ease-in-out ${index === activeSlide ? 'scale-105 md:scale-110' : 'scale-95 md:scale-90 opacity-70 md:opacity-50'}`}
+                            >
+                                <div className="shadow-effect bg-white p-3 md:p-5 pt-[50px] md:pt-[70px] rounded-[20px] md:rounded-[35px] text-center">
+                                    <img
+                                        src={quote.src}
+                                        alt="quote"
+                                        className="absolute top-8 md:top-11 right-8 md:right-10 w-[60px] md:w-[78px]"
+                                    />
+                                    <p className="text-sm md:text-lg text-start font-light px-3 md:px-5 text-gray-700 mb-4 md:mb-6">
+                                        {testimonial?.description}
+                                    </p>
+                                    <img
+                                        className="img-circle mx-auto mt-3 md:mt-5 mb-3 md:mb-4 rounded-full w-[70px] md:w-[90px] object-cover h-[70px] md:h-[90px]"
+                                        src={testimonial?.image}
+                                        alt={testimonial?.name}
+                                    />
+                                    <p className="text-sm md:text-lg font-semibold text-gray-700">
+                                        #{testimonial?.hastag}
+                                    </p>
                                 </div>
-                                {BottomText && (
-                                    <div className="text-center flex flex-col mb-4 md:mb-5">
-                                        <Text className="text-[24px] md:text-[40px] font-[500]">#{testimonial?.hastag}</Text>
-                                    </div>
-                                )}
-                            </>
+                            </div>
                         ))}
                     </Slider>
                 </div>
 
-                {/* {BottomText && (
-                    <div className="text-center flex flex-col mb-4 md:mb-5">
-                        <Text className="text-[24px] md:text-[40px] font-[500]">{testimonial?.hastag}</Text>
+                {BottomText && (
+                    <div className="text-center flex flex-col relative h-[60px] md:h-[80px]">
+                        {repeatedTestimonials.map((testimonial, index) => (
+                            <Text
+                                key={`bottom-${testimonial?.id}-${index}`}
+                                className={`absolute w-full text-[24px] md:text-[40px] font-[500] transition-all duration-700 ease-in-out transform ${index === activeSlide
+                                        ? 'opacity-100 translate-y-0 scale-100'
+                                        : 'opacity-0 -translate-y-4 scale-95'
+                                    }`}
+                            >
+                                {testimonial?.name}
+                            </Text>
+                        ))}
                     </div>
-                )} */}
+                )}
+
             </Col>
         </Row>
     );

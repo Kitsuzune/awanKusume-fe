@@ -162,8 +162,11 @@ const Navbar = () => {
             <Button className="bg-[#FEA500] text-white font-bold px-[43px] py-[25px] text-[16px] rounded-[35px]">
               <Link href="/auth/login">LOGIN</Link>
             </Button>
-            <Button className="bg-[#FEA500] text-white font-bold px-[43px] py-[25px] text-[16px] rounded-[35px]">
-              <Link href="/hubungi-kami">{t("navbar.ButtonHubungiKami")}</Link>
+            <Button 
+              className="bg-[#FEA500] text-white font-bold px-[43px] py-[25px] text-[16px] rounded-[35px]"
+              onClick={() => window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
+            >
+              {t("navbar.ButtonHubungiKami")}
             </Button>
           </Col>
           {/* Mobile Menu Button */}
@@ -190,7 +193,15 @@ const Navbar = () => {
           <Link href="/blogPost" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
           <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
           <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
-          <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg" onClick={() => setIsMobileMenuOpen(false)}>HUBUNGI KAMI</Button>
+          <Button 
+            className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg" 
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank');
+            }}
+          >
+            HUBUNGI KAMI
+          </Button>
           <Select
             value={language}
             onChange={handleLanguageChange}
