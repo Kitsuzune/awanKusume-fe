@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ImageCarousel = () => {
+const ImageCarouselDetail2 = () => {
   const settings = {
     dots: false,
     infinite: true,
@@ -32,9 +32,9 @@ const ImageCarousel = () => {
   };
 
   const images = [
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Dubai_Marina_Skyline.jpg/1200px-Dubai_Marina_Skyline.jpg",
-    "https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://edunitas.com/file/UniversitasMercuBuanaKuliahRegulerSoredanMalam.jpg",
+    "https://images.pexels.com/photos/3184431/pexels-photo-3184431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "https://images.pexels.com/photos/4268520/pexels-photo-4268520.jpeg",
+    "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   ];
 
   return (
@@ -54,4 +54,4 @@ const ImageCarousel = () => {
   );
 };
 
-export default ImageCarousel;
+export default ImageCarouselDetail2;

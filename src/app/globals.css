@@ -10,6 +10,14 @@
   /* border: 1px solid red; */
 }
 
+.aboutSlider .slick-next::before {
+  content: none;
+}
+
+.aboutSlider .slick-prev::before {
+  content: none;
+}
+
 .testimonial-slider .slick-slide {
   transition: transform 0.3s ease-in-out;
 }

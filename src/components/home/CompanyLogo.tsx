@@ -42,7 +42,7 @@ const CompanyLogo = () => {
             <Col span={24}>
                 <div className="text-center flex flex-wrap justify-center items-center gap-10 md:gap-20 pb-5">
                     {partners.map(partner => (
-                        <a key={partner.id} href={`http://${partner.link}`} target="_blank" rel="noopener noreferrer">
+                        <a key={partner.id} href={`${partner.link}`} target="_blank" rel="noopener noreferrer">
                             <img src={partner.image} alt={partner.title} className="h-[80px] w-[80px]" />
                         </a>
                     ))}

@@ -24,7 +24,7 @@ const page = () => {
 
                     <Col span={24} md={12} className="flex flex-col items-center md:items-start">
                         <img
-                            src="https://www.themillsbuilding.com/userfiles/cms/building/images/1/building.jpg"
+                            src="https://images.pexels.com/photos/303159/pexels-photo-303159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="About Us"
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
@@ -49,7 +49,7 @@ const page = () => {
 
                     <Col span={24} md={12} className="flex flex-col items-center md:items-start">
                         <img
-                            src="https://www.themillsbuilding.com/userfiles/cms/building/images/1/building.jpg"
+                            src="https://images.pexels.com/photos/3394141/pexels-photo-3394141.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="About Us"
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
@@ -109,7 +109,7 @@ const page = () => {
 
                     <Col span={24} md={12} className="flex flex-col items-center md:items-start mt-5 md:mt-0">
                         <img
-                            src="https://www.themillsbuilding.com/userfiles/cms/building/images/1/building.jpg"
+                            src="https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="About Us"
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
