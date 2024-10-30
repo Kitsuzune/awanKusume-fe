@@ -7,12 +7,15 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Flag from 'react-world-flags';
 import Cookies from 'js-cookie';
+import { FaSignOutAlt } from 'react-icons/fa';
+import { apiRequest } from '@/utils/api';
 
 const { Text } = Typography;
 const { Option } = Select;
 
 interface UserData {
   firstName: string;
+  role: string;
 }
 
 
@@ -51,6 +54,18 @@ const Navbar = () => {
     if (typeof window !== 'undefined') {
       localStorage.setItem('language', value.toString());
       window.location.reload();
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const response = await apiRequest('post', '/auth/logout', {}, {})
+      if (response?.status === 200) {
+        Cookies.remove('user-data');
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -95,6 +110,35 @@ const Navbar = () => {
       )
     }
   ];
+
+  const userMenu = (
+    <Menu className="p-5 bg-white shadow-md w-64">
+      <div className="flex items-center space-x-3 mx-2 px-2 py-2 border-2 rounded-2xl">
+        <img
+          src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
+          alt="Profile"
+          className="w-10 h-10 rounded-full"
+        />
+        <div>
+          <Text strong>{userData?.firstName}</Text>
+          <Text className="block text-gray-500 text-sm">{userData?.role}</Text>
+        </div>
+      </div>
+      <Menu.Divider />
+      <Menu.Item key="logout" onClick={handleLogout} className="flex items-center">
+        <div className='px-2 mx-2 flex items-center'>
+          <FaSignOutAlt className="mr-2 text-red-600" />
+          {/* Logout */}
+          <Text
+            className='text-red-600'
+            onClick={handleLogout}
+          >
+            Logout
+          </Text>
+        </div>
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <div className={`relative`}>
@@ -174,9 +218,15 @@ const Navbar = () => {
             </Select>
             {userData ? (
               <>
-                <div className='border-2 font-bold px-[41px] py-[10px] text-[16px] rounded-[35px] flex items-center justify-center'>
-                  <span>{userData.firstName}</span>
-                </div>
+                <Dropdown overlay={userMenu} trigger={['click']} placement="bottomRight">
+                  <div
+                    className="border-2 font-bold px-10 py-2 text-lg rounded-full flex items-center justify-center cursor-pointer"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    <span>{userData.firstName}</span>
+                    <DownOutlined className="ml-2" />
+                  </div>
+                </Dropdown>
                 <div
                   className='text-white border-2 font-semibold px-[41px] py-[10px] text-[16px] rounded-[35px] flex items-center justify-center bg-main hover:bg-blue-400 cursor-pointer transition-all duration-300 hover:text-black hover:border-black'
                   onClick={() => window.open(`${process.env.NEXT_PUBLIC_CMS_URL}/web/login`, '_blank')}
@@ -221,16 +271,6 @@ const Navbar = () => {
           <Link href="/tracking" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
           <Link href="/blogPost" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
           <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
-          {/* <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
-          <Button
-            className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank');
-            }}
-          >
-            HUBUNGI KAMI
-          </Button> */}
           {userData ? (
             <>
               <div className='border-2 font-bold w-full py-[15px] mt-[20px] rounded-lg flex items-center justify-center'>
