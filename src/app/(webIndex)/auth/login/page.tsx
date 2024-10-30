@@ -38,7 +38,8 @@ const Login = () => {
       const countdown = setTimeout(() => setTimer(timer - 1), 1000);
       return () => clearTimeout(countdown); 
     } else if (isLoginSuccessful && timer === 0) {
-      router.push('/');
+      // router.push('/');
+      window.location.href = '/';
     }
   }, [isLoginSuccessful, timer, router]);
 
@@ -126,16 +127,15 @@ const Login = () => {
                             </Text>
 
                             <div className="mt-4">
-                              <Link href="/">
                                 <Button
                                   type="primary"
                                   size="large"
                                   block
                                   className="bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full"
+                                  onClick={() => window.location.href = '/'}
                                 >
                                   Continue
                                 </Button>
-                              </Link>
                             </div>
                           </div>
                         </ModalContent>

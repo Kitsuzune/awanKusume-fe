@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 // const colors = require("tailwindcss/colors");
-import colors from "tailwindcss/colors";
+import colors, { blue } from "tailwindcss/colors";
 
 const config = {
   darkMode: ["class"],
@@ -22,6 +22,7 @@ const config = {
       slate: colors.slate,
       indigo: colors.indigo,
       red: colors.red,
+      blue: colors.blue,
       orange: "#FFA500",
     },
     screens: {

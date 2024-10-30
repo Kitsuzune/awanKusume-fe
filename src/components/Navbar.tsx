@@ -2,17 +2,25 @@
 import { useTranslationCustom } from '@/i18n/client';
 import useLanguage from '@/zustand/useLanguage';
 import { RightOutlined, MenuOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
-import { Button, Col, Row, Select, Dropdown, Menu, MenuProps } from 'antd';
+import { Button, Col, Row, Select, Dropdown, Menu, MenuProps, Typography } from 'antd';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Flag from 'react-world-flags';
+import Cookies from 'js-cookie';
 
+const { Text } = Typography;
 const { Option } = Select;
+
+interface UserData {
+  firstName: string;
+}
+
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [language, setLanguage] = useState<number>(1); // Default language
+  const [language, setLanguage] = useState<number>(1);
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -20,8 +28,13 @@ const Navbar = () => {
       if (storedLanguage) {
         setLanguage(parseInt(storedLanguage));
       }
+      const userCookie = Cookies.get('user-data');
+      if (userCookie) {
+        setUserData(JSON.parse(userCookie));
+      }
     }
-  }, []);
+  }, [Cookies.get('user-data'), localStorage.getItem('language')]);
+
   const { lng } = useLanguage();
   const { t } = useTranslationCustom(lng, "HomePage");
 
@@ -95,32 +108,32 @@ const Navbar = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)} />
       )}
 
-      <nav className="navbar bg-white py-[21px] px-[49px] shadow-lg z-20 relative">
+      <nav className="navbar bg-white py-[15px] px-[49px] shadow-lg z-20 relative">
         <Row className='flex justify-between'>
           <Col>
             <img
               src="/image/navbar-logo.png"
               alt="navbar-logo"
-              className="w-[65px] h-[49px] cursor-pointer sm:w-[100px] sm:h-[75px] md:w-[130px] md:h-[98px]"
+              className="w-[65px] h-[49px] cursor-pointer sm:w-[100px] sm:h-[75px] md:w-[90px] md:h-[70px]"
               onClick={() => window.location.href = '/'}
             />
           </Col>
           <Col className="hidden 3xl:flex items-center justify-center">
             <div className="flex gap-[23px] font-bold">
-              <Link href="/about-us" className="text-[24px] text-black hover:text-orange">{t("navbar.TentangKami")}</Link>
-              <Link href="/layanan" className="text-[24px] text-black hover:text-orange">{t("navbar.Layanan")}</Link>
+              <Link href="/about-us" className="text-[20px] text-black hover:text-orange">{t("navbar.TentangKami")}</Link>
+              <Link href="/layanan" className="text-[20px] text-black hover:text-orange">{t("navbar.Layanan")}</Link>
               <Dropdown
                 menu={{ items }}
                 onVisibleChange={handleDropdownVisibleChange}
               >
                 <div className='hover:text-orange'>
-                  <span className='text-[24px] cursor-pointer transition-all duration-300'>{t("navbar.Informasi")}</span>
-                  <DownOutlined className='text-[24px] ml-2 transition-all duration-300' />
+                  <span className='text-[20px] cursor-pointer transition-all duration-300'>{t("navbar.Informasi")}</span>
+                  <DownOutlined className='text-[20px] ml-2 transition-all duration-300' />
                 </div>
               </Dropdown>
-              <Link href="/tracking" className="text-[24px] text-black hover:text-orange">{t("navbar.Tracking")}</Link>
-              <Link href="/blogPost" className="text-[24px] text-black hover:text-orange">{t("navbar.InfoBisnis")}</Link>
-              <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[24px] text-black hover:text-orange">{t("navbar.Promo")}</Link>
+              <Link href="/tracking" className="text-[20px] text-black hover:text-orange">{t("navbar.Tracking")}</Link>
+              <Link href="/blogPost" className="text-[20px] text-black hover:text-orange">{t("navbar.InfoBisnis")}</Link>
+              <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[20px] text-black hover:text-orange">{t("navbar.Promo")}</Link>
             </div>
           </Col>
           <Col className="hidden 3xl:flex items-center justify-end gap-[11px]">
@@ -159,19 +172,35 @@ const Navbar = () => {
                 CN
               </Option>
             </Select>
-            <Button className="bg-[#FEA500] text-white font-bold px-[43px] py-[25px] text-[16px] rounded-[35px]">
-              <Link href="/auth/login">LOGIN</Link>
-            </Button>
-            <Button 
-              className="bg-[#FEA500] text-white font-bold px-[43px] py-[25px] text-[16px] rounded-[35px]"
-              onClick={() => window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
-            >
-              {t("navbar.ButtonHubungiKami")}
-            </Button>
+            {userData ? (
+              <>
+                <div className='border-2 font-bold px-[41px] py-[10px] text-[16px] rounded-[35px] flex items-center justify-center'>
+                  <span>{userData.firstName}</span>
+                </div>
+                <div
+                  className='text-white border-2 font-semibold px-[41px] py-[10px] text-[16px] rounded-[35px] flex items-center justify-center bg-main hover:bg-blue-400 cursor-pointer transition-all duration-300 hover:text-black hover:border-black'
+                  onClick={() => window.open(`${process.env.NEXT_PUBLIC_CMS_URL}/web/login`, '_blank')}
+                >
+                  <span>Panel Dashboard</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <Button className="bg-[#FEA500] text-white font-bold px-[41px] py-[23px] text-[16px] rounded-[35px]">
+                  <Link href="/auth/login">LOGIN</Link>
+                </Button>
+                <Button
+                  className="bg-[#FEA500] text-white font-bold px-[41px] py-[23px] text-[16px] rounded-[35px]"
+                  onClick={() => window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
+                >
+                  {t("navbar.ButtonHubungiKami")}
+                </Button>
+              </>
+            )}
           </Col>
           {/* Mobile Menu Button */}
           <Col className="flex 3xl:hidden items-center justify-end">
-            <Button className="text-[24px]" onClick={handleMobileMenuClick}>
+            <Button className="text-[20px]" onClick={handleMobileMenuClick}>
               {isMobileMenuOpen ? <CloseOutlined /> : <MenuOutlined />}
             </Button>
           </Col>
@@ -181,27 +210,54 @@ const Navbar = () => {
       {/* Mobile Offcanvas Menu */}
       <div className={`fixed top-0 right-0 h-full bg-white z-30 shadow-lg transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300`}>
         <div className="flex flex-col p-[20px]">
-          <Link href="/about-us" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TENTANG KAMI</Link>
-          <Link href="/layanan" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>LAYANAN</Link>
+          <Link href="/about-us" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TENTANG KAMI</Link>
+          <Link href="/layanan" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>LAYANAN</Link>
           <Dropdown menu={{ items }} onVisibleChange={handleDropdownVisibleChange}>
             <div className='hover:text-orange hover:bg-gray-100 py-[10px] rounded-lg'>
-              <span className='text-[14px] md:text-[24px] cursor-pointer px-5 py-[10px] text-start'>INFORMASI</span>
-              <DownOutlined className='text-[14px] md:text-[24px] ml-2' />
+              <span className='text-[14px] md:text-[20px] cursor-pointer px-5 py-[10px] text-start'>INFORMASI</span>
+              <DownOutlined className='text-[14px] md:text-[20px] ml-2' />
             </div>
           </Dropdown>
-          <Link href="/tracking" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
-          <Link href="/blogPost" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
-          <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[24px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
-          <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
-          <Button 
-            className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg" 
+          <Link href="/tracking" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>TRACKING</Link>
+          <Link href="/blogPost" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>INFO BISNIS</Link>
+          <Link href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>PROMO</Link>
+          {/* <Button className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
+          <Button
+            className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg"
             onClick={() => {
               setIsMobileMenuOpen(false);
               window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank');
             }}
           >
             HUBUNGI KAMI
-          </Button>
+          </Button> */}
+          {userData ? (
+            <>
+              <div className='border-2 font-bold w-full py-[15px] mt-[20px] rounded-lg flex items-center justify-center'>
+                <span>{userData.firstName}</span>
+              </div>
+              <div
+                className='text-white border-2 font-semibold w-full py-[15px] mt-[20px] rounded-lg text-[16px] flex items-center justify-center bg-main hover:bg-blue-400 cursor-pointer transition-all duration-300 hover:text-black hover:border-black'
+                onClick={() => window.open(`${process.env.NEXT_PUBLIC_CMS_URL}/web/login`, '_blank')}
+              >
+                <span>Panel CMS</span>
+              </div>
+            </>
+          ) : (
+            <>
+              <Button className="bg-[#FEA500] text-white font-bold w-full py-[15px] mt-[20px] rounded-lg" onClick={() => window.location.href = '/auth/login'}>LOGIN</Button>
+              <Button
+                className="bg-[#FEA500] text-white text-[14px] font-bold w-full py-[15px] mt-[10px] rounded-lg"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank');
+                }}
+              >
+                {t("navbar.ButtonHubungiKami")}
+              </Button>
+            </>
+          )}
+
           <Select
             value={language}
             onChange={handleLanguageChange}
