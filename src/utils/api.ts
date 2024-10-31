@@ -19,7 +19,7 @@ export async function apiRequest(
 			method,
 			url,
 			headers: {}, // Ensure headers is always initialized
-			params, 
+			params,
 			responseType,
 		};
 
@@ -94,9 +94,14 @@ export async function apiRequest(
 
 					if (response.status === 200 || response.status === 201) {
 						return response;
-					} 
+					}
 				}
 			} catch (refreshError: any) {
+
+				if (window.location.pathname === '/tracking') {
+					message.error('not logged in');
+				}
+
 				if (window.location.pathname !== '/auth/login') {
 					window.location.href = '/auth/login';
 				} else {
