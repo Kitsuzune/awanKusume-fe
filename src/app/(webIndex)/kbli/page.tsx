@@ -26,13 +26,14 @@ interface FaqData {
 
 const page = () => {
   const [data, setData] = useState<FaqData[]>([]);
-  const [language, setLanguage] = useState<number>(() => {
-    if (typeof window !== 'undefined') {
-      const storedLanguage = localStorage.getItem('language');
-      return storedLanguage ? parseInt(storedLanguage) : 1;
+  const [language, setLanguage] = useState<number>(1);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedLanguage = localStorage.getItem("language");
+      setLanguage(storedLanguage ? parseInt(storedLanguage) : 1);
     }
-    return 1;
-  });
+  }, []);
 
   const fetchData = async () => {
     try {

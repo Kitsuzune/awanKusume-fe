@@ -36,7 +36,7 @@ const Navbar = () => {
         setUserData(JSON.parse(userCookie));
       }
     }
-  }, [Cookies.get('user-data'), localStorage.getItem('language')]);
+  }, []);
 
   const { lng } = useLanguage();
   const { t } = useTranslationCustom(lng, "HomePage");
