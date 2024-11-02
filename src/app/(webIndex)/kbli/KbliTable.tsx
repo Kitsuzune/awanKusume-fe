@@ -96,7 +96,7 @@ const KbliTable = () => {
   return (
     <Row className="w-full">
       <Col span={24}>
-        <div className="p-5 md:p-10 md:m-10 border-2 rounded-lg">
+        <div className="p-5 md:p-10 md:m-10 border-2 rounded-lg mx-3 md:mx-10">
           <Row>
             <Col span={24}>
               <div className="flex flex-col">
@@ -110,15 +110,15 @@ const KbliTable = () => {
 
                 <div className="flex justify-center mt-5">
                   <div className="w-full md:w-[58%]">
-                    <Text className="text-[14px] md:text-[16px] font-[400] text-justify">
+                    <Text className="text-[14px] md:text-[16px] font-[400] inline-block text-justify indent-8">
                       KBLI adalah klasifikasi rujukan yang digunakan untuk mengklasifikasikan aktivitas/kegiatan ekonomi Indonesia ke dalam beberapa lapangan usaha/bidang usaha yang dibedakan berdasarkan jenis kegiatan ekonomi yang menghasilkan produk/output baik berupa barang maupun jasa. Mohon diperhatikan bahwa dengan berlakunya OSS RBA maka pelaku usaha jasa pembuatan PT wajib menggunakan KBLI tahun 2020.
                     </Text>
                   </div>
                 </div>
 
-                <div className="mt-5 md:mt-10 mx-5 md:mx-10">
+                <div className="mt-5 md:mt-10 md:mx-10">
                   <Row justify="space-between" align="middle" className="mb-4">
-                    <Col>
+                    <Col sm={24} md={12}>
                       <span className="text-[15px] mr-3">Query For: </span>
                       <Select
                         defaultValue={pagination.perPage}
@@ -133,17 +133,30 @@ const KbliTable = () => {
                       </Select>
                       <span className="text-[15px] ml-3">Items Per Page</span>
                     </Col>
-                    <Col>
-                      <Input.Search
-                        placeholder="Search..."
-                        onSearch={(value) => {
-                          setSearch(value);
-                          setPagination({
-                            ...pagination,
-                            page: 1,
-                          });
-                        }}
-                      />
+                    <Col sm={24} md={12} className="w-full block md:hidden mt-5">
+                        <Input.Search
+                          placeholder="Search..."
+                          onSearch={(value) => {
+                            setSearch(value);
+                            setPagination({
+                              ...pagination,
+                              page: 1,
+                            });
+                          }}
+                        />
+                    </Col>
+
+                    <Col className="hidden md:block">
+                        <Input.Search
+                          placeholder="Search..."
+                          onSearch={(value) => {
+                            setSearch(value);
+                            setPagination({
+                              ...pagination,
+                              page: 1,
+                            });
+                          }}
+                        />
                     </Col>
                   </Row>
 

@@ -68,10 +68,10 @@ const page = () => {
     const [language, setLanguage] = useState<number>(1);
 
     useEffect(() => {
-      if (typeof window !== "undefined") {
-        const storedLanguage = localStorage.getItem("language");
-        setLanguage(storedLanguage ? parseInt(storedLanguage) : 1);
-      }
+        if (typeof window !== "undefined") {
+            const storedLanguage = localStorage.getItem("language");
+            setLanguage(storedLanguage ? parseInt(storedLanguage) : 1);
+        }
     }, []);
 
     const fetchData = async () => {
@@ -96,6 +96,20 @@ const page = () => {
         slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    arrows: false,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                },
+            },
+        ],
     };
 
     return (
@@ -105,20 +119,20 @@ const page = () => {
                     <Col span={24} className="mt-10 md:mt-[124px]">
                         <div className="flex flex-col items-center justify-center z-10" id="kenapa-awan-kusuma">
                             <div className="flex justify-center">
-                                <Text className="text-center text-[40px] font-semibold inline-block">
+                                <Text className="text-center text-[28px] md:text-[40px] font-semibold inline-block">
                                     Kenapa Awan Kusuma?
                                 </Text>
                             </div>
-                            <Slider {...settings} className="w-11/12 md:w-1/3 aboutSlider">
+                            <Slider {...settings} className="w-full md:w-1/3 aboutSlider mt-10">
                                 <div className="flex flex-col justify-center pb-10">
                                     <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[24px] mt-[20px]">
+                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
                                             Integritas
                                         </Text>
                                     </div>
 
                                     <div className="flex justify-center">
-                                        <Text className="text-center w-11/12 md:w-2/3 text-[18px] z-10 mt-[40px] font-medium">
+                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
                                             Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
                                         </Text>
                                     </div>
@@ -126,13 +140,13 @@ const page = () => {
 
                                 <div className="flex flex-col justify-center pb-10">
                                     <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[24px] mt-[20px]">
+                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
                                             Integritas
                                         </Text>
                                     </div>
 
                                     <div className="flex justify-center">
-                                        <Text className="text-center w-11/12 md:w-2/3 text-[18px] z-10 mt-[40px] font-medium">
+                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
                                             Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
                                         </Text>
                                     </div>
@@ -140,13 +154,13 @@ const page = () => {
 
                                 <div className="flex flex-col justify-center pb-10">
                                     <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[24px] mt-[20px]">
+                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
                                             Integritas
                                         </Text>
                                     </div>
 
                                     <div className="flex justify-center">
-                                        <Text className="text-center w-11/12 md:w-2/3 text-[18px] z-10 mt-[40px] font-medium">
+                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
                                             Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
                                         </Text>
                                     </div>
@@ -154,12 +168,18 @@ const page = () => {
 
                             </Slider>
                         </div>
-                        <div className="flex flex-col items-center justify-center">
+                        <div className="flex flex-col items-center justify-center md:hidden">
+                            <div className="absolute -z-40 bottom-[-110px]">
+                                <svg width="1300" height="330" viewBox="0 0 1300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="650" cy="700" r="700" fill="#E6F3F6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div className="hidden flex-col items-center justify-center md:flex">
                             <div className="absolute -z-40 bottom-[-110px]">
                                 <svg width="1300" height="300" viewBox="0 0 1300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="650" cy="650" r="650" fill="#E6F3F6" />
                                 </svg>
-
                             </div>
                         </div>
                     </Col>
@@ -172,7 +192,7 @@ const page = () => {
 
                 <Row className="w-full mx-auto my-[60px] md:my-[80px]">
                     <Col span={24} md={12} className="flex flex-col items-center md:items-start">
-                        <Text className="text-[32px] md:text-[40px] font-[700] text-center md:text-left md:ml-[250px]">
+                        <Text className="text-[28px] md:text-[40px] font-[700] text-center md:text-left md:ml-[250px]">
                             Culture
                         </Text>
                         <Collapse
@@ -183,7 +203,7 @@ const page = () => {
                             expandIcon={({ isActive }) => (
                                 <div
                                     className="text-[20px] md:text-[40px]"
-                                    style={{ fontWeight: 600, marginTop: 15, fontSize: '40px' }}
+                                    style={{ fontWeight: 600, marginTop: 15 }}
                                 >
                                     {isActive ? '-' : '+'}
                                 </div>
@@ -193,7 +213,7 @@ const page = () => {
                                 <Panel
                                     header={item.question}
                                     key={index + 1}
-                                    className="text-[20px] md:text-[30px] font-[600]"
+                                    className="text-[18px] md:text-[30px] font-[600]"
                                     style={{ borderBottom: '1px solid #1A2A3A' }}
                                 >
                                     <Text>{item.answer}</Text>
@@ -206,9 +226,9 @@ const page = () => {
                         <img
                             src="https://images.pexels.com/photos/48148/document-agreement-documents-sign-48148.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                             alt="About Us"
-                            className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
+                            className="w-[250px] h-[150px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
-                        <Text className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
+                        <Text className="text-[12px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </Text>
                     </Col>
@@ -218,20 +238,20 @@ const page = () => {
                     <Col span={24} className="mt-10 md:mt-[124px]">
                         <div className="flex flex-col items-center justify-center z-10" id="visi-misi">
                             <div className="flex justify-center">
-                                <Text className="text-center text-[40px] font-semibold inline-block">
+                                <Text className="text-center text-[28px] md:text-[40px] font-semibold inline-block">
                                     Visi & Misi
                                 </Text>
                             </div>
-                            <Slider {...settings} className="w-11/12 md:w-1/3 aboutSlider">
+                            <Slider {...settings} className="w-full md:w-1/3 aboutSlider">
                                 <div className="flex flex-col justify-center pb-10">
                                     <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[24px] mt-[20px]">
+                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
                                             Integritas
                                         </Text>
                                     </div>
 
                                     <div className="flex justify-center">
-                                        <Text className="text-center w-11/12 md:w-2/3 text-[18px] z-10 mt-[40px] font-medium">
+                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
                                             Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
                                         </Text>
                                     </div>
@@ -239,13 +259,13 @@ const page = () => {
 
                                 <div className="flex flex-col justify-center pb-10">
                                     <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[24px] mt-[20px]">
+                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
                                             Integritas
                                         </Text>
                                     </div>
 
                                     <div className="flex justify-center">
-                                        <Text className="text-center w-11/12 md:w-2/3 text-[18px] z-10 mt-[40px] font-medium">
+                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
                                             Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
                                         </Text>
                                     </div>
@@ -253,13 +273,13 @@ const page = () => {
 
                                 <div className="flex flex-col justify-center pb-10">
                                     <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[24px] mt-[20px]">
+                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
                                             Integritas
                                         </Text>
                                     </div>
 
                                     <div className="flex justify-center">
-                                        <Text className="text-center w-11/12 md:w-2/3 text-[18px] z-10 mt-[40px] font-medium">
+                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
                                             Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
                                         </Text>
                                     </div>

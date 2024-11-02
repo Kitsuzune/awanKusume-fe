@@ -38,6 +38,10 @@ const Navbar = () => {
     }
   }, []);
 
+  useEffect(() => {
+    console.log(userData);
+  },[userData]);
+
   const { lng } = useLanguage();
   const { t } = useTranslationCustom(lng, "HomePage");
 

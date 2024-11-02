@@ -99,7 +99,7 @@ export async function apiRequest(
 			} catch (refreshError: any) {
 
 				if (window.location.pathname === '/tracking') {
-					message.error('not logged in');
+					//
 				} else if (window.location.pathname !== '/auth/login') {
 					window.location.href = '/auth/login';
 				} else {

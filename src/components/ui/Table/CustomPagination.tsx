@@ -16,7 +16,7 @@ type Props = {
 export function CustomPagination(props: Props) {
   return (
     <Col span={24} className="flex items-center justify-between mt-3">
-      <div style={{ gap: 8, display: 'flex', alignItems: 'center' }}>
+      <div style={{ gap: 8, alignItems: 'center' }} className='hidden md:flex'>
         <Typography.Text className="text-3 text-gray">
           Showing{' '}
           {props.pagination.page === 1
