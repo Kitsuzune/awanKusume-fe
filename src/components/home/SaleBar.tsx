@@ -16,6 +16,7 @@ const SaleBar = () => {
         image: ''
     });
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [modalWidth, setModalWidth] = useState("100%");
 
     const fetchData = async () => {
         try {
@@ -37,6 +38,17 @@ const SaleBar = () => {
     useEffect(() => {
         fetchData();
         console.log(data.link + '/embed');
+
+        const updateModalWidth = () => {
+            setModalWidth(window.innerWidth <= 768 ? "80%" : "100%");
+        };
+
+        updateModalWidth();  // Set initial width
+        window.addEventListener("resize", updateModalWidth);
+
+        return () => {
+            window.removeEventListener("resize", updateModalWidth);
+        };
     }, []);
 
     return (
@@ -65,10 +77,10 @@ const SaleBar = () => {
                 visible={isModalVisible}
                 onCancel={handleCancel}
                 footer={null}
+                width={modalWidth}
             >
                 <Row className="w-full h-full">
                     <Col span={24}>
-
                         <div className="flex justify-center items-center text-[24px] md:text-[28px] pb-5">
                             {data.name}
                         </div>
@@ -76,10 +88,9 @@ const SaleBar = () => {
                         <img 
                             src={data.image} 
                             alt="Promotion" 
-                            className="w-[600px] h-[600px] object-cover cursor-pointer hover:backdrop-filter hover:opacity-90 transition-all duration-300"
+                            className="w-full md:w-[600px] h-auto md:h-[600px] object-contain cursor-pointer hover:backdrop-filter hover:opacity-90 transition-all duration-300"
                             onClick={() => window.open(data.link, '_blank')}
                         />
-
                     </Col>
                 </Row>
             </Modal>

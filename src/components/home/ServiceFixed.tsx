@@ -27,7 +27,11 @@ interface ServiceProps {
     redirectFromSpecificService?: boolean;
 }
 
-const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status = "ALL", redirectFromSpecificService = false }) => {
+const ServiceFixed: React.FC<ServiceProps> = ({ showHeader = true, type = "", status = "ALL", redirectFromSpecificService = false }) => {
+    const pendirianPerusahaan = 25;
+    const perizinanBisnis = 37;
+    const agensiMarketing = 40;
+    const perizinan = 55;
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [services, setServices] = useState<ServiceData[]>([]);
@@ -41,28 +45,15 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status 
         return 1;
     });
 
-    const excludedIds = ["25", "37", "40", "55"];
-
     const fetchData = async () => {
+        const serviceIds = [pendirianPerusahaan, perizinanBisnis, agensiMarketing, perizinan];
         try {
-            const statusQuery = status !== "ALL" ? `?status=${status}` : "";
-            // const typeQuery = type ? `&type=${type}` : "";
-            const typeQuery = status == "PT" || status == "CV" ? `&type=${type}` : `?type=${type}`;
-            const response = await apiRequest(
-                'get',
-                `/homepage/services/${language}${statusQuery}${typeQuery}`
+            const responses = await Promise.all(
+                serviceIds.map(id =>
+                    apiRequest('get', `/homepage/service/${id}`)
+                )
             );
-
-            console.log("Raw data:", response.data.data);
-
-            // Ensure service IDs are treated as strings for comparison
-            const filteredServices = response.data.data.filter((service: ServiceData) => 
-                !excludedIds.includes(service.id.toString())
-            );
-    
-            console.log("Filtered data:", filteredServices);
-    
-            setServices(filteredServices);
+            setServices(responses.map(response => response.data.data));
         } catch (error) {
             message.error('Server Unreachable, Please Check Your Internet Connection');
             console.log(error);
@@ -78,7 +69,7 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status 
 
     useEffect(() => {
         fetchData();
-    }, [language, status]);
+    }, [language]);
 
     return (
         <div className="flex items-center">
@@ -114,7 +105,17 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status 
                                 className="flex justify-center md:justify-start items-center"
                             >
                                 <Link 
-                                    href={redirectFromSpecificService === true ? service.type == 0 ? `/layanan/pendirian-perusahaan` : `/layanan/${service.id}` : `/layanan/${service.id}`}
+                                    // href={redirectFromSpecificService === true ? service.type == 0 ? `/layanan/pendirian-perusahaan` : `/layanan/${service.id}` : `/layanan/${service.id}`}
+                                    // ketika pendirianPerusahaan, redirect ke halaman pendirian perusahaan
+                                    // ketika perizinanBisnis, redirect ke halaman perizinan bisnis
+                                    // ketika agensiMarketing, redirect ke /layanan/${service.id}
+                                    // ketika perizinan, redirect ke /layanan/${service.id}
+                                    href={
+                                        Number(service.id) === pendirianPerusahaan ? `/layanan/pendirian-perusahaan` : 
+                                        Number(service.id) === perizinanBisnis ? `/layanan/perizinan-bisnis` : 
+                                        Number(service.id) === agensiMarketing ? `/layanan/${service.id}` : 
+                                        `/layanan/${service.id}`
+                                    }
                                     className="relative w-11/12 md:w-[650px] h-[200px] md:h-[444px] group cursor-none"
                                     onMouseEnter={() => setIsHovered(true)}
                                     onMouseLeave={() => setIsHovered(false)}
@@ -138,4 +139,4 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status 
     );
 };
 
-export default Service;
+export default ServiceFixed;

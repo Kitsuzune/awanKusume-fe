@@ -4,6 +4,7 @@ import CompanyLogo from "@/components/home/CompanyLogo";
 import OurClient from "@/components/home/OurClient";
 import SaleBar from "@/components/home/SaleBar";
 import Service from "@/components/home/Service";
+import ServiceFixed from "@/components/home/ServiceFixed";
 import VideoHero from "@/components/home/VideoHero";
 import Navbar from "@/components/Navbar";
 import { Col, Row } from "antd";
@@ -21,7 +22,7 @@ export default function Home() {
 
       <Row className="my-20">
         <Col span={24}>
-          <Service />
+          <ServiceFixed />
         </Col>
       </Row>
 

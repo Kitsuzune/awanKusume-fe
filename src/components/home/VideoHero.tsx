@@ -44,7 +44,7 @@ const VideoHero = () => {
                     <div className="absolute inset-0 bg-black opacity-70"></div> {/* Dark overlay */}
                     <div className="absolute inset-0 flex items-center pl-[16px] md:pl-[56px]">
                         <div className="text-white">
-                            <h1 className="text-[24px] md:text-[48px] font-[900] w-[90%] md:w-1/2">{data?.title}</h1>
+                            <h1 className="text-[24px] md:text-[48px] font-[900] w-[90%] md:w-[80%]">{data?.title}</h1>
                             {/* <h1 className="text-[24px] md:text-[48px] font-[900]">LEAVE EVERYTHING TO US</h1> */}
                             <button
                                 className="bg-[#FEA500] text-white font-bold px-[20px] py-[10px] md:px-[43px] md:py-[18px] text-[12px] md:text-[15px] rounded-[25px] md:rounded-[35px] mt-4 md:mt-10 hover:bg-[#8f802b] transition-all duration-500"
