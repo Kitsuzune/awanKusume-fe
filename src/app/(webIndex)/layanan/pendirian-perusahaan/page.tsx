@@ -64,7 +64,7 @@ const Page: React.FC = () => {
 
             <Row className="my-10">
                 <Col span={24}>
-                    <Service showHeader={false} status="PT" />
+                    <Service showHeader={false} status="PT" type="0" />
                 </Col>
             </Row>
 
@@ -87,7 +87,7 @@ const Page: React.FC = () => {
 
             <Row className="my-10">
                 <Col span={24}>
-                    <Service showHeader={false} status="CV" />
+                    <Service showHeader={false} status="CV" type="0" />
                 </Col>
             </Row>
 
