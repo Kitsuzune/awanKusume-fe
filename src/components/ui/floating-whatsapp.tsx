@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslationCustom } from '@/i18n/client';
+import { useTranslationCustom } from '../../../public/i18n/client';
 import useLanguage from '@/zustand/useLanguage';
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 

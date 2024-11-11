@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Col, message, Row, Typography } from "antd";
 import { apiRequest } from "@/utils/api";
 import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "@/i18n/client";
+import { useTranslationCustom } from "../../../public/i18n/client";
 
 const { Text } = Typography;
 

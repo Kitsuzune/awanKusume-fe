@@ -1,5 +1,5 @@
 'use client';
-import { useTranslationCustom } from "@/i18n/client";
+import { useTranslationCustom } from "../../../public/i18n/client";
 import { apiRequest } from "@/utils/api";
 import useLanguage from "@/zustand/useLanguage";
 import { Col, Row, Typography } from "antd";

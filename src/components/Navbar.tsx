@@ -1,5 +1,5 @@
 'use client';
-import { useTranslationCustom } from '@/i18n/client';
+import { useTranslationCustom } from '../../public/i18n/client';
 import useLanguage from '@/zustand/useLanguage';
 import { RightOutlined, MenuOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Select, Dropdown, Menu, MenuProps, Typography } from 'antd';

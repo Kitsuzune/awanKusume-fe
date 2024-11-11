@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Col, message, Row, Typography } from "antd";
 import AnimatedCursor from "react-animated-cursor";
 import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "@/i18n/client";
+import { useTranslationCustom } from "../../../public/i18n/client";
 import { apiRequest } from "@/utils/api";
 import Link from "next/link";
 

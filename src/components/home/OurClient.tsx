@@ -7,7 +7,7 @@ import { Col, Row, Typography, message } from "antd";
 import quote from "@/../public/image/quote.svg";
 import { apiRequest } from "@/utils/api";
 import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "@/i18n/client";
+import { useTranslationCustom } from "../../../public/i18n/client";
 
 const { Text } = Typography;
 

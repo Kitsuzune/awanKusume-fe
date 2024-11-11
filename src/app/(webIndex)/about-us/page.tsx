@@ -4,7 +4,7 @@ import { Col, Collapse, message, Row, Typography } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import ImageCarousel from "./imageCarousell";
 import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "@/i18n/client";
+import { useTranslationCustom } from "../../../../public/i18n/client";
 import { useRouter } from "next/navigation";
 import { apiRequest } from "@/utils/api";
 
