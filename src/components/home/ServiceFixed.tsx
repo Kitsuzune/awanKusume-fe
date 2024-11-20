@@ -55,7 +55,7 @@ const ServiceFixed: React.FC<ServiceProps> = ({ showHeader = true, type = "", st
             );
             setServices(responses.map(response => response.data.data));
         } catch (error) {
-            message.error('Server Unreachable, Please Check Your Internet Connection');
+            // message.error('Server Unreachable, Please Check Your Internet Connection');
             console.log(error);
         }
     };

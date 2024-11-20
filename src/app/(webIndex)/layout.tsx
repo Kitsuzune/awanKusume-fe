@@ -14,7 +14,7 @@ export default function WebLayout({
 
       <FloatingWhatsAppClient />
       
-      <Row>
+      <Row className="mb-10">
         <Col span={24}>
           <Navbar />
         </Col>

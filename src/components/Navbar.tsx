@@ -156,7 +156,8 @@ const Navbar = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)} />
       )}
 
-      <nav className="navbar bg-white py-[15px] px-[49px] shadow-lg z-20 relative">
+      {/* Desktop Navbar */}
+      <nav className="navbar bg-white py-[15px] px-[49px] shadow-lg z-20 fixed w-full">
         <Row className='flex justify-between'>
           <Col>
             <img
@@ -285,6 +286,12 @@ const Navbar = () => {
                 onClick={() => window.open(`${process.env.NEXT_PUBLIC_CMS_URL}/web/login`, '_blank')}
               >
                 <span>Panel CMS</span>
+              </div>
+              <div
+                className='text-white border-2 font-semibold w-full py-[15px] mt-[20px] rounded-lg text-[16px] flex items-center justify-center bg-red-500 hover:bg-red-700 cursor-pointer transition-all duration-300 hover:text-black hover:border-black'
+                onClick={handleLogout}
+              >
+                <span>Logout</span>
               </div>
             </>
           ) : (

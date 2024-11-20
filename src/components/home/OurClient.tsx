@@ -43,7 +43,7 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
             const response = await apiRequest('get', `/homepage/our-clients/${language}`);
             setTestimonials(response.data.data);
         } catch (error) {
-            message.error('Failed to fetch testimonials');
+            // message.error('Failed to fetch testimonials');
             console.error(error);
         }
     };

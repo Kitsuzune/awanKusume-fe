@@ -14,19 +14,13 @@ const Footer = () => {
           <div className="flex flex-wrap justify-between">
 
             {/* Logo and Button */}
-            <div className="w-full xl:w-1/5 mb-8 xl:mb-0 hidden xl:block">
+            <div className="w-full xl:w-1/4 mb-8 xl:mb-0 hidden xl:block">
               <div className="flex flex-col items-start justify-start xl:items-center xl:justify-center">
                 <img src="/image/footer-logo.png" alt="Logo" className="mb-4" />
-                <button 
-                  className="bg-white text-black py-2 px-4 rounded-full font-semibold hover:bg-gray-300 transition-all duration-300"
-                  onClick={() => window.open('https://wa.me/628158968885?text=Hello%2C%20I%20have%20a%20question%20about%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
-                >
-                  {t("footer.ButtonButuhBantuan")}
-                </button>
               </div>
             </div>
 
-            {/* Navigation Links */}
+            {/* Navigation Links
             <div className="w-full xl:w-1/5 mb-8 xl:mb-0 xl:text-left hidden xl:block">
               <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">Navigation</h3>
               <ul className="space-y-2">
@@ -35,10 +29,10 @@ const Footer = () => {
                 <li><a href="/faq" className="hover:underline">FAQ</a></li>
                 <li><a href="/about-us" className="hover:underline">About</a></li>
               </ul>
-            </div>
+            </div> */}
 
             {/* Contact Us */}
-            <div className="w-full xl:w-1/5 mb-8 xl:mb-0 xl:text-left">
+            <div className="w-full xl:w-1/4 mb-8 xl:mb-0 xl:text-left">
               <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">Contact Us</h3>
               <ul className="space-y-2">
                 <li className="flex items-center xl:justify-start">
@@ -62,7 +56,7 @@ const Footer = () => {
             </div>
 
             {/* Main Office */}
-            <div className="w-full xl:w-1/5 mb-8 xl:mb-0 xl:text-left">
+            <div className="w-full xl:w-1/4 mb-8 xl:mb-0 xl:text-left">
               <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">Main Office</h3>
               <p>
                 Gedung Thamrin City<br />
@@ -75,13 +69,19 @@ const Footer = () => {
             </div>
 
             {/* Operational Office */}
-            <div className="w-full xl:w-1/5 xl:text-start">
+            <div className="w-full xl:w-1/4 xl:text-start">
               <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">Operational Office</h3>
               <p>
                 Tokyo Riverside, PIK 2<br />
                 Kel, Lemo Kec. Teluk Naga Kab.<br />
                 Tangerang, Banten, 15510
               </p>
+              <button
+                className="mt-5 bg-white text-black py-2 px-4 rounded-full font-semibold hover:bg-gray-300 transition-all duration-300"
+                onClick={() => window.open('https://wa.me/628158968885?text=Hello%2C%20I%20have%20a%20question%20about%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
+              >
+                {t("footer.ButtonButuhBantuan")}
+              </button>
             </div>
 
           </div>

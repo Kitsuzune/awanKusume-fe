@@ -91,7 +91,7 @@ const page: React.FC = () => {
                                                     <span className="text-2xl font-bold">{post[0].title}</span>
                                                     <MdArrowOutward className="text-2xl" />
                                                 </div>
-                                                <Text className="mt-2">{post[0].content}</Text>
+                                                <Text className="truncate-6 text-justify mt-2">{post[0].content}</Text>
                                             </div>
                                         </div>
                                     </Link>
@@ -121,7 +121,7 @@ const page: React.FC = () => {
                                                             <span className="text-xl font-bold">{post[1].title}</span>
                                                             <MdArrowOutward className="text-xl" />
                                                         </div>
-                                                        <Text className="mt-2">{post[1].content}</Text>
+                                                        <Text className="truncate-3 text-justify mt-2">{post[1].content}</Text>
                                                     </Col>
                                                 </Row>
                                             </Link>
@@ -148,7 +148,7 @@ const page: React.FC = () => {
                                                             <span className="text-xl font-bold">{post[2].title}</span>
                                                             <MdArrowOutward className="text-xl" />
                                                         </div>
-                                                        <Text className="mt-2">{post[2].content}</Text>
+                                                        <Text className="truncate-3 text-justify mt-2">{post[2].content}</Text>
                                                     </Col>
                                                 </Row>
                                             </Link>
@@ -181,7 +181,7 @@ const page: React.FC = () => {
                                                     <MdArrowOutward className="text-2xl" />
                                                 </div>
 
-                                                <Text className="mt-2">
+                                                <Text className="truncate-5 text-justify mt-2">
                                                     {post[3].content}
                                                 </Text>
                                             </div>
@@ -223,7 +223,7 @@ const page: React.FC = () => {
                                                 <MdArrowOutward className="text-2xl" />
                                             </div>
 
-                                            <Text className="mt-2">
+                                            <Text className="truncate-8 text-justify mt-2">
                                                 {item.content}
                                             </Text>
                                         </div>

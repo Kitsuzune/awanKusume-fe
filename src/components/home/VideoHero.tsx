@@ -26,7 +26,7 @@ const VideoHero = () => {
             setLoading(false);
         } catch (error) {
             //   message.error(error.response.data.message ? error.response.data.message : 'Server Unreachable, Please Check Your Internet Connection');
-            message.error('Server Unreachable, Please Check Your Internet Connection');
+            // message.error('Server Unreachable, Please Check Your Internet Connection');
             console.log(error)
             setLoading(false);
         }

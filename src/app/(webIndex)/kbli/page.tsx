@@ -40,7 +40,7 @@ const page = () => {
       const response = await apiRequest('get', `/homepage/faqs/${language}?category=KBLI`);
       setData(response.data.data);
     } catch (error) {
-      message.error('Server Unreachable, Please Check Your Internet Connection');
+      // message.error('Server Unreachable, Please Check Your Internet Connection');
       console.log(error);
     }
   };

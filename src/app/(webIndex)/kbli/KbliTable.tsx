@@ -36,7 +36,7 @@ const KbliTable = () => {
       });
       console.log(response.data.data.meta);
     } catch (error) {
-      message.error("Server Unreachable, Please Check Your Internet Connection");
+      // message.error("Server Unreachable, Please Check Your Internet Connection");
       console.log(error);
     }
   }
@@ -79,7 +79,7 @@ const KbliTable = () => {
       setSelectedData(response.data.data);
       setIsModalVisible(true);
     } catch (error) {
-      message.error("Failed to fetch data. Please try again.");
+      // message.error("Failed to fetch data. Please try again.");
       console.log(error);
     }
   };

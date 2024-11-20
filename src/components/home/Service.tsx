@@ -64,7 +64,7 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status 
     
             setServices(filteredServices);
         } catch (error) {
-            message.error('Server Unreachable, Please Check Your Internet Connection');
+            // message.error('Server Unreachable, Please Check Your Internet Connection');
             console.log(error);
         }
     };

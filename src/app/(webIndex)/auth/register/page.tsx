@@ -59,6 +59,17 @@ const Register = () => {
         ));
     };
 
+    const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        const numericValue = value.replace(/[^0-9]/g, '');
+        handleChange({
+            target: {
+                name: 'nomorTelp',
+                value: numericValue,
+            },
+        } as React.ChangeEvent<HTMLInputElement>);
+    };
+
 
     return (
         <>
@@ -130,7 +141,7 @@ const Register = () => {
                                         placeholder="Phone Number"
                                         name="nomorTelp"
                                         value={dataRegister.nomorTelp}
-                                        onChange={handleChange}
+                                        onChange={handlePhoneNumberChange}
                                         className="mb-1 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2"
                                         style={{ backgroundColor: '#F8F8F8', border: 'none' }}
                                         suffix={
@@ -169,7 +180,7 @@ const Register = () => {
                                         className="mb-1 pr-0 pl-4 py-0 h-[40px] md:h-[45px] rounded-[8px] mt-2"
                                         style={{ backgroundColor: '#F8F8F8', border: 'none' }}
                                         suffix={
-                                            <div 
+                                            <div
                                                 className='bg-[#007893] rounded-[8px] h-[40px] md:h-[45px] w-[50px] md:w-[60px] p-0 m-0 flex justify-center items-center cursor-pointer'
                                                 onClick={() => setPasswordVisible(!passwordVisible)}
                                             >
@@ -181,6 +192,10 @@ const Register = () => {
                                             </div>
                                         }
                                     />
+                                    <Text className="text-orange text-[12px] mt-1">
+                                        *Password must contain at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 special character.
+                                        Example: Abcd123@32321D4!
+                                    </Text>
                                     {getErrorMessage('password')}
 
                                     {/* Register Button */}

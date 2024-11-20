@@ -27,18 +27,18 @@ const Page: React.FC = () => {
                                 Whether your time-saving automation needs are large or small, we’re here to help you scale. Whether your time-saving automation needs are large or small, we’re here to help you scale. Whether your time-saving automation needs are large or small, we’re here to help you scale.
                             </Text>
                             <div className="flex flex-col md:flex-row mt-3 md:mt-5 gap-3">
-                                <button
-                                    className="text-white rounded-[5px] text-[16px] px-[10px] md:px-[12px] py-[5px] bg-[#FEA500] hover:bg-[#FFB800]"
+                                <Button
+                                    className="text-white rounded-[35px] text-[16px] px-[10px] md:px-[15px] py-[5px] bg-[#FEA500]"
                                     onClick={() => scrollToSection(ptSectionRef)}
                                 >
                                     Pendirian PT
-                                </button>
-                                <button
-                                    className="text-white rounded-[5px] text-[16px] px-[10px] md:px-[12px] py-[5px] bg-[#FEA500] hover:bg-[#FFB800]"
+                                </Button>
+                                <Button
+                                    className="text-white rounded-[35px] text-[16px] px-[10px] md:px-[15px] py-[5px] bg-[#FEA500]"
                                     onClick={() => scrollToSection(cvSectionRef)}
                                 >
                                     Pendirian CV
-                                </button>
+                                </Button>
                             </div>
                         </div>
                     </div>

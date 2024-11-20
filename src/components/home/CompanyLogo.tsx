@@ -29,7 +29,7 @@ const CompanyLogo = () => {
                 const response = await apiRequest('get', '/homepage/partners');
                 setPartners(response.data.data);
             } catch (error) {
-                message.error('Failed to fetch partners');
+                // message.error('Failed to fetch partners');
                 console.log(error);
             }
         };

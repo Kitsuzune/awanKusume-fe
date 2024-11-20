@@ -179,9 +179,8 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                                 </div>
                             </Link>
                             <div className="flex flex-col">
-                                <Text className="mt-2 md:mt-4 text-[24px] md:text-[36px] font-[700]">
-                                    {/* {article.title} */}
-                                    {truncateText(article.title, 20)}
+                                <Text className="truncate mt-2 md:mt-4 text-[24px] md:text-[24px] font-[700]">
+                                    {article.title}
                                 </Text>
                             </div>
                         </div>

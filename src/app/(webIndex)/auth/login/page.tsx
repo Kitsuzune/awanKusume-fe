@@ -9,6 +9,8 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { apiRequest } from '@/utils/api';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
+import { Modal as AntdModal } from 'antd';
 
 const Text = Typography;
 
@@ -25,18 +27,42 @@ const Login = () => {
       const response = await apiRequest('post', '/auth/login', { email, password, remember: false });
       if (response.status === 200) {
         setIsLoginSuccessful(true);
-        console.log(response.data);
+        // console.log(response.data);
+        //   {
+        //     "id": 1,
+        //     "email": "john.adoe2@example.com",
+        //     "firstName": "Joha",
+        //     "lastName": "Doe",
+        //     "username": "Admin",
+        //     "nomorTelp": "081232242a678920",
+        //     "role": "SUPER_ADMIN",
+        //     "verified": 1,
+        //     "createdAt": "2024-06-17T13:09:09.869Z",
+        //     "updatedAt": "2024-10-28T09:13:51.855Z",
+        //     "nomorKtp": null
+        // }
+        // set cookies dari frontend untuk menyimpan data user ke dalam cookies (user-data) menggunakan js-cookie
+        // Cookies.set('user-data', response.data, { expires: 1 });
+        // buat jika user remember me nya true maka expires nya 180 hari kalo false expires nya 30 hari
+        const cookiesExpires = response.data.remember ? 180 : 30;
+        // Cookies.set('user-data', response.data, { expires: cookiesExpires });
+        Cookies.set('user-data', JSON.stringify(response.data), { expires: cookiesExpires });
       }
     } catch (error) {
       setIsLoginSuccessful(false);
       console.error(error);
+      AntdModal.error({
+        title: 'Login Failed',
+        content: 'Email or Password is incorrect',
+        centered: true,
+      });
     }
   };
 
   useEffect(() => {
     if (isLoginSuccessful && timer > 0) {
       const countdown = setTimeout(() => setTimer(timer - 1), 1000);
-      return () => clearTimeout(countdown); 
+      return () => clearTimeout(countdown);
     } else if (isLoginSuccessful && timer === 0) {
       // router.push('/');
       window.location.href = '/';
@@ -127,15 +153,15 @@ const Login = () => {
                             </Text>
 
                             <div className="mt-4">
-                                <Button
-                                  type="primary"
-                                  size="large"
-                                  block
-                                  className="bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full"
-                                  onClick={() => window.location.href = '/'}
-                                >
-                                  Continue
-                                </Button>
+                              <Button
+                                type="primary"
+                                size="large"
+                                block
+                                className="bg-[#1A2A3A] hover:bg-[#007884] text-white px-[50px] md:px-[100px] py-[12px] md:py-[16px] h-[50px] md:h-[56px] rounded-full"
+                                onClick={() => window.location.href = '/'}
+                              >
+                                Continue
+                              </Button>
                             </div>
                           </div>
                         </ModalContent>
