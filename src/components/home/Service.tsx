@@ -41,7 +41,13 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status 
         return 1;
     });
 
-    const excludedIds = ["25", "37", "40", "55"];
+    // const excludedIds = ["25", "37", "40", "55"];
+    const excludedIds = [
+        "25", "26", "27",
+        "37", "38", "39",
+        "40", "41", "42",
+        "55", "56", "57"
+    ];
 
     const fetchData = async () => {
         try {

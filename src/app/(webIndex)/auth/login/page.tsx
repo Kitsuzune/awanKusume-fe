@@ -44,7 +44,7 @@ const Login = () => {
         // set cookies dari frontend untuk menyimpan data user ke dalam cookies (user-data) menggunakan js-cookie
         // Cookies.set('user-data', response.data, { expires: 1 });
         // buat jika user remember me nya true maka expires nya 180 hari kalo false expires nya 30 hari
-        const cookiesExpires = response.data.remember ? 180 : 30;
+        const cookiesExpires = response.data.remember ? 180 : 1;
         // Cookies.set('user-data', response.data, { expires: cookiesExpires });
         Cookies.set('user-data', JSON.stringify(response.data), { expires: cookiesExpires });
       }

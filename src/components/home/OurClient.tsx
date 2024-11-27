@@ -23,6 +23,7 @@ interface Testimonial {
     image: string;
     name: string;
     hastag: string;
+    link: string;
 }
 
 const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, BottomText = true }) => {
@@ -103,6 +104,7 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
                             <div
                                 key={`${testimonial?.id}-${index}`}
                                 className={`px-2 md:px-4 py-10 md:py-10 transform transition-transform duration-300 ease-in-out ${index === activeSlide ? 'scale-105 md:scale-110' : 'scale-95 md:scale-90 opacity-70 md:opacity-50'}`}
+                                onDoubleClick={() => window.open(testimonial?.link, '_blank')}
                             >
                                 <div className="shadow-effect bg-white p-3 md:p-5 pt-[50px] md:pt-[70px] rounded-[20px] md:rounded-[35px] text-center">
                                     <img

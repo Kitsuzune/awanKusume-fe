@@ -104,15 +104,15 @@ const Navbar = () => {
         </div>
       )
     },
-    {
-      key: '4',
-      label: (
-        <Link href="/partnership" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-          <span>{t("navbar.InformasiPartnership")}</span>
-          <RightOutlined />
-        </Link>
-      )
-    }
+    // {
+    //   key: '4',
+    //   label: (
+    //     <Link href="/partnership" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
+    //       <span>{t("navbar.InformasiPartnership")}</span>
+    //       <RightOutlined />
+    //     </Link>
+    //   )
+    // }
   ];
 
   const userMenu = (

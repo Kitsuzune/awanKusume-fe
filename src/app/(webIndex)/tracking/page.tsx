@@ -109,7 +109,7 @@ const page = () => {
 
   return (
     <>
-      <Row className="my-10 w-[80%] mx-auto">
+      <Row className="my-10 w-[80%] mx-auto pt-20">
         <Col span={24} className="">
           <Text className="text-[32px] md:text-[40px] font-[600] text-center">
             Lorem Ipsum dolor sit amet!

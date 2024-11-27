@@ -92,7 +92,7 @@ const ServiceFixed: React.FC<ServiceProps> = ({ showHeader = true, type = "", st
                 <Col span={24}>
                     {showHeader && (
                         <div className="text-center">
-                            <Text className="text-2xl md:text-4xl font-bold inline-block">{t("service.Title")}</Text>
+                            <Text className="text-[24px] md:text-[40px] font-[700] inline-block">{t("service.Title")}</Text>
                             <Text className="text-base md:text-lg mt-2 md:mt-4 text-justify md:text-center inline-block mx-7 md:mx-0">{t("service.SubTitle")}</Text>
                         </div>
                     )}
