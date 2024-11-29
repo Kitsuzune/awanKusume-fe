@@ -58,6 +58,17 @@
     },
     "kbli" : {
         "Pengertian" : " KBLI adalah klasifikasi rujukan yang digunakan untuk mengklasifikasikan aktivitas/kegiatan ekonomi Indonesia ke dalam beberapa lapangan usaha/bidang usaha yang dibedakan berdasarkan jenis kegiatan ekonomi yang menghasilkan produk/output baik berupa barang maupun jasa. Mohon diperhatikan bahwa dengan berlakunya OSS RBA maka pelaku usaha jasa pembuatan PT wajib menggunakan KBLI tahun 2020."
+    },
+    "layanan" : {
+        "Title"     : "Jadikan Impian Bisnis Anda Nyata!",
+	    "SubTitle"	: "Kami siap membantu Anda mendirikan badan usaha, baik itu PT maupun CV, sesuai dengan kebutuhan Anda. Dengan layanan yang cepat dan terpercaya, kami hadir untuk mendukung pertumbuhan bisnis Anda.",
+	    "PT"	    : "Pendirian PT",
+        "SubPT"     : "Pendirian PT adalah proses pembentukan badan hukum perseroan terbatas yang dilakukan oleh satu atau lebih orang yang disebut sebagai pendiri.",
+	    "CV"	    : "Pendirian CV",
+        "SubCV"	    : "Pendirian CV adalah proses pembentukan badan hukum perseroan terbatas yang dilakukan oleh dua orang atau lebih yang disebut sebagai para pengelola."
+    },
+    "artikel" : {
+        "Title" : "Jelajahi beragam artikel inspiratif dan edukatif yang memberikan wawasan terbaru tentang dunia bisnis dan legalitas. Kami menyediakan informasi penting untuk membantu Anda membuat keputusan yang lebih cerdas."
     }
-
+    
 }

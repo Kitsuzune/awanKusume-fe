@@ -8,6 +8,8 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { apiRequest } from "@/utils/api";
 import { truncateText } from "@/const/truncateText";
 import { formatDate } from "@/const/dateFormat";
+import useLanguage from "@/zustand/useLanguage";
+import { useTranslationCustom } from "../../../public/i18n/client";
 import Link from "next/link";
 
 const { Text } = Typography;
@@ -35,6 +37,9 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
     const [order, setOrder] = useState({
         order: 'desc',
     });
+
+    const { lng } = useLanguage();
+    const { t } = useTranslationCustom(lng, "HomePage");
 
     const settings = {
         infinite: true,
@@ -105,14 +110,14 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
         switch (HeaderModel) {
             case 'CenterRight':
                 return (
-                    <div className="flex justify-between md:justify-center items-center">
-                        <div className="text-start flex flex-col w-full md:mx-auto md:w-auto">
+                    <div className="grid grid-cols-6 justify-between md:justify-center items-center">
+                        <div className="col-span-6 md:col-span-4 text-start flex flex-col w-full md:mx-auto md:w-auto">
                             <Text className="text-[24px] md:text-[40px] font-[700]">{title}</Text>
                             <Text className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                {t("artikel.Title")}
                             </Text>
                         </div>
-                        <div className="hidden md:flex items-center justify-end gap-3 mt-4 md:mt-0 w-full md:w-auto">
+                        <div className="col-span-6 hidden md:flex md:col-span-2 items-center justify-end gap-3 mt-4 md:mt-0 w-full md:w-auto">
                             <Link href={'/blogPost'} className="hover:bg-gray-100 cursor-pointer flex items-center gap-3 p-3 rounded-lg transition-all">
                                 <Text className="text-[16px] md:text-[18px] font-bold">View More</Text>
                                 <div className="flex items-center border-2 border-[#007893] rounded-full p-1 md:p-2">
@@ -129,7 +134,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                         <div className="flex flex-col w-full md:w-3/4">
                             <Text className="text-[24px] md:text-[40px] font-[700]">{title}</Text>
                             <Text className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                                {t("artikel.Title")}
                             </Text>
                         </div>
                         <div className="hidden md:flex items-center gap-3 mt-4 md:mt-0 w-full md:w-auto">
