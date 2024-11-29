@@ -8,6 +8,7 @@ import { useTranslationCustom } from "../../../../public/i18n/client";
 import { useRouter } from "next/navigation";
 import { apiRequest } from "@/utils/api";
 
+
 const { Text } = Typography;
 const { Panel } = Collapse;
 
@@ -156,7 +157,7 @@ const page = () => {
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
                         <Text className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        {t("culture.Title")}
                         </Text>
                     </Col>
                 </Row>
