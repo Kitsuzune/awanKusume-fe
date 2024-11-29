@@ -23,6 +23,7 @@ interface ArticleProps {
 
 interface Post {
     id: string;
+    slug: string;
     title: string;
     content: string;
     image: string;
@@ -76,6 +77,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
 
             let posts = response.data.data.map((item: any) => ({
                 id: item.id,
+                slug: item.slug,
                 title: item.title,
                 content: item.content.replace(/<[^>]+>/g, ''),
                 image: item.image,
@@ -165,7 +167,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                 <Slider {...settings} className="mt-0 md:mt-8">
                     {post.map((article) => (
                         <div key={article.id} className="px-2 md:px-4">
-                            <Link href={`/blogPost/${article.id}`} className="relative">
+                            <Link href={`/blogPost/${article.slug}`} className="relative">
                                 <img
                                     src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${article.id}/${article.image}`}
                                     alt={article.title}

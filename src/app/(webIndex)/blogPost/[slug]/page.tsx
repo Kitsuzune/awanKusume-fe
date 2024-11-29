@@ -10,6 +10,7 @@ const { Text } = Typography;
 
 interface Post {
     id: string;
+    slug: string;
     title: string;
     content: string;
     image: string;
@@ -20,14 +21,14 @@ interface Post {
 }
 
 const Page: React.FC = () => {
-    const params = useParams<{ id: string }>();
-    const id = params.id;
+    const params = useParams<{ slug: string }>();
+    const slug = params.slug;
     const [post, setPost] = useState<Post | null>(null);
 
     const fetchPost = async () => {
         try {
-            if (!id) return;
-            const response = await apiRequest('get', `/homepage/blog/${id}`);
+            if (!slug) return;
+            const response = await apiRequest('get', `/homepage/blog/slug/${slug}`);
             setPost(response.data.data);
         } catch (error) {
             console.error(error);
@@ -36,7 +37,7 @@ const Page: React.FC = () => {
 
     useEffect(() => {
         fetchPost();
-    }, [id]);
+    }, [slug]);
 
     return (
         <Row className="w-full p-5">

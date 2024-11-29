@@ -12,6 +12,7 @@ const { Text } = Typography;
 
 interface Post {
     id: string;
+    slug: string;
     title: string;
     content: string;
     image: string;
@@ -37,6 +38,7 @@ const page: React.FC = () => {
 
             setPost(response.data.data.map((item: any) => ({
                 id: item.id,
+                slug: item.slug,
                 title: item.title,
                 content: item.content.replace(/<[^>]+>/g, ''),
                 image: item.image,
@@ -76,7 +78,7 @@ const page: React.FC = () => {
                             {/* Left blog post */}
                             <Col xs={24} md={12} className="mb-5 cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-100 rounded-lg p-5">
                                 {post.length > 0 && (
-                                    <Link href={`/blogPost/${post[0].id}`}>
+                                    <Link href={`/blogPost/${post[0].slug}`}>
                                         <div>
                                             <img
                                                 src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${post[0].id}/${post[0].image}`}
@@ -104,7 +106,7 @@ const page: React.FC = () => {
                                     {/* Right blog post - 1 */}
                                     <Col span={24} className="mb-5">
                                         {post.length > 1 && (
-                                            <Link href={`/blogPost/${post[1].id}`}>
+                                            <Link href={`/blogPost/${post[1].slug}`}>
                                                 <Row gutter={16} className="w-full p-5 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-100">
                                                     <Col xs={10}>
                                                         <img
@@ -131,7 +133,7 @@ const page: React.FC = () => {
                                     {/* Right blog post - 2 */}
                                     <Col span={24}>
                                         {post.length > 2 && (
-                                            <Link href={`/blogPost/${post[2].id}`}>
+                                            <Link href={`/blogPost/${post[2].slug}`}>
                                                 <Row gutter={24} className="w-full p-5 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-100">
                                                     <Col xs={10}>
                                                         <img
@@ -160,7 +162,7 @@ const page: React.FC = () => {
 
                         {/* Blog post section 2 */}
                         {post.length > 3 && (
-                            <Link href={`/blogPost/${post[3].id}`}>
+                            <Link href={`/blogPost/${post[3].slug}`}>
                                 <Row gutter={16} className="w-full p-2 rounded-lg cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-100 flex flex-col md:flex-row">
                                     <Col xs={24} md={12} className="my-5 flex items-center">
                                         <div className="w-full h-full flex items-center justify-center">
@@ -209,7 +211,7 @@ const page: React.FC = () => {
                                     xs={24} sm={12} md={8}
                                     className="mb-5 cursor-pointer hover:shadow-lg transition-all duration-300 hover:bg-gray-100 rounded-lg p-5"
                                 >
-                                    <Link href={`/blogPost/${item.id}`}>
+                                    <Link href={`/blogPost/${item.slug}`}>
                                         <img src={`${process.env.NEXT_PUBLIC_API_URL_CSM}/public/blog/${item.id}/${item.image}`} alt={item.title} className="w-full h-[200px] object-cover" />
 
                                         <div className="mt-5 flex flex-col">
