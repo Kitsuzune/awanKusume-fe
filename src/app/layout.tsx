@@ -20,6 +20,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={poppins.className}>
+            <head>
+               <meta name="facebook-domain-verification" content="acfu0griqrhm1iisey5ofeyaajulh9"></meta>
+            </head>
             <body className={poppins.className}>
 
                 <div>

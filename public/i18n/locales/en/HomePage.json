@@ -59,12 +59,32 @@
         "Pengertian" : "KBLI is a reference classification used to categorize Indonesia's economic activities into several business sectors/fields, differentiated based on the type of economic activities that produce products/outputs in the form of goods or services. Please note that with the implementation of OSS RBA, business operators in the field of company establishment services must use the 2020 KBLI."
     },
     "layanan": {
-    "Title": "Make Your Business Dreams a Reality!",
-    "SubTitle": "We are ready to assist you in establishing a business entity, whether it's a PT or CV, according to your needs. With fast and reliable services, we are here to support the growth of your business.",
-    "PT": "Establishment of PT",
-    "SubPT": "The establishment of PT is the process of forming a limited liability company conducted by one or more individuals referred to as founders.",
-    "CV": "Establishment of CV",
-    "SubCV": "The establishment of CV is the process of forming a limited liability partnership conducted by two or more individuals referred to as managers."
+        "TitlePP": "Make Your Business Dreams a Reality!",
+        "SubTitlePP": "We are ready to help you establish your business entity, whether it's a PT or CV, according to your needs. With fast and reliable service, we are here to support your business growth.",
+        "PT": "PT Establishment",
+        "SubPT": "PT establishment is the process of forming a limited liability company conducted by one or more individuals referred to as founders.",
+        "CV": "CV Establishment",
+        "SubCV": "CV establishment is the process of forming a limited partnership conducted by two or more individuals referred to as managers.",
+        "TitlePB": "Fast and Reliable Business Licensing Services",
+        "SubTitlePB": "Handle Your Business Permits Easily, Legally, and Hassle-Free. We Are Ready to Help You Start and Grow Your Business with Peace of Mind.",
+        "IDAK": "IDAK",
+        "SubIDAK": "IDAK is the process of establishing a limited liability company conducted by one or more individuals referred to as founders.",
+        "BPOM": "BPOM",
+        "SubBPOM": "BPOM is the Food and Drug Supervisory Agency responsible for food and drug supervision in Indonesia.",
+        "TrademarkUntukLokalPerorangan": "Trademark for Local Individual",
+        "SubTrademark": "A trademark is a sign used to distinguish goods or services from competitors. A trademark for local individuals is a sign used to distinguish goods or services from competitors produced by individuals.",
+        "TrademarkUntukBadanUsaha": "Trademark for Business Entity",
+        "SubTrademarkBU": "A trademark for business entities is a sign used to distinguish goods or services from competitors produced by business entities.",
+        "TrademarkUntukLuarNegeriPerorangan": "Trademark for Foreign Individual",
+        "SubTrademarkLN": "A trademark for foreign individuals is a sign used to distinguish goods or services from competitors produced by individuals domiciled abroad.",
+        "TrademarkUntukBadanUsahaLuarNegeri": "Trademark for Foreign Business Entity",
+        "SubTrademarkLNU": "A trademark for foreign business entities is a sign used to distinguish goods or services from competitors produced by business entities domiciled abroad.",
+        "SMKPO": "SMKPO",
+        "SubSMKPO": "SMKPO is a Trademark Certificate for Local Individuals issued by the Ministry of Law and Human Rights of the Republic of Indonesia.",
+        "INSW": "INSW",
+        "SubINSW": "INSW is a Business License for Local Individuals issued by the Ministry of Law and Human Rights of the Republic of Indonesia.",
+        "AKL": "AKL",
+        "SubAKL": "AKL is a Notarial Deed issued by a legally incorporated Notary."
     },
     "artikel" : {
         "Title" : "Explore a wide range of inspiring and educational articles offering the latest insights into the world of business and legalities. We provide essential information to help you make smarter decisions."

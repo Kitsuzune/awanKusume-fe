@@ -10,12 +10,28 @@
             "description": "Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik."
           },
           {
-            "title": "Profesionalisme",
-            "description": "Kami selalu berusaha memberikan layanan terbaik dengan standar profesionalisme tinggi."
+            "title": "Inovasi",
+            "description": "Awan Kusuma Legalitas menyesuaikan perizinan dengan regulasi yang berlaku sesuai dengan zaman dan kebutuhan."
           },
           {
-            "title": "Kepercayaan",
-            "description": "Kepercayaan klien adalah prioritas utama kami dalam menjalankan setiap layanan."
+            "title": "Kerjasama",
+            "description": "Awan Kusuma Legalitas selalu mengedepankan nilai-nilai kekeluargaan dan kerjasama sehingga proses pengerjaan perizinan menjadi lebih mudah."
+          },
+          {
+            "title": "Prioritas Pelanggan",
+            "description": "Awan Kusuma Legalitas selalu memprioritaskan pelanggan dengan  memberikan pelayanan yang cepat dan maksimal."
+          },
+          {
+            "title": "Kepemilikan",
+            "description": "Kepemilikan yang transparan dan berbasis hukum merupakan pijakan utama dalam layanan legalitas yang ditawarkan oleh Awan Kusuma Legalitas."
+          },
+          {
+            "title": "Keunggulan",
+            "description": "Dengan komitmen pada keunggulan dalam pelayanan dan pemahaman mendalam akan hukum, Awan Kusuma Legalitas menjadi pilihan utama untuk kebutuhan jasa legalitas."
+          },
+          {
+            "title": "Urgensi",
+            "description": "Ketepatan waktu dan pemahaman mendalam akan urgensi situasi hukum menjadi fokus utama layanan yang diberikan oleh Awan Kusuma Legalitas dalam menjawab kebutuhan."
           }
         ]
       },
@@ -26,15 +42,31 @@
         "items": [
           {
             "title": "Integrity",
-            "description": "Awan Kusuma Legalitas is committed to upholding principles of honesty, ethics, and morals to ensure proper licensing."
+            "description": "Awan Kusuma Legalitas is committed to prioritizing principles of honesty, ethics, and morals to ensure licensing processes are carried out properly."
           },
           {
-            "title": "Professionalism",
-            "description": "We always strive to provide the best service with high standards of professionalism."
+            "title": "Innovation",
+            "description": "Awan Kusuma Legalitas adapts licensing processes according to current regulations in line with the times and requirements."
           },
           {
-            "title": "Trust",
-            "description": "Client trust is our top priority in delivering every service."
+            "title": "Cooperation",
+            "description": "Awan Kusuma Legalitas always prioritizes family values and cooperation to make the licensing process easier."
+          },
+          {
+            "title": "Customer Priority",
+            "description": "Awan Kusuma Legalitas always prioritizes customers by providing fast and maximum service."
+          },
+          {
+            "title": "Ownership",
+            "description": "Transparent and legally-based ownership is the main foundation in legal services offered by Awan Kusuma Legalitas."
+          },
+          {
+            "title": "Excellence",
+            "description": "With a commitment to excellence in service and deep understanding of law, Awan Kusuma Legalitas becomes the primary choice for legal service needs."
+          },
+          {
+            "title": "Urgency",
+            "description": "Timeliness and deep understanding of legal situation urgency are the main focus of services provided by Awan Kusuma Legalitas in addressing needs."
           }
         ]
       },
@@ -45,15 +77,31 @@
         "items": [
           {
             "title": "诚信",
-            "description": "Awan Kusuma Legalitas致力于遵守诚实、道德和道德原则，以确保适当的许可。"
+            "description": "Awan Kusuma Legalitas致力于遵守诚实、道德和道德原则，以确保许可流程得到妥善执行。"
           },
           {
-            "title": "专业",
-            "description": "我们始终致力于提供最"
+            "title": "创新",
+            "description": "Awan Kusuma Legalitas根据当前法规和时代需求调整许可流程。"
           },
           {
-            "title": "信任",
-            "description": "客户信任是我们在提供每项服务时的首要任务。"
+            "title": "合作",
+            "description": "Awan Kusuma Legalitas始终重视家庭价值观和合作精神，使许可流程更加便捷。"
+          },
+          {
+            "title": "客户至上",
+            "description": "Awan Kusuma Legalitas始终将客户放在首位，提供快速和最优质的服务。"
+          },
+          {
+            "title": "所有权",
+            "description": "透明且具有法律基础的所有权是Awan Kusuma Legalitas提供法律服务的主要基础。"
+          },
+          {
+            "title": "卓越服务",
+            "description": "凭借对服务的卓越承诺和对法律的深刻理解，Awan Kusuma Legalitas成为法律服务需求的首选。"
+          },
+          {
+            "title": "时效性",
+            "description": "及时性和对法律情况紧迫性的深入理解是Awan Kusuma Legalitas在满足需求时提供服务的主要重点。"
           }
         ]
       }

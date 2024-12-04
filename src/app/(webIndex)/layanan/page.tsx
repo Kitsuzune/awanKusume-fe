@@ -25,10 +25,10 @@ const Page: React.FC = () => {
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col">
                             <Text className="text-[28px] md:text-[40px] font-[600] text-start">
-                                {t("layanan.Title")}
+                                {t("layanan.TitlePP")}
                             </Text>
                             <Text className="text-[16px] md:text-[18px] font-[500] text-start mt-3 md:mt-5 w-[100%] md:w-[50%]">
-                                {t("layanan.SubTitle")}
+                                {t("layanan.SubTitlePP")}
                             </Text>
                             <div className="flex flex-col md:flex-row mt-3 md:mt-5 gap-3">
                                 <Button
