@@ -28,10 +28,11 @@ interface ServiceProps {
 }
 
 const ServiceFixed: React.FC<ServiceProps> = ({ showHeader = true, type = "", status = "ALL", redirectFromSpecificService = false }) => {
-    const pendirianPerusahaan = 25;
-    const perizinanBisnis = 37;
-    const agensiMarketing = 40;
-    const perizinan = 55;
+    const [pendirianPerusahaan, setPendirianPerusahaan] = useState(0);
+    const [perizinanBisnis, setPerizinanBisnis] = useState(0);
+    const [agensiMarketing, setAgensiMarketing] = useState(0);
+    const [perizinan, setPerizinan] = useState(0);
+
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const [services, setServices] = useState<ServiceData[]>([]);
@@ -44,6 +45,13 @@ const ServiceFixed: React.FC<ServiceProps> = ({ showHeader = true, type = "", st
         }
         return 1;
     });
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedLanguage = localStorage.getItem("language");
+            setLanguage(storedLanguage ? parseInt(storedLanguage) : 1);
+        }
+    }, []);
 
     const fetchData = async () => {
         const serviceIds = [pendirianPerusahaan, perizinanBisnis, agensiMarketing, perizinan];
@@ -68,8 +76,31 @@ const ServiceFixed: React.FC<ServiceProps> = ({ showHeader = true, type = "", st
     }, []);
 
     useEffect(() => {
-        fetchData();
+        console.log('language', language);
+        console.log('language tes', language == 2);
+        if (language == 1) {
+            setPendirianPerusahaan(25);
+            setPerizinanBisnis(37);
+            setAgensiMarketing(40);
+            setPerizinan(55);
+        } else if (language == 2) {
+            setPendirianPerusahaan(26);
+            setPerizinanBisnis(38);
+            setAgensiMarketing(41);
+            setPerizinan(56);
+        } else if (language == 3) {
+            setPendirianPerusahaan(27);
+            setPerizinanBisnis(39);
+            setAgensiMarketing(42);
+            setPerizinan(57);
+        }
     }, [language]);
+
+    useEffect(() => {
+        if (pendirianPerusahaan !== 0 && perizinanBisnis !== 0 && agensiMarketing !== 0 && perizinan !== 0) {
+            fetchData();
+        }
+    }, [pendirianPerusahaan, perizinanBisnis, agensiMarketing, perizinan]);
 
     return (
         <div className="flex items-center">
@@ -98,23 +129,23 @@ const ServiceFixed: React.FC<ServiceProps> = ({ showHeader = true, type = "", st
                     )}
                     <Row gutter={[16, 16]} className="mt-5 md:mt-10 justify-center">
                         {services.map((service, index) => (
-                            <Col 
-                                key={service.id} 
-                                xs={24} 
-                                md={12} 
+                            <Col
+                                key={service.id}
+                                xs={24}
+                                md={12}
                                 className="flex justify-center md:justify-start items-center"
                             >
-                                <Link 
+                                <Link
                                     // href={redirectFromSpecificService === true ? service.type == 0 ? `/layanan/pendirian-perusahaan` : `/layanan/${service.id}` : `/layanan/${service.id}`}
                                     // ketika pendirianPerusahaan, redirect ke halaman pendirian perusahaan
                                     // ketika perizinanBisnis, redirect ke halaman perizinan bisnis
                                     // ketika agensiMarketing, redirect ke /layanan/${service.id}
                                     // ketika perizinan, redirect ke /layanan/${service.id}
                                     href={
-                                        Number(service.id) === pendirianPerusahaan ? `/layanan/pendirian-perusahaan` : 
-                                        Number(service.id) === perizinanBisnis ? `/layanan/perizinan-bisnis` : 
-                                        Number(service.id) === agensiMarketing ? `/layanan/${service.id}` : 
-                                        `/layanan/${service.id}`
+                                        Number(service.id) === pendirianPerusahaan ? `/layanan/pendirian-perusahaan` :
+                                            Number(service.id) === perizinanBisnis ? `/layanan/perizinan-bisnis` :
+                                                Number(service.id) === agensiMarketing ? `/layanan/${service.id}` :
+                                                    `/layanan/${service.id}`
                                     }
                                     className="relative w-11/12 md:w-[650px] h-[200px] md:h-[444px] group cursor-none"
                                     onMouseEnter={() => setIsHovered(true)}

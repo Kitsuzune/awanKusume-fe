@@ -10,6 +10,8 @@ import SaleBar from "@/components/home/SaleBar";
 import Article from "@/components/home/Article";
 import ImageCarouselDetail2 from "./imageCarousellDetail2";
 import { apiRequest } from "@/utils/api";
+import whyawan from "@/../public/json/whyawan.json";
+import visimisi from "@/../public/json/visimisi.json";
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -66,6 +68,9 @@ interface FaqData {
 const page = () => {
     const [data, setData] = useState<FaqData[]>([]);
     const [language, setLanguage] = useState<number>(1);
+    const [whyAwanKusuma, setWhyAwanKusuma] = useState<any>(null);
+    const [visiMisi, setVisiMisi] = useState<any>(null);
+
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -86,7 +91,15 @@ const page = () => {
 
     useEffect(() => {
         fetchData();
+
+        const whyAwanData = whyawan?.whyAwan.find((whyawan: any) => whyawan.languageId == language);
+        setWhyAwanKusuma(whyAwanData);
+
+        const visiMisiData = visimisi?.visimisi.find((visimisi: any) => visimisi.languageId == language);
+        setVisiMisi(visiMisiData);
+
     }, [language]);
+
 
     const settings = {
         dots: true,
@@ -120,51 +133,24 @@ const page = () => {
                         <div className="flex flex-col items-center justify-center z-10" id="kenapa-awan-kusuma">
                             <div className="flex justify-center">
                                 <Text className="text-center text-[28px] md:text-[40px] font-semibold inline-block">
-                                    Kenapa Awan Kusuma?
+                                    {whyAwanKusuma?.title}
                                 </Text>
                             </div>
                             <Slider {...settings} className="w-full md:w-1/3 aboutSlider mt-10">
-                                <div className="flex flex-col justify-center pb-10">
-                                    <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
-                                            Integritas
-                                        </Text>
+                                {whyAwanKusuma?.items.map((item: any, index: number) => (
+                                    <div key={index} className="flex flex-col justify-center pb-10">
+                                        <div className="flex justify-center">
+                                            <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
+                                                {item.title}
+                                            </Text>
+                                        </div>
+                                        <div className="flex justify-center">
+                                            <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
+                                                {item.description}
+                                            </Text>
+                                        </div>
                                     </div>
-
-                                    <div className="flex justify-center">
-                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
-                                            Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
-                                        </Text>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-col justify-center pb-10">
-                                    <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
-                                            Integritas
-                                        </Text>
-                                    </div>
-
-                                    <div className="flex justify-center">
-                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
-                                            Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
-                                        </Text>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-col justify-center pb-10">
-                                    <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
-                                            Integritas
-                                        </Text>
-                                    </div>
-
-                                    <div className="flex justify-center">
-                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
-                                            Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
-                                        </Text>
-                                    </div>
-                                </div>
+                                ))}
 
                             </Slider>
                         </div>
@@ -239,52 +225,24 @@ const page = () => {
                         <div className="flex flex-col items-center justify-center z-10" id="visi-misi">
                             <div className="flex justify-center">
                                 <Text className="text-center text-[28px] md:text-[40px] font-semibold inline-block">
-                                    Visi & Misi
+                                    {visiMisi?.title}
                                 </Text>
                             </div>
                             <Slider {...settings} className="w-full md:w-1/3 aboutSlider">
-                                <div className="flex flex-col justify-center pb-10">
-                                    <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
-                                            Integritas
-                                        </Text>
+                                {visiMisi?.items.map((item: any, index: number) => (
+                                    <div key={index} className="flex flex-col justify-center pb-10">
+                                        <div className="flex justify-center">
+                                            <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
+                                                {item.title}
+                                            </Text>
+                                        </div>
+                                        <div className="flex justify-center">
+                                            <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
+                                                {item.description}
+                                            </Text>
+                                        </div>
                                     </div>
-
-                                    <div className="flex justify-center">
-                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
-                                            Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
-                                        </Text>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-col justify-center pb-10">
-                                    <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
-                                            Integritas
-                                        </Text>
-                                    </div>
-
-                                    <div className="flex justify-center">
-                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
-                                            Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
-                                        </Text>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-col justify-center pb-10">
-                                    <div className="flex justify-center">
-                                        <Text className="text-center font-bold text-[20px] md:text-[24px] mt-[20px]">
-                                            Integritas
-                                        </Text>
-                                    </div>
-
-                                    <div className="flex justify-center">
-                                        <Text className="indent-2 text-justify w-11/12 md:w-2/3 text-[16px] md:text-[18px] z-10 mt-[40px] font-medium inline-block">
-                                            Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik.
-                                        </Text>
-                                    </div>
-                                </div>
-
+                                ))}
                             </Slider>
                         </div>
                         <div className="flex flex-col items-center justify-center">

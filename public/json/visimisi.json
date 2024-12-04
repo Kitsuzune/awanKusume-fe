@@ -1,0 +1,61 @@
+{
+    "visimisi": [
+      {
+        "language": "ID",
+        "languageId": 1,
+        "title": "Visi & Misi",
+        "items": [
+          {
+            "title": "Integritas",
+            "description": "Awan Kusuma Legalitas berkomitmen untuk mengedepankan prinsip-prinsip kejujuran, etika, dan moral sehingga perizinan dapat terlaksana dengan baik."
+          },
+          {
+            "title": "Profesionalisme",
+            "description": "Kami selalu berusaha memberikan layanan terbaik dengan standar profesionalisme tinggi."
+          },
+          {
+            "title": "Kepercayaan",
+            "description": "Kepercayaan klien adalah prioritas utama kami dalam menjalankan setiap layanan."
+          }
+        ]
+      },
+      {
+        "language": "EN",
+        "languageId": 2,
+        "title": "Vision & Mission",
+        "items": [
+          {
+            "title": "Integrity",
+            "description": "Awan Kusuma Legalitas is committed to upholding principles of honesty, ethics, and morals to ensure proper licensing."
+          },
+          {
+            "title": "Professionalism",
+            "description": "We always strive to provide the best service with high standards of professionalism."
+          },
+          {
+            "title": "Trust",
+            "description": "Client trust is our top priority in delivering every service."
+          }
+        ]
+      },
+      {
+        "language": "CN",
+        "languageId": 3,
+        "title": "愿景与使命",
+        "items": [
+          {
+            "title": "誠実",
+            "description": "Awan Kusuma Legalitas致力于遵守诚实、道德和道德原则，以确保适当的许可。"
+          },
+          {
+            "title": "专业",
+            "description": "我们始终致力于提供最"
+          },
+          {
+            "title": "信任",
+            "description": "客户信任是我们在提供每项服务时的首要任务。"
+          }
+        ]
+      }
+    ]
+  }
