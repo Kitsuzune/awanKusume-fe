@@ -109,11 +109,11 @@ const Page: React.FC = () => {
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
                             <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
-                                {t("layanan.TrademarkLokalPerorangan")}
+                                {t("layanan.TrademarkUntukLokalPerorangan")}
                             </Text>
                             <div className="flex justify-center">
                                 <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
-                                    {t("layanan.SubTrademarkLokalPerorangan")}
+                                    {t("layanan.SubTrademarkUntukLokalPerorangan")}
                                 </Text>
                             </div>
                         </div>
@@ -132,11 +132,11 @@ const Page: React.FC = () => {
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
                             <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
-                                {t("layanan.TrademarkBadanUsaha")}
+                                {t("layanan.TrademarkUntukBadanUsaha")}
                             </Text>
                             <div className="flex justify-center">
                                 <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
-                                    {t("layanan.SubTrademarkBadanUsaha")}
+                                    {t("layanan.SubTrademarkUntukBadanUsaha")}
                                 </Text>
                             </div>
                         </div>
@@ -155,11 +155,11 @@ const Page: React.FC = () => {
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
                             <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
-                                {t("layanan.TrademarkLuarNegeriPerorangan")}
+                                {t("layanan.TrademarkUntukLuarNegeriPerorangan")}
                             </Text>
                             <div className="flex justify-center">
                                 <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
-                                    {t("layanan.SubTrademarkLuarNegeriPerorangan")}
+                                    {t("layanan.SubTrademarkUntukLuarNegeriPerorangan")}
                                 </Text>
                             </div>
                         </div>
@@ -178,11 +178,11 @@ const Page: React.FC = () => {
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
                             <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
-                                {t("layanan.TrademarkBadanUsahaLuarNegeri")}
+                                {t("layanan.TrademarkUntukBadanUsahaLuarNegeri")}
                             </Text>
                             <div className="flex justify-center">
                                 <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
-                                    {t("layanan.SubTrademarkBadanUsahaLuarNegeri")}
+                                    {t("layanan.SubTrademarkUntukBadanUsahaLuarNegeri")}
                                 </Text>
                             </div>
                         </div>

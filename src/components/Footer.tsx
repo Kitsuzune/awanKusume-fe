@@ -33,7 +33,7 @@ const Footer = () => {
 
             {/* Contact Us */}
             <div className="w-full xl:w-1/4 mb-8 xl:mb-0 xl:text-left">
-              <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">Contact Us</h3>
+              <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.HubungiKami")}</h3>
               <ul className="space-y-2">
                 <li className="flex items-center xl:justify-start">
                   <i className="mr-2">
@@ -57,7 +57,7 @@ const Footer = () => {
 
             {/* Main Office */}
             <div className="w-full xl:w-1/4 mb-8 xl:mb-0 xl:text-left">
-              <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">Main Office</h3>
+              <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.KantorUtama")}</h3>
               <p>
                 Gedung Thamrin City<br />
                 Lantai 6 Unit 7A, <br />
@@ -70,7 +70,7 @@ const Footer = () => {
 
             {/* Operational Office */}
             <div className="w-full xl:w-1/4 xl:text-start">
-              <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">Operational Office</h3>
+              <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.KantorOperasional")}</h3>
               <p>
                 Tokyo Riverside, PIK 2<br />
                 Kel, Lemo Kec. Teluk Naga Kab.<br />

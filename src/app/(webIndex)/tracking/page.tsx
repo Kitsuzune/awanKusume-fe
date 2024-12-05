@@ -7,11 +7,14 @@ import SaleBar from "@/components/home/SaleBar";
 import TrackingTable from "./TrackingTable";
 import { apiRequest } from "@/utils/api";
 import { message } from "antd";
-
+import { useTranslationCustom } from "../../../../public/i18n/client";
+import useLanguage from "@/zustand/useLanguage";
 const Text = Typography;
 const { Panel } = Collapse;
 
 const page = () => {
+  const { lng } = useLanguage();
+  const { t } = useTranslationCustom(lng, "HomePage");
   const [data, setData] = useState<any[]>([]);
   const [login, setLogin] = useState(false);
   const [pagination, setPagination] = useState({ page: 1, perPage: 10, totalData: 1 });
@@ -112,16 +115,16 @@ const page = () => {
       <Row className="my-10 w-[80%] mx-auto pt-20">
         <Col span={24} className="">
           <Text className="text-[32px] md:text-[40px] font-[600] text-center">
-            Lorem Ipsum dolor sit amet!
+            {t("tracking.Title")}
           </Text>
           <Text className="mt-4 text-[16px] md:text-[20px] font-[400] text-center">
-            Whether your time-saving automation needs are large or small, we’re here to help you scale. Whether your time-saving automation needs are large or small, we’re here to help you scale.Whether your time-saving automation needs are large or small, we’re here to help you scale.
+            {t("tracking.SubTitle")}
           </Text>
 
           {/* <input type="text" className="w-full mt-10 p-4 border border-gray-300 rounded-md" placeholder="Search" /> */}
           <div className="w-full my-10 p-4 border border-gray-300 rounded-md flex gap-3 justify-between items-center">
             <input type="text" className="w-full text-[18px] h-[50px] outline-none" placeholder="Search Here" value={unique} onChange={(e) => { setUnique(e.target.value); }} />
-            <button className="bg-orange text-white px-4 py-2 rounded-md w-[200px]" onClick={fetchDataSearch}>Lacak Project</button>
+            <button className="bg-orange text-white px-4 py-2 rounded-md w-[200px]" onClick={fetchDataSearch}>{t("tracking.Button")}</button>
           </div>
 
           {(login || searchUnique) && <TrackingTable data={data} pagination={pagination} order={order} search={search} setSearch={setSearch} setPagination={setPagination} setSearchUnique={setSearchUnique} fetchData={fetchData} />}

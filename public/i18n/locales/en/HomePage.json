@@ -14,7 +14,10 @@
     },
 
     "footer" : {
-        "ButtonButuhBantuan" : "NEED HELP?"
+        "ButtonButuhBantuan" : "NEED HELP?",
+        "HubungiKami" : "Contact Us",
+        "KantorUtama" : "Main Office",
+        "KantorOperasional" : "Operational Office"
     },
 
     "wa" : {
@@ -72,24 +75,32 @@
         "BPOM": "BPOM",
         "SubBPOM": "BPOM is the Food and Drug Supervisory Agency responsible for food and drug supervision in Indonesia.",
         "TrademarkUntukLokalPerorangan": "Trademark for Local Individual",
-        "SubTrademark": "A trademark is a sign used to distinguish goods or services from competitors. A trademark for local individuals is a sign used to distinguish goods or services from competitors produced by individuals.",
+        "SubTrademarkUntukLokalPerorangan": "A trademark is a sign used to distinguish goods or services from competitors. A trademark for local individuals is a sign used to distinguish goods or services from competitors produced by individuals.",
         "TrademarkUntukBadanUsaha": "Trademark for Business Entity",
-        "SubTrademarkBU": "A trademark for business entities is a sign used to distinguish goods or services from competitors produced by business entities.",
+        "SubTrademarkUntukBadanUsaha": "A trademark for business entities is a sign used to distinguish goods or services from competitors produced by business entities.",
         "TrademarkUntukLuarNegeriPerorangan": "Trademark for Foreign Individual",
-        "SubTrademarkLN": "A trademark for foreign individuals is a sign used to distinguish goods or services from competitors produced by individuals domiciled abroad.",
+        "SubTrademarkUntukLuarNegeriPerorangan": "A trademark for foreign individuals is a sign used to distinguish goods or services from competitors produced by individuals domiciled abroad.",
         "TrademarkUntukBadanUsahaLuarNegeri": "Trademark for Foreign Business Entity",
-        "SubTrademarkLNU": "A trademark for foreign business entities is a sign used to distinguish goods or services from competitors produced by business entities domiciled abroad.",
+        "SubTrademarkUntukBadanUsahaLuarNegeri": "A trademark for foreign business entities is a sign used to distinguish goods or services from competitors produced by business entities domiciled abroad.",
         "SMKPO": "SMKPO",
         "SubSMKPO": "SMKPO is a Trademark Certificate for Local Individuals issued by the Ministry of Law and Human Rights of the Republic of Indonesia.",
+        "KlinikPratama": "Klinik Pratama",
+        "SubKlinikPratama": "Klinik Pratama is a Clinic issued by a legally incorporated Notary.",
         "INSW": "INSW",
         "SubINSW": "INSW is a Business License for Local Individuals issued by the Ministry of Law and Human Rights of the Republic of Indonesia.",
         "AKL": "AKL",
         "SubAKL": "AKL is a Notarial Deed issued by a legally incorporated Notary."
     },
+    "tracking" : {
+        "Button" : "Track Project",
+        "Title" : "Track Your Legal Project in Real-Time",
+        "SubTitle" : "Track your legal project in real-time easily and accurately. We ensure you know the status of your project at every step."
+    },
     "artikel" : {
         "Title" : "Explore a wide range of inspiring and educational articles offering the latest insights into the world of business and legalities. We provide essential information to help you make smarter decisions."
     },
     "culture" : {
-        "Title" : "The work culture at Awan Kusuma Legalitas is built on integrity, innovation, and collaboration to deliver the best solutions for every client. We prioritize honesty and ethics in every step, ensuring our services are always aligned with the latest regulations. With a spirit of teamwork and a sense of family, we create a supportive work environment that fosters professionalism while prioritizing client needs through fast, transparent, and excellent service. Our focus is to be a trusted partner, helping clients achieve success through comprehensive and precise legal solutions."
+        "Title" : "PT Awan Kusuma Legalitas prioritizes a work culture based on integrity, professionalism, and innovation. With an experienced team of experts, we provide accurate, efficient, and tailored legal solutions. We also encourage collaboration and human resource development to ensure the best service for every client."
     }
+    
 }

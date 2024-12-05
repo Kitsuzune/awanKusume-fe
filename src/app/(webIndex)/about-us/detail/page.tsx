@@ -12,6 +12,8 @@ import ImageCarouselDetail2 from "./imageCarousellDetail2";
 import { apiRequest } from "@/utils/api";
 import whyawan from "@/../public/json/whyawan.json";
 import visimisi from "@/../public/json/visimisi.json";
+import { useTranslationCustom } from "../../../../../public/i18n/client";
+import useLanguage from "@/zustand/useLanguage";
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -70,6 +72,9 @@ const page = () => {
     const [language, setLanguage] = useState<number>(1);
     const [whyAwanKusuma, setWhyAwanKusuma] = useState<any>(null);
     const [visiMisi, setVisiMisi] = useState<any>(null);
+
+    const { lng } = useLanguage();
+    const { t } = useTranslationCustom(lng, "HomePage");
 
 
     useEffect(() => {
@@ -215,7 +220,7 @@ const page = () => {
                             className="w-[250px] h-[150px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
                         <Text className="text-[12px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           {t("culture.Title")}
                         </Text>
                     </Col>
                 </Row>

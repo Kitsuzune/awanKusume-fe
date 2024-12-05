@@ -15,7 +15,10 @@
     },
 
     "footer" : {
-        "ButtonButuhBantuan" : "BUTUH BANTUAN ?"
+        "ButtonButuhBantuan" : "BUTUH BANTUAN ?",
+        "HubungiKami" : "Hubungi Kami",
+        "KantorUtama" : "Kantor Utama",
+        "KantorOperasional" : "Kantor Operasional"
     },
 
     "wa" : {
@@ -73,24 +76,33 @@
         "BPOM" : "BPOM",
         "SubBPOM" : "BPOM adalah Badan Pengawas Obat dan Makanan yang bertanggung jawab atas pengawasan obat dan makanan di Indonesia.",
         "TrademarkUntukLokalPerorangan" : "Trademark Untuk Lokal Perorangan",
-        "SubTrademark" : "Trademark adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya. Trademark untuk lokal perorangan adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh perorangan.",
+        "SubTrademarkUntukLokalPerorangan" : "Trademark adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya. Trademark untuk lokal perorangan adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh perorangan.",
         "TrademarkUntukBadanUsaha" : "Trademark Untuk Badan Usaha",
-        "SubTrademarkBU" : "Trademark untuk badan usaha adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh badan usaha.",
+        "SubTrademarkUntukBadanUsaha" : "Trademark untuk badan usaha adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh badan usaha.",
         "TrademarkUntukLuarNegeriPerorangan" : "Trademark Untuk Luar Negeri Perorangan",
-        "SubTrademarkLN" : "Trademark untuk luar negeri perorangan adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh perorangan yang berdomisili di luar negeri.",
+        "SubTrademarkUntukLuarNegeriPerorangan" : "Trademark untuk luar negeri perorangan adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh perorangan yang berdomisili di luar negeri.",
         "TrademarkUntukBadanUsahaLuarNegeri" : "Trademark Untuk Badan Usaha Luar Negeri",
-        "SubTrademarkLNU" : "Trademark untuk badan usaha luar negeri adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh badan usaha yang berdomisili di luar negeri.",
+        "SubTrademarkUntukBadanUsahaLuarNegeri" : "Trademark untuk badan usaha luar negeri adalah tanda yang digunakan untuk membedakan barang atau jasa dari pesaingnya yang diproduksi oleh badan usaha yang berdomisili di luar negeri.",
         "SMKPO" : "SMKPO",
         "SubSMKPO" : "SMKPO adalah Sertifikat Merek untuk Lokal Perorangan yang diterbitkan oleh Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia.",
+        "KlinikPratama" : "Klinik Pratama",
+        "SubKlinikPratama" : "Klinik Pratama adalah Klinik yang diterbitkan oleh Notaris yang berbadan hukum.",
         "INSW" : "INSW",
         "SubINSW" : "INSW adalah Ijin Usaha untuk Lokal Perorangan yang diterbitkan oleh Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia.",
         "AKL" : "AKL",
         "SubAKL" : "AKL adalah Akta Notaris yang diterbitkan oleh Notaris yang berbadan hukum."    
     },
+    "tracking" : {
+        "Button" : "Lacak Proyek",
+        "Title" : "Pantau Proyek Legalitas Anda Secara Real-Time",
+        "SubTitle" : "Pantau proyek legalitas Anda secara real-time dengan mudah dan akurat. Kami memastikan Anda mengetahui status proyek Anda setiap saat."
+
+    },
+        
     "artikel" : {
         "Title" : "Jelajahi beragam artikel inspiratif dan edukatif yang memberikan wawasan terbaru tentang dunia bisnis dan legalitas. Kami menyediakan informasi penting untuk membantu Anda membuat keputusan yang lebih cerdas."
     },
     "culture" : {
-        "Title" : "Budaya kerja di Awan Kusuma Legalitas berlandaskan pada integritas, inovasi, dan kolaborasi untuk memberikan solusi terbaik bagi setiap klien. Kami mengedepankan kejujuran dan etika dalam setiap langkah, memastikan layanan kami selalu relevan dengan regulasi terkini. Dengan semangat kerja sama dan rasa kekeluargaan, kami menciptakan lingkungan kerja yang mendukung profesionalisme sekaligus memprioritaskan kebutuhan klien melalui layanan yang cepat, transparan, dan unggul. Fokus kami adalah menjadi mitra terpercaya yang membantu klien mencapai kesuksesan melalui solusi legalitas yang komprehensif dan tepat sasaran."
+        "Title" : "PT Awan Kusuma Legalitas mengedepankan budaya kerja berbasis integritas, profesionalisme, dan inovasi. Dengan tim ahli yang berpengalaman, kami memberikan solusi hukum yang akurat, efisien, dan sesuai kebutuhan. Kami juga mendorong kolaborasi serta pengembangan SDM untuk memastikan layanan terbaik bagi setiap klien."
     }
 }
