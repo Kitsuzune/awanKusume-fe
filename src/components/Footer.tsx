@@ -59,12 +59,11 @@ const Footer = () => {
             <div className="w-full xl:w-1/4 mb-8 xl:mb-0 xl:text-left">
               <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.KantorUtama")}</h3>
               <p>
-                Gedung Thamrin City<br />
-                Lantai 6 Unit 7A, <br />
-                Jl. Thamrin Boulevard,<br />
-                Kel. Kebon Melati, <br />
-                Kec. Tanah Abang, <br />
-                Jakarta Pusat
+                Cluster Florida 5 No. 27<br />
+                Kel Tanjung Burung, <br />
+                Kec. Teluk Naga, <br />
+                Kab Tangerang, <br />
+                Banten, 15510
               </p>
             </div>
 
@@ -72,9 +71,9 @@ const Footer = () => {
             <div className="w-full xl:w-1/4 xl:text-start">
               <h3 className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.KantorOperasional")}</h3>
               <p>
-                Tokyo Riverside, PIK 2<br />
-                Kel, Lemo Kec. Teluk Naga Kab.<br />
-                Tangerang, Banten, 15510
+                Cluster Florida 5 No. 27<br />
+                Kel Tanjung Burung, Kec. Teluk Naga,<br />
+                Kab. Tangerang, Banten, 15510
               </p>
               <button
                 className="mt-5 bg-white text-black py-2 px-4 rounded-full font-semibold hover:bg-gray-300 transition-all duration-300"
