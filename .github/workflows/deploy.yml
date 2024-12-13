@@ -29,5 +29,5 @@ jobs:
         server: ${{ secrets.GIT_CPANEL_NEXT_FE_SERVER }}
         username: ${{ secrets.GIT_CPANEL_NEXT_FE_USERNAME }}
         password: ${{ secrets.GIT_CPANEL_NEXT_FE_PASSWORD }}
-        protocol: ${{ secrets.GIT_CPANEL_NEXT_FE_PROTOCOL }}
+        protocol: ftp
         port: ${{ secrets.GIT_CPANEL_NEXT_FE_PORT }}
