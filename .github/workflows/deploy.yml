@@ -32,3 +32,4 @@ jobs:
         protocol: ftp
         port: ${{ secrets.GIT_CPANEL_NEXT_FE_PORT }}
         local-dir: ./
+        server-dir: ./
