@@ -7,7 +7,7 @@ name: AwanKusuma Auto Deploy V1
 
 jobs:
   web-deploy:
-    name: AK Deploy V1
+    name: AK Deploy V1.1
     runs-on: ubuntu-latest
     steps:
     - name: Get latest code
@@ -23,13 +23,19 @@ jobs:
         npm install
         npm run build
 
-    - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.GIT_CPANEL_NEXT_FE_SERVER }}
-        username: ${{ secrets.GIT_CPANEL_NEXT_FE_USERNAME }}
-        password: ${{ secrets.GIT_CPANEL_NEXT_FE_PASSWORD }}
-        protocol: ftp
-        port: ${{ secrets.GIT_CPANEL_NEXT_FE_PORT }}
-        local-dir: ./
-        server-dir: ./
+    # - name: Sync files
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+    #   with:
+    #     server: ${{ secrets.GIT_CPANEL_NEXT_FE_SERVER }}
+    #     username: ${{ secrets.GIT_CPANEL_NEXT_FE_USERNAME }}
+    #     password: ${{ secrets.GIT_CPANEL_NEXT_FE_PASSWORD }}
+    #     protocol: ftp
+    #     port: ${{ secrets.GIT_CPANEL_NEXT_FE_PORT }}
+    #     local-dir: ./
+    #     server-dir: ./
+
+    - name: Deploy via FTP
+      run: |
+        lftp -e "open -u ${{ secrets.GIT_CPANEL_NEXT_FE_USERNAME }},${{ secrets.GIT_CPANEL_NEXT_FE_PASSWORD }} ${{ secrets.GIT_CPANEL_NEXT_FE_SERVER }}; set ssl:verify-certificate no; mirror -R -e .git/ -x .github/ -x .next/ -x node_modules/ 
+        . /public_html/; bye"
+
