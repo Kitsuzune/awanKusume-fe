@@ -185,7 +185,7 @@ const Navbar = () => {
           <Col className="hidden 3xl:flex items-center justify-center">
             <div className="flex gap-[23px] font-bold">
               <Link suppressHydrationWarning href="/about-us" className="text-[20px] text-black hover:text-orange">{t("navbar.TentangKami")}</Link>
-              <span className="text-[20px] text-black hover:text-orange cursor-pointer" onClick={showModal}>
+              <span className="text-[20px] text-black hover:text-orange cursor-pointer transition-all" onClick={showModal}>
                 {t("navbar.Layanan")}
               </span>
               <Dropdown
@@ -284,7 +284,10 @@ const Navbar = () => {
       <div className={`fixed top-0 right-0 h-full bg-white z-30 shadow-lg transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300`}>
         <div className="flex flex-col p-[20px]">
           <Link suppressHydrationWarning href="/about-us" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.TentangKami")}</Link>
-          <Link suppressHydrationWarning href="/layanan" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.Layanan")}</Link>
+          {/* <Link suppressHydrationWarning href="/layanan" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.Layanan")}</Link> */}
+          <span className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={showModal}>
+                {t("navbar.Layanan")}
+          </span>
           <Dropdown menu={{ items }} onVisibleChange={handleDropdownVisibleChange}>
             <div className='hover:text-orange hover:bg-gray-100 py-[10px] rounded-lg'>
               <span suppressHydrationWarning className='text-[14px] md:text-[20px] cursor-pointer px-5 py-[10px] text-start'>{t("navbar.Informasi")}</span>
@@ -372,7 +375,7 @@ const Navbar = () => {
         onCancel={handleCancel}
         footer={null}
         width='90vw'
-        className='-mt-5'
+        className='top-5 md:top-16'
       >
         <ModalNavbarServiceContent />
       </Modal>

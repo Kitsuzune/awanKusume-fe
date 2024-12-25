@@ -7,7 +7,7 @@ name: AwanKusuma Auto Deploy V1
 
 jobs:
   web-deploy:
-    name: AK Deploy V1.1
+    name: AK Deploy V1.2
     runs-on: ubuntu-latest
     steps:
     - name: Get latest code
@@ -39,5 +39,5 @@ jobs:
 
     - name: Deploy via FTP
       run: |
-        lftp -e "open -u ${{ secrets.GIT_CPANEL_NEXT_FE_USERNAME }},${{ secrets.GIT_CPANEL_NEXT_FE_PASSWORD }} ${{ secrets.GIT_CPANEL_NEXT_FE_SERVER }}; set ssl:verify-certificate no; mirror -R -e -x .git/ -x .github/ -x .next/ -x node_modules/ ./; bye"
+        lftp -e "open -u ${{ secrets.GIT_CPANEL_NEXT_FE_USERNAME }},${{ secrets.GIT_CPANEL_NEXT_FE_PASSWORD }} ${{ secrets.GIT_CPANEL_NEXT_FE_SERVER }}; set ssl:verify-certificate no; mirror -R -e -x .git/ -x .github/ -x node_modules/ ./; bye"
 

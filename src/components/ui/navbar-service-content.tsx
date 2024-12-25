@@ -4,31 +4,40 @@ import { Typography } from 'antd';
 const { Text } = Typography;
 
 const ModalNavbarServiceContent = () => {
+
   return (
     <div className='flex flex-col'>
-
-      <div className="grid grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-1 md:p-4 mt-4 md:mt-0">
         <div>
           <Text className='text-xl font-bold'>
             Pendirian Perusahaan
           </Text>
           <div className='mt-1'>
 
-            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300">
+            <div 
+              className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300"
+              onClick={() => window.location.href = '/layanan/pendirian-perusahaan'}
+            >
               <img src='/image/Office_building.png' alt='Office_building' className='w-5 h-5' />
               <Text>
                 Pendirian PT
               </Text>
             </div>
 
-            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300">
+            <div 
+              className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300"
+              onClick={() => window.location.href = '/layanan/pendirian-perusahaan'}
+            >
               <img src='/image/City_store.png' alt='City_store' className='w-5 h-5' />
               <Text>
                 Pendirian CV
               </Text>
             </div>
 
-            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300">
+            <div 
+              className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300"
+              onClick={() => window.location.href = '/layanan/pendirian-perusahaan'}
+            >
               <img src='/image/City_tower.png' alt='City_tower' className='w-5 h-5' />
               <Text>
                 Pendirian PT Perorangan
@@ -137,7 +146,7 @@ const ModalNavbarServiceContent = () => {
 
       </div>
 
-      <div className="grid grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-1 md:p-4">
         <div>
           <Text className='text-xl font-bold'>
             Pembuatan dan Perubahan Dokumen Perusahaan
@@ -281,7 +290,7 @@ const ModalNavbarServiceContent = () => {
 
       </div>
 
-      <div className="grid grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-1 md:p-4">
         <div>
           <Text className='text-xl font-bold'>
             Marketing Agency
