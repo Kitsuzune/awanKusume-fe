@@ -19,10 +19,6 @@
         "KantorUtama" : "Main Office",
         "KantorOperasional" : "Operational Office"
     },
-
-    "wa" : {
-        "ChatWa" : "Hello, how can we assist you?"
-    },
     
     "service" : {
         "Title" : "Services",

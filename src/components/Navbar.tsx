@@ -2,13 +2,14 @@
 import { useTranslationCustom } from '../../public/i18n/client';
 import useLanguage from '@/zustand/useLanguage';
 import { RightOutlined, MenuOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
-import { Button, Col, Row, Select, Dropdown, Menu, MenuProps, Typography } from 'antd';
+import { Button, Col, Row, Select, Dropdown, Menu, MenuProps, Typography, Modal } from 'antd';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Flag from 'react-world-flags';
 import Cookies from 'js-cookie';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { apiRequest } from '@/utils/api';
+import ModalNavbarServiceContent from './ui/navbar-service-content';
 
 const { Text } = Typography;
 const { Option } = Select;
@@ -24,6 +25,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [language, setLanguage] = useState<number>(1);
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -40,7 +42,7 @@ const Navbar = () => {
 
   useEffect(() => {
     console.log(userData);
-  },[userData]);
+  }, [userData]);
 
   const { lng } = useLanguage();
   const { t } = useTranslationCustom(lng, "HomePage");
@@ -144,6 +146,14 @@ const Navbar = () => {
     </Menu>
   );
 
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div className={`relative`}>
       {/* Overlay for dropdown focus */}
@@ -154,6 +164,11 @@ const Navbar = () => {
       {/* Overlay for mobile menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)} />
+      )}
+
+      {/* Overlay for modal */}
+      {isModalVisible && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-all duration-300" onClick={handleCancel} />
       )}
 
       {/* Desktop Navbar */}
@@ -170,7 +185,9 @@ const Navbar = () => {
           <Col className="hidden 3xl:flex items-center justify-center">
             <div className="flex gap-[23px] font-bold">
               <Link suppressHydrationWarning href="/about-us" className="text-[20px] text-black hover:text-orange">{t("navbar.TentangKami")}</Link>
-              <Link suppressHydrationWarning href="/layanan" className="text-[20px] text-black hover:text-orange">{t("navbar.Layanan")}</Link>
+              <span className="text-[20px] text-black hover:text-orange cursor-pointer" onClick={showModal}>
+                {t("navbar.Layanan")}
+              </span>
               <Dropdown
                 menu={{ items }}
                 onVisibleChange={handleDropdownVisibleChange}
@@ -348,6 +365,17 @@ const Navbar = () => {
           </Select>
         </div>
       </div>
+
+      {/* Modal for Layanan */}
+      <Modal
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        footer={null}
+        width='90vw'
+        className='-mt-5'
+      >
+        <ModalNavbarServiceContent />
+      </Modal>
     </div>
   );
 };

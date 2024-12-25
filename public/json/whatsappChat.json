@@ -1,0 +1,19 @@
+{
+  "whatsAppMessage": [
+    {
+      "language": "ID",
+      "languageId": 1,
+      "message": "Hallo, apa yang bisa kami bantu?"
+    },
+    {
+      "language": "EN",
+      "languageId": 2,
+      "message": "Hello, how can we assist you?"
+    },
+    {
+      "language": "CN",
+      "languageId": 3,
+      "message": "您好，我们能帮您什么？"
+    }
+  ]
+}
