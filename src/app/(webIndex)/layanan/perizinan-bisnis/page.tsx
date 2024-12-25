@@ -47,11 +47,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col">
-                            <Text className="text-[28px] md:text-[40px] font-[600] text-start">
-                            {t("layanan.TitlePB")}
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[40px] font-[600] text-start">
+                                {t("layanan.TitlePB")}
                             </Text>
-                            <Text className="text-[16px] md:text-[18px] font-[500] text-start mt-3 md:mt-5 w-[100%] md:w-[50%]">
-                            {t("layanan.SubTitlePB")}
+                            <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-start mt-3 md:mt-5 w-[100%] md:w-[50%]">
+                                {t("layanan.SubTitlePB")}
                             </Text>
                         </div>
                     </div>
@@ -62,11 +62,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.IDAK")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubIDAK")}
                                 </Text>
                             </div>
@@ -85,11 +85,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
-                                {t("layanan.BPOM")} 
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                                {t("layanan.BPOM")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubBPOM")}
                                 </Text>
                             </div>
@@ -108,11 +108,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.TrademarkUntukLokalPerorangan")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubTrademarkUntukLokalPerorangan")}
                                 </Text>
                             </div>
@@ -131,11 +131,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.TrademarkUntukBadanUsaha")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubTrademarkUntukBadanUsaha")}
                                 </Text>
                             </div>
@@ -154,11 +154,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.TrademarkUntukLuarNegeriPerorangan")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubTrademarkUntukLuarNegeriPerorangan")}
                                 </Text>
                             </div>
@@ -177,11 +177,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.TrademarkUntukBadanUsahaLuarNegeri")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubTrademarkUntukBadanUsahaLuarNegeri")}
                                 </Text>
                             </div>
@@ -200,11 +200,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.SMKPO")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubSMKPO")}
                                 </Text>
                             </div>
@@ -223,11 +223,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.KlinikPratama")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubKlinikPratama")}
                                 </Text>
                             </div>
@@ -246,11 +246,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.INSW")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubINSW")}
                                 </Text>
                             </div>
@@ -269,11 +269,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                                 {t("layanan.AKL")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                     {t("layanan.SubAKL")}
                                 </Text>
                             </div>

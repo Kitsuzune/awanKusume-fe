@@ -107,8 +107,8 @@ const Service: React.FC<ServiceProps> = ({ showHeader = true, type = "", status 
                 <Col span={24}>
                     {showHeader && (
                         <div className="text-center">
-                            <Text className="text-2xl md:text-4xl font-bold inline-block">{t("service.Title")}</Text>
-                            <Text className="text-base md:text-lg mt-2 md:mt-4 text-justify md:text-center inline-block mx-7 md:mx-0">{t("service.SubTitle")}</Text>
+                            <Text suppressHydrationWarning className="text-2xl md:text-4xl font-bold inline-block">{t("service.Title")}</Text>
+                            <Text suppressHydrationWarning className="text-base md:text-lg mt-2 md:mt-4 text-justify md:text-center inline-block mx-7 md:mx-0">{t("service.SubTitle")}</Text>
                         </div>
                     )}
                     <Row gutter={[16, 16]} className="mt-5 md:mt-10 justify-center">

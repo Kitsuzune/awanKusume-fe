@@ -219,7 +219,7 @@ const page = () => {
                             alt="About Us"
                             className="w-[250px] h-[150px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
-                        <Text className="text-[12px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
+                        <Text suppressHydrationWarning className="text-[12px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
                            {t("culture.Title")}
                         </Text>
                     </Col>

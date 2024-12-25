@@ -47,12 +47,12 @@ const About: React.FC = () => {
             <Row className="w-[100%] lg:w-[65%] mx-auto">
                 <Col span={24}>
                     <div className="mx-7 md:mx-0">
-                        <Text className="text-[24px] md:text-[40px] font-[700]">
+                        <Text suppressHydrationWarning className="text-[24px] md:text-[40px] font-[700]">
                             {/* SERVICE */}
                             {t("about.Title")}
                         </Text>
 
-                        <Text className="text-[16px] md:text-[24px] mt-2 md:mt-4 inline-block text-justify">
+                        <Text suppressHydrationWarning className="text-[16px] md:text-[24px] mt-2 md:mt-4 inline-block text-justify">
                             {/* SUB SERVICE */}
                             {t("about.SubTitle")}
                         </Text>

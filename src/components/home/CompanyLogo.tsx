@@ -52,6 +52,7 @@ const CompanyLogo = () => {
             <Col span={24} className="mt-12 md:mt-16">
                 <div className="flex justify-center items-center mt-5 md:mt-10">
                     <button 
+                        suppressHydrationWarning
                         className="bg-[#FEA500] text-white font-bold px-[20px] md:px-[43px] py-[10px] md:py-[18px] text-[14px] md:text-[15px] rounded-[25px] md:rounded-[35px] hover:bg-[#8f802b] transition-all duration-500"
                         onClick={() => window.open('https://wa.me/628158968885?text=Hello%2C%20I%20want%20to%20Join%20Awan%20Kusuma%20Partnership.%20How%20Do%20I%20Start?', '_blank')}
                     >

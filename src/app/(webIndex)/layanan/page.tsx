@@ -24,20 +24,22 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col">
-                            <Text className="text-[28px] md:text-[40px] font-[600] text-start">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[40px] font-[600] text-start">
                                 {t("layanan.TitlePP")}
                             </Text>
-                            <Text className="text-[16px] md:text-[18px] font-[500] text-start mt-3 md:mt-5 w-[100%] md:w-[50%]">
+                            <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-start mt-3 md:mt-5 w-[100%] md:w-[50%]">
                                 {t("layanan.SubTitlePP")}
                             </Text>
                             <div className="flex flex-col md:flex-row mt-3 md:mt-5 gap-3">
                                 <Button
+                                    suppressHydrationWarning
                                     className="text-white rounded-[35px] text-[16px] px-[10px] md:px-[15px] py-[5px] bg-[#FEA500]"
                                     onClick={() => scrollToSection(ptSectionRef)}
                                 >
                                     {t("layanan.PT")}
                                 </Button>
                                 <Button
+                                    suppressHydrationWarning
                                     className="text-white rounded-[35px] text-[16px] px-[10px] md:px-[15px] py-[5px] bg-[#FEA500]"
                                     onClick={() => scrollToSection(cvSectionRef)}
                                 >
@@ -53,11 +55,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                             {t("layanan.PT")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                 {t("layanan.SubPT")}
                                 </Text>
                             </div>
@@ -76,11 +78,11 @@ const Page: React.FC = () => {
                 <Col span={24}>
                     <div className="mx-auto w-[90%] md:w-[80%] mt-[40px] md:mt-[80px]">
                         <div className="flex flex-col justify-center">
-                            <Text className="text-[28px] md:text-[55px] font-[600] text-center text-main">
+                            <Text suppressHydrationWarning className="text-[28px] md:text-[55px] font-[600] text-center text-main">
                             {t("layanan.CV")}
                             </Text>
                             <div className="flex justify-center">
-                                <Text className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
+                                <Text suppressHydrationWarning className="text-[16px] md:text-[18px] font-[500] text-center mt-3 md:mt-5 w-[80%]">
                                 {t("layanan.SubCV")}
                                 </Text>
                             </div>

@@ -87,11 +87,11 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
             <Col span={24}>
                 {TopText && (
                     <div className="text-center flex flex-col">
-                        <Text className="text-[24px] md:text-[40px] font-[700]">
+                        <Text suppressHydrationWarning className="text-[24px] md:text-[40px] font-[700]">
                             {/* OURCLIENT */}
                             {t("ourclient.Title")}
                         </Text>
-                        <Text className="text-[16px] md:text-[24px] mt-2 md:mt-4">
+                        <Text suppressHydrationWarning className="text-[16px] md:text-[24px] mt-2 md:mt-4">
                             {/* SUB OURCLIENT*/}
                             {t("ourclient.SubTitle")}
                         </Text>

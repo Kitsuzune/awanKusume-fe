@@ -115,7 +115,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                     <div className="grid grid-cols-6 justify-between md:justify-center items-center">
                         <div className="col-span-6 md:col-span-4 text-start flex flex-col w-full md:mx-auto md:w-auto">
                             <Text className="text-[24px] md:text-[40px] font-[700]">{title}</Text>
-                            <Text className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
+                            <Text suppressHydrationWarning className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
                                 {t("artikel.Title")}
                             </Text>
                         </div>
@@ -135,7 +135,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                     <div className="flex justify-between items-center md:mx-5">
                         <div className="flex flex-col w-full md:w-3/4">
                             <Text className="text-[24px] md:text-[40px] font-[700]">{title}</Text>
-                            <Text className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
+                            <Text suppressHydrationWarning className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
                                 {t("artikel.Title")}
                             </Text>
                         </div>

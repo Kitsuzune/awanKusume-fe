@@ -66,7 +66,7 @@ const page = () => {
             <Col span={24}>
                 <Row className="w-full mx-auto mt-[40px] md:mt-[120px]">
                     <Col span={24} md={12} className="flex justify-center md:justify-start">
-                        <Text className="text-[24px] md:text-[32px] font-[700] ml-0 md:ml-[250px] text-center md:text-left">
+                        <Text suppressHydrationWarning className="text-[24px] md:text-[32px] font-[700] ml-0 md:ml-[250px] text-center md:text-left">
                             {t("aboutus.Title-1")}
                         </Text>
                     </Col>
@@ -77,7 +77,7 @@ const page = () => {
                             alt="About Us"
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
-                        <Text className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
+                        <Text suppressHydrationWarning className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
                             {t("aboutus.SubTitle-1")}
                         </Text>
                         <div className="flex items-center gap-3 mt-4 w-auto hover:cursor-pointer hover:bg-gray-200 rounded-md p-3 transition-all duration-300" onClick={handleKenapaAwanKusumaClick}>
@@ -91,7 +91,7 @@ const page = () => {
 
                 <Row className="w-full mx-auto mt-[60px] md:mt-[80px]">
                     <Col span={24} md={12} className="flex justify-center md:justify-start">
-                        <Text className="text-[24px] md:text-[32px] font-[700] ml-0 md:ml-[250px] text-center md:text-left">
+                        <Text suppressHydrationWarning className="text-[24px] md:text-[32px] font-[700] ml-0 md:ml-[250px] text-center md:text-left">
                             {t("aboutus.Title-2")}
                         </Text>
                     </Col>
@@ -102,7 +102,7 @@ const page = () => {
                             alt="About Us"
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
-                        <Text className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
+                        <Text suppressHydrationWarning className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
                             {t("aboutus.SubTitle-2")}
                         </Text>
                         <div className="flex items-center gap-3 mt-4 w-auto hover:cursor-pointer hover:bg-gray-200 rounded-md p-3 transition-all duration-300" onClick={handleVisiMisiClick}>
@@ -156,7 +156,7 @@ const page = () => {
                             alt="About Us"
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
-                        <Text className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
+                        <Text suppressHydrationWarning className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
                         {t("culture.Title")}
                         </Text>
                     </Col>
