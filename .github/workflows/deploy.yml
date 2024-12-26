@@ -44,5 +44,7 @@ jobs:
           set ssl:verify-certificate no;
           cls -1 | grep -v '^node_modules$' | xargs -I {} rm -rf {} || true;
           mirror -R -e -x .git/ -x .github/ -x node_modules/ ./ ./;
+          mirror -R ./.next/ ./.next/;
+          mirror -R ./public/ ./public/;
           bye"
 
