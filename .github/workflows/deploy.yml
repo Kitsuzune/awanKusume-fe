@@ -43,6 +43,6 @@ jobs:
           open -u ${{ secrets.GIT_CPANEL_NEXT_FE_USERNAME }},${{ secrets.GIT_CPANEL_NEXT_FE_PASSWORD }} ${{ secrets.GIT_CPANEL_NEXT_FE_SERVER }};
           set ssl:verify-certificate no;
           cls -1 | grep -v '^node_modules$' | xargs -I {} rm -rf {};
-          mirror -R -e -x .git/ -x .github/ ./ ./;
+          mirror -R -e -x .git/ -x .github/ -x node_modules/ ./ ./;
           bye"
 
