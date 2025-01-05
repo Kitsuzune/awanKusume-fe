@@ -2,10 +2,23 @@
 import React, { useEffect, useState } from "react";
 import { Col, message, Row, Typography } from "antd";
 import { apiRequest } from "@/utils/api";
-import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "../../../public/i18n/client";
+import idTranslations from "@/../public/i18n/locales/id/HomePage.json";
+import enTranslations from "@/../public/i18n/locales/en/HomePage.json";
+import cnTranslations from "@/../public/i18n/locales/cn/HomePage.json";
 
 const { Text } = Typography;
+const getTranslations = (language: number) => {
+    switch (language) {
+        case 1:
+            return idTranslations;
+        case 2:
+            return enTranslations;
+        case 3:
+            return cnTranslations;
+        default:
+            return idTranslations;
+    }
+};
 
 interface Partner {
     id: string;
@@ -16,8 +29,8 @@ interface Partner {
 
 const CompanyLogo = () => {
     const [partners, setPartners] = useState<Partner[]>([]);
-    const { lng } = useLanguage();
-    const { t } = useTranslationCustom(lng, "HomePage");
+    const [language, setLanguage] = useState<number>(1);
+    const translations = getTranslations(language);
 
     useEffect(() => {
         const fetchPartners = async () => {
@@ -57,7 +70,7 @@ const CompanyLogo = () => {
                         onClick={() => window.open('https://wa.me/628158968885?text=Hello%2C%20I%20want%20to%20Join%20Awan%20Kusuma%20Partnership.%20How%20Do%20I%20Start?', '_blank')}
                     >
                         {/* BUTTON */}
-                        {t("companylogo.Button")}
+                        {translations.companylogo["Button"]}
                     </button>
                 </div>
             </Col>

@@ -4,10 +4,11 @@ import { Col, Collapse, message, Row, Typography } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
 import ImageCarousel from "./imageCarousell";
 import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "../../../../public/i18n/client";
 import { useRouter } from "next/navigation";
 import { apiRequest } from "@/utils/api";
-
+import idTranslations from '../../../../public/i18n/locales/id/HomePage.json';
+import enTranslations from '../../../../public/i18n/locales/en/HomePage.json';
+import cnTranslations from '../../../../public/i18n/locales/cn/HomePage.json';
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -25,9 +26,21 @@ interface FaqData {
     updatedAt: string;
 }
 
+const getTranslations = (language: number) => {
+  switch (language) {
+    case 1:
+      return idTranslations;
+    case 2:
+      return enTranslations;
+    case 3:
+      return cnTranslations;
+    default:
+      return idTranslations;
+  }
+};
+
 const page = () => {
     const { lng } = useLanguage();
-    const { t } = useTranslationCustom(lng, "HomePage");
     const router = useRouter();
     const [data, setData] = useState<FaqData[]>([]);
     const [language, setLanguage] = useState<number>(1);
@@ -61,13 +74,15 @@ const page = () => {
         router.push("/about-us/detail#visi-misi");
     };
 
+    const translations = getTranslations(language);
+
     return (
         <Row className="w-full p-5">
             <Col span={24}>
                 <Row className="w-full mx-auto mt-[40px] md:mt-[120px]">
                     <Col span={24} md={12} className="flex justify-center md:justify-start">
                         <Text suppressHydrationWarning className="text-[24px] md:text-[32px] font-[700] ml-0 md:ml-[250px] text-center md:text-left">
-                            {t("aboutus.Title-1")}
+                            {translations.aboutus["Title-1"]}
                         </Text>
                     </Col>
 
@@ -78,7 +93,7 @@ const page = () => {
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
                         <Text suppressHydrationWarning className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
-                            {t("aboutus.SubTitle-1")}
+                            {translations.aboutus["SubTitle-1"]}
                         </Text>
                         <div className="flex items-center gap-3 mt-4 w-auto hover:cursor-pointer hover:bg-gray-200 rounded-md p-3 transition-all duration-300" onClick={handleKenapaAwanKusumaClick}>
                             <Text className="text-[14px] md:text-[18px] font-bold">View More</Text>
@@ -92,7 +107,7 @@ const page = () => {
                 <Row className="w-full mx-auto mt-[60px] md:mt-[80px]">
                     <Col span={24} md={12} className="flex justify-center md:justify-start">
                         <Text suppressHydrationWarning className="text-[24px] md:text-[32px] font-[700] ml-0 md:ml-[250px] text-center md:text-left">
-                            {t("aboutus.Title-2")}
+                            {translations.aboutus["Title-2"]}
                         </Text>
                     </Col>
 
@@ -103,7 +118,7 @@ const page = () => {
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
                         <Text suppressHydrationWarning className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
-                            {t("aboutus.SubTitle-2")}
+                            {translations.aboutus["SubTitle-2"]}
                         </Text>
                         <div className="flex items-center gap-3 mt-4 w-auto hover:cursor-pointer hover:bg-gray-200 rounded-md p-3 transition-all duration-300" onClick={handleVisiMisiClick}>
                             <Text className="text-[14px] md:text-[18px] font-bold">View More</Text>
@@ -157,7 +172,7 @@ const page = () => {
                             className="w-[300px] h-[200px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
                         <Text suppressHydrationWarning className="text-[14px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
-                        {t("culture.Title")}
+                        {translations.culture.Title}
                         </Text>
                     </Col>
                 </Row>

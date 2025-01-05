@@ -6,10 +6,23 @@ import "slick-carousel/slick/slick-theme.css";
 import { Col, Row, Typography, message } from "antd";
 import quote from "@/../public/image/quote.svg";
 import { apiRequest } from "@/utils/api";
-import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "../../../public/i18n/client";
+import idTranslations from "@/../public/i18n/locales/id/HomePage.json";
+import enTranslations from "@/../public/i18n/locales/en/HomePage.json";
+import cnTranslations from "@/../public/i18n/locales/cn/HomePage.json";
 
 const { Text } = Typography;
+const getTranslations = (language: number) => {
+    switch (language) {
+        case 1:
+            return idTranslations;
+        case 2:
+            return enTranslations;
+        case 3:
+            return cnTranslations;
+        default:
+            return idTranslations;
+    }
+};
 
 interface OurClientProps {
     slidesToShow: number;
@@ -36,8 +49,6 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
         }
         return 1;
     });
-    const { lng } = useLanguage();
-    const { t } = useTranslationCustom(lng, "HomePage");
 
     const fetchTestimonials = async () => {
         try {
@@ -52,6 +63,8 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
     useEffect(() => {
         fetchTestimonials();
     }, [language]);
+
+    const translations = getTranslations(language);
 
     const repeatedTestimonials = Array.from({ length: 10 }, (_, i) => testimonials[i % testimonials.length]);
 
@@ -89,11 +102,11 @@ const OurClient: React.FC<OurClientProps> = ({ slidesToShow, TopText = true, Bot
                     <div className="text-center flex flex-col">
                         <Text suppressHydrationWarning className="text-[24px] md:text-[40px] font-[700]">
                             {/* OURCLIENT */}
-                            {t("ourclient.Title")}
+                            {translations.ourclient["Title"]}
                         </Text>
                         <Text suppressHydrationWarning className="text-[16px] md:text-[24px] mt-2 md:mt-4">
                             {/* SUB OURCLIENT*/}
-                            {t("ourclient.SubTitle")}
+                            {translations.ourclient["SubTitle"]}
                         </Text>
                     </div>
                 )}

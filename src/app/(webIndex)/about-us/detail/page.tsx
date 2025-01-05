@@ -12,8 +12,9 @@ import ImageCarouselDetail2 from "./imageCarousellDetail2";
 import { apiRequest } from "@/utils/api";
 import whyawan from "@/../public/json/whyawan.json";
 import visimisi from "@/../public/json/visimisi.json";
-import { useTranslationCustom } from "../../../../../public/i18n/client";
-import useLanguage from "@/zustand/useLanguage";
+import idTranslations from "@/../public/i18n/locales/id/HomePage.json";
+import enTranslations from "@/../public/i18n/locales/en/HomePage.json";
+import cnTranslations from "@/../public/i18n/locales/cn/HomePage.json";
 
 const { Text } = Typography;
 const { Panel } = Collapse;
@@ -67,15 +68,26 @@ interface FaqData {
     updatedAt: string;
 }
 
+const getTranslations = (language: number) => {
+    switch (language) {
+      case 1:
+        return idTranslations;
+      case 2:
+        return enTranslations;
+      case 3:
+        return cnTranslations;
+      default:
+        return idTranslations;
+    }
+  };
+
 const page = () => {
     const [data, setData] = useState<FaqData[]>([]);
     const [language, setLanguage] = useState<number>(1);
     const [whyAwanKusuma, setWhyAwanKusuma] = useState<any>(null);
     const [visiMisi, setVisiMisi] = useState<any>(null);
 
-    const { lng } = useLanguage();
-    const { t } = useTranslationCustom(lng, "HomePage");
-
+    const translations = getTranslations(language);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -220,7 +232,7 @@ const page = () => {
                             className="w-[250px] h-[150px] md:w-[485px] md:h-[280px] rounded-2xl"
                         />
                         <Text suppressHydrationWarning className="text-[12px] md:text-[16px] font-[400] mt-4 w-[90%] md:w-[60%] text-justify">
-                           {t("culture.Title")}
+                           {translations.culture["Title"]}
                         </Text>
                     </Col>
                 </Row>

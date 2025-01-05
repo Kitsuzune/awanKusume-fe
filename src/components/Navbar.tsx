@@ -11,6 +11,10 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import { apiRequest } from '@/utils/api';
 import ModalNavbarServiceContent from './ui/navbar-service-content';
 
+import idTranslations from '../../public/i18n/locales/id/HomePage.json';
+import enTranslations from '../../public/i18n/locales/en/HomePage.json';
+import cnTranslations from '../../public/i18n/locales/cn/HomePage.json';
+
 const { Text } = Typography;
 const { Option } = Select;
 
@@ -19,6 +23,18 @@ interface UserData {
   role: string;
 }
 
+const getTranslations = (language: number) => {
+  switch (language) {
+    case 1:
+      return idTranslations;
+    case 2:
+      return enTranslations;
+    case 3:
+      return cnTranslations;
+    default:
+      return idTranslations;
+  }
+};
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,7 +42,7 @@ const Navbar = () => {
   const [language, setLanguage] = useState<number>(1);
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const translations = getTranslations(language);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const storedLanguage = localStorage.getItem('language');
@@ -80,7 +96,9 @@ const Navbar = () => {
       key: '1',
       label: (
         <Link href="/kbli" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-          <span suppressHydrationWarning>{t("navbar.InformasiKbli")}</span>
+          <span suppressHydrationWarning>
+            {translations.navbar.InformasiKbli}
+          </span>
           <RightOutlined />
         </Link>
       )
@@ -89,7 +107,9 @@ const Navbar = () => {
       key: '2',
       label: (
         <Link href="/faq" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-          <span suppressHydrationWarning>{t("navbar.InformasiFaq")}</span>
+          <span suppressHydrationWarning>
+            {translations.navbar.InformasiFaq}
+          </span>
           <RightOutlined />
         </Link>
       )
@@ -101,20 +121,13 @@ const Navbar = () => {
           className="flex items-center justify-between gap-[10px]"
           onClick={() => window.open('https://api.whatsapp.com/send/?phone=628158968885', '_blank')}
         >
-          <span suppressHydrationWarning>{t("navbar.InformasiLiveChat")}</span>
+          <span suppressHydrationWarning>
+            {translations.navbar.InformasiLiveChat}
+          </span>
           <RightOutlined />
         </div>
       )
     },
-    // {
-    //   key: '4',
-    //   label: (
-    //     <Link href="/partnership" className="flex items-center justify-between gap-[10px]" onClick={() => setIsDropdownOpen(false)}>
-    //       <span>{t("navbar.InformasiPartnership")}</span>
-    //       <RightOutlined />
-    //     </Link>
-    //   )
-    // }
   ];
 
   const userMenu = (
@@ -184,22 +197,22 @@ const Navbar = () => {
           </Col>
           <Col className="hidden 3xl:flex items-center justify-center">
             <div className="flex gap-[23px] font-bold">
-              <Link suppressHydrationWarning href="/about-us" className="text-[20px] text-black hover:text-orange">{t("navbar.TentangKami")}</Link>
-              <span className="text-[20px] text-black hover:text-orange cursor-pointer transition-all" onClick={showModal}>
-                {t("navbar.Layanan")}
+              <Link suppressHydrationWarning href="/about-us" className="text-[20px] text-black hover:text-orange">{translations.navbar.TentangKami}</Link>
+              <span className="text-[20px] text-black hover:text-orange cursor-pointer" onClick={showModal}>
+                {translations.navbar.Layanan}
               </span>
               <Dropdown
                 menu={{ items }}
                 onVisibleChange={handleDropdownVisibleChange}
               >
                 <div className='hover:text-orange'>
-                  <span className='text-[20px] cursor-pointer transition-all duration-300'>{t("navbar.Informasi")}</span>
+                  <span className='text-[20px] cursor-pointer transition-all duration-300'>{translations.navbar.Informasi}</span>
                   <DownOutlined className='text-[20px] ml-2 transition-all duration-300' />
                 </div>
               </Dropdown>
-              <Link suppressHydrationWarning href="/tracking" className="text-[20px] text-black hover:text-orange">{t("navbar.Tracking")}</Link>
-              <Link suppressHydrationWarning href="/blogPost" className="text-[20px] text-black hover:text-orange">{t("navbar.InfoBisnis")}</Link>
-              <Link suppressHydrationWarning href="https://www.instagram.com/awankusuma.legalitas/" className="text-[20px] text-black hover:text-orange">{t("navbar.Promo")}</Link>
+              <Link suppressHydrationWarning href="/tracking" className="text-[20px] text-black hover:text-orange">{translations.navbar.Tracking}</Link>
+              <Link suppressHydrationWarning href="/blogPost" className="text-[20px] text-black hover:text-orange">{translations.navbar.InfoBisnis}</Link>
+              <Link suppressHydrationWarning href="https://www.instagram.com/awankusuma.legalitas/" className="text-[20px] text-black hover:text-orange">{translations.navbar.Promo}</Link>
             </div>
           </Col>
           <Col className="hidden 3xl:flex items-center justify-end gap-[11px]">
@@ -266,7 +279,7 @@ const Navbar = () => {
                   className="bg-[#FEA500] text-white font-bold px-[41px] py-[23px] text-[16px] rounded-[35px]"
                   onClick={() => window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
                 >
-                  {t("navbar.ButtonHubungiKami")}
+                  {translations.navbar.ButtonHubungiKami}
                 </Button>
               </>
             )}
@@ -283,20 +296,17 @@ const Navbar = () => {
       {/* Mobile Offcanvas Menu */}
       <div className={`fixed top-0 right-0 h-full bg-white z-30 shadow-lg transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300`}>
         <div className="flex flex-col p-[20px]">
-          <Link suppressHydrationWarning href="/about-us" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.TentangKami")}</Link>
-          {/* <Link suppressHydrationWarning href="/layanan" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.Layanan")}</Link> */}
-          <span className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={showModal}>
-                {t("navbar.Layanan")}
-          </span>
+          <Link suppressHydrationWarning href="/about-us" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{translations.navbar.TentangKami}</Link>
+          <Link suppressHydrationWarning href="/layanan" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{translations.navbar.Layanan}</Link>
           <Dropdown menu={{ items }} onVisibleChange={handleDropdownVisibleChange}>
             <div className='hover:text-orange hover:bg-gray-100 py-[10px] rounded-lg'>
-              <span suppressHydrationWarning className='text-[14px] md:text-[20px] cursor-pointer px-5 py-[10px] text-start'>{t("navbar.Informasi")}</span>
+              <span suppressHydrationWarning className='text-[14px] md:text-[20px] cursor-pointer px-5 py-[10px] text-start'>{translations.navbar.Informasi}</span>
               <DownOutlined className='text-[14px] md:text-[20px] ml-2' />
             </div>
           </Dropdown>
-          <Link suppressHydrationWarning href="/tracking" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.Tracking")}</Link>
-          <Link suppressHydrationWarning href="/blogPost" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.InfoBisnis")}</Link>
-          <Link suppressHydrationWarning href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{t("navbar.Promo")}</Link>
+          <Link suppressHydrationWarning href="/tracking" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{translations.navbar.Tracking}</Link>
+          <Link suppressHydrationWarning href="/blogPost" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{translations.navbar.InfoBisnis}</Link>
+          <Link suppressHydrationWarning href="https://www.instagram.com/awankusuma.legalitas/" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{translations.navbar.Promo}</Link>
           {userData ? (
             <>
               <div className='border-2 font-bold w-full py-[15px] mt-[20px] rounded-lg flex items-center justify-center'>
@@ -326,7 +336,7 @@ const Navbar = () => {
                   window.open('https://api.whatsapp.com/send/?phone=628158968885&text=Hello%2C%20I%20have%20an%20inquiry%20for%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank');
                 }}
               >
-                {t("navbar.ButtonHubungiKami")}
+                {translations.navbar.ButtonHubungiKami}
               </Button>
             </>
           )}
@@ -375,7 +385,7 @@ const Navbar = () => {
         onCancel={handleCancel}
         footer={null}
         width='90vw'
-        className='top-5 md:top-16'
+        className='-mt-5'
       >
         <ModalNavbarServiceContent />
       </Modal>

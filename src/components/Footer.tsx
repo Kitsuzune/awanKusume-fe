@@ -1,12 +1,37 @@
 "use client";
 
-import { useTranslationCustom } from "../../public/i18n/client";
-import useLanguage from "@/zustand/useLanguage";
-import React from "react";
+import idTranslations from "@/../public/i18n/locales/id/HomePage.json";
+import enTranslations from "@/../public/i18n/locales/en/HomePage.json";
+import cnTranslations from "@/../public/i18n/locales/cn/HomePage.json";
+import React, { useEffect, useState } from "react";
+
+const getTranslations = (language: number) => {
+  switch (language) {
+    case 1:
+      return idTranslations;
+    case 2:
+      return enTranslations;
+    case 3:
+      return cnTranslations;
+    default:
+      return idTranslations;
+  }
+};
+
 
 const Footer = () => {
-  const { lng } = useLanguage();
-  const { t } = useTranslationCustom(lng, "HomePage");
+  const [language, setLanguage] = useState<number>(1);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedLanguage = localStorage.getItem("language");
+      setLanguage(storedLanguage ? parseInt(storedLanguage) : 1);
+    }
+  }, []);
+
+  const translations = getTranslations(language);
+
+
   return (
     <>
       <footer className="bg-[#007893] text-white py-20 xl:py-40">
@@ -33,7 +58,9 @@ const Footer = () => {
 
             {/* Contact Us */}
             <div className="w-full xl:w-1/4 mb-8 xl:mb-0 xl:text-left">
-              <h3 suppressHydrationWarning className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.HubungiKami")}</h3>
+              <h3 suppressHydrationWarning className="font-[900] mb-4 text-[18px] xl:text-[20px]">
+                {translations.footer["HubungiKami"]}
+              </h3>
               <ul className="space-y-2">
                 <li className="flex items-center xl:justify-start">
                   <i className="mr-2">
@@ -57,7 +84,9 @@ const Footer = () => {
 
             {/* Main Office */}
             <div className="w-full xl:w-1/4 mb-8 xl:mb-0 xl:text-left">
-              <h3 suppressHydrationWarning className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.KantorUtama")}</h3>
+              <h3 suppressHydrationWarning className="font-[900] mb-4 text-[18px] xl:text-[20px]">
+                {translations.footer["KantorUtama"]}
+              </h3>
               <p>
                 Cluster Florida 5 No. 27<br />
                 Kel Tanjung Burung, <br />
@@ -69,7 +98,9 @@ const Footer = () => {
 
             {/* Operational Office */}
             <div className="w-full xl:w-1/4 xl:text-start">
-              <h3 suppressHydrationWarning className="font-[900] mb-4 text-[18px] xl:text-[20px]">{t("footer.KantorOperasional")}</h3>
+              <h3 suppressHydrationWarning className="font-[900] mb-4 text-[18px] xl:text-[20px]">
+                {translations.footer["KantorOperasional"]}
+              </h3>
               <p>
                 Cluster Florida 5 No. 27<br />
                 Kel Tanjung Burung, Kec. Teluk Naga,<br />
@@ -80,7 +111,7 @@ const Footer = () => {
                 className="mt-5 bg-white text-black py-2 px-4 rounded-full font-semibold hover:bg-gray-300 transition-all duration-300"
                 onClick={() => window.open('https://wa.me/628158968885?text=Hello%2C%20I%20have%20a%20question%20about%20Awan%20Kusuma%2C%20can%20you%20help%20me%3F', '_blank')}
               >
-                {t("footer.ButtonButuhBantuan")}
+                {translations.footer["ButtonButuhBantuan"]}
               </button>
             </div>
 

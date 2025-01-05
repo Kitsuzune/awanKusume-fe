@@ -1,15 +1,27 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import { Col, Row, Typography, Modal } from "antd";
-import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "../../../public/i18n/client";
+import idTranslations from "@/../public/i18n/locales/id/HomePage.json";
+import enTranslations from "@/../public/i18n/locales/en/HomePage.json";
+import cnTranslations from "@/../public/i18n/locales/cn/HomePage.json";
 import { apiRequest } from "@/utils/api";
 
 const Text = Typography;
+const getTranslations = (language: number) => {
+    switch (language) {
+        case 1:
+            return idTranslations;
+        case 2:
+            return enTranslations;
+        case 3:
+            return cnTranslations;
+        default:
+            return idTranslations;
+    }
+};
 
 const SaleBar = () => {
-    const { lng } = useLanguage();
-    const { t } = useTranslationCustom(lng, "HomePage");
+    const [language, setLanguage] = useState<number>(1);
     const [data, setData] = useState({
         link: '',
         name: '',
@@ -51,6 +63,15 @@ const SaleBar = () => {
         };
     }, []);
 
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedLanguage = localStorage.getItem("language");
+            setLanguage(storedLanguage ? parseInt(storedLanguage) : 1);
+        }
+    }, []);
+
+    const translations = getTranslations(language);
+
     return (
         <Row className="w-full p-4 md:p-5">
             <Col span={24}>
@@ -58,17 +79,17 @@ const SaleBar = () => {
                     <div className="flex justify-center items-center h-full">
                         <div className="text-start">
                             <Text suppressHydrationWarning className="text-[24px] md:text-[48px] w-full md:w-[60%] text-white font-[600]">
-                                {t("salebar.Title")}
+                                {translations.salebar["Title"]}
                             </Text>
                             <Text suppressHydrationWarning className="text-[14px] md:text-[20px] w-full md:w-[60%] mt-2 md:mt-4 text-white font-[300]">
-                                {t("salebar.SubTitle")}
+                                {translations.salebar["SubTitle"]}
                             </Text>
                             <button
                                 suppressHydrationWarning
                                 className="bg-[#FEA500] text-white font-bold px-[20px] md:px-[43px] py-[10px] md:py-[18px] text-[14px] md:text-[15px] rounded-[25px] md:rounded-[35px] mt-3 md:mt-5 hover:bg-[#8f802b] transition-all duration-500"
                                 onClick={showModal}
                             >
-                                {t("salebar.Button")}
+                                {translations.salebar["Button"]}
                             </button>
                         </div>
                     </div>
@@ -86,9 +107,9 @@ const SaleBar = () => {
                             {data.name}
                         </div>
 
-                        <img 
-                            src={data.image} 
-                            alt="Promotion" 
+                        <img
+                            src={data.image}
+                            alt="Promotion"
                             className="w-full md:w-[600px] h-auto md:h-[600px] object-contain cursor-pointer hover:backdrop-filter hover:opacity-90 transition-all duration-300"
                             onClick={() => window.open(data.link, '_blank')}
                         />

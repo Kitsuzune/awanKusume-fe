@@ -1,12 +1,26 @@
 'use client';
-import { useTranslationCustom } from "../../../public/i18n/client";
 import { apiRequest } from "@/utils/api";
-import useLanguage from "@/zustand/useLanguage";
 import { Col, Row, Typography } from "antd";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import idTranslations from "@/../public/i18n/locales/id/HomePage.json";
+import enTranslations from "@/../public/i18n/locales/en/HomePage.json";
+import cnTranslations from "@/../public/i18n/locales/cn/HomePage.json";
 
 const Text = Typography;
+const getTranslations = (language: number) => {
+    switch (language) {
+        case 1:
+            return idTranslations;
+        case 2:
+            return enTranslations;
+        case 3:
+            return cnTranslations;
+        default:
+            return idTranslations;
+    }
+};
+
 
 interface About {
     id: string;
@@ -26,8 +40,7 @@ const About: React.FC = () => {
         }
         return 1;
     });
-    const { lng } = useLanguage();
-    const { t } = useTranslationCustom(lng, "HomePage");
+    const translations = getTranslations(language);
 
     const fetchAbouts = async () => {
         try {
@@ -49,12 +62,12 @@ const About: React.FC = () => {
                     <div className="mx-7 md:mx-0">
                         <Text suppressHydrationWarning className="text-[24px] md:text-[40px] font-[700]">
                             {/* SERVICE */}
-                            {t("about.Title")}
+                            {translations.about["Title"]}
                         </Text>
 
                         <Text suppressHydrationWarning className="text-[16px] md:text-[24px] mt-2 md:mt-4 inline-block text-justify">
                             {/* SUB SERVICE */}
-                            {t("about.SubTitle")}
+                            {translations.about["SubTitle"]}
                         </Text>
                     </div>
 

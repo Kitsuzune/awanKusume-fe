@@ -8,11 +8,25 @@ import { ArrowRightOutlined } from '@ant-design/icons';
 import { apiRequest } from "@/utils/api";
 import { truncateText } from "@/const/truncateText";
 import { formatDate } from "@/const/dateFormat";
-import useLanguage from "@/zustand/useLanguage";
-import { useTranslationCustom } from "../../../public/i18n/client";
+import idTranslations from "@/../public/i18n/locales/id/HomePage.json";
+import enTranslations from "@/../public/i18n/locales/en/HomePage.json";
+import cnTranslations from "@/../public/i18n/locales/cn/HomePage.json";
 import Link from "next/link";
 
 const { Text } = Typography;
+const getTranslations = (language: number) => {
+    switch (language) {
+        case 1:
+            return idTranslations;
+        case 2:
+            return enTranslations;
+        case 3:
+            return cnTranslations;
+        default:
+            return idTranslations;
+    }
+};
+
 
 type HeaderModelType = 'CenterRight' | 'Between' | 'None';
 
@@ -35,12 +49,19 @@ interface Post {
 const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
     const [post, setPost] = useState<Post[]>([]);
     const [pagination, setPagination] = useState({ page: 1, perPage: 4, totalData: 1 });
+    const [language, setLanguage] = useState<number>(1);
     const [order, setOrder] = useState({
         order: 'desc',
     });
 
-    const { lng } = useLanguage();
-    const { t } = useTranslationCustom(lng, "HomePage");
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedLanguage = localStorage.getItem("language");
+            setLanguage(storedLanguage ? parseInt(storedLanguage) : 1);
+        }
+    }, []);
+
+    const translations = getTranslations(language);
 
     const settings = {
         infinite: true,
@@ -116,7 +137,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                         <div className="col-span-6 md:col-span-4 text-start flex flex-col w-full md:mx-auto md:w-auto">
                             <Text className="text-[24px] md:text-[40px] font-[700]">{title}</Text>
                             <Text suppressHydrationWarning className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
-                                {t("artikel.Title")}
+                                {translations.artikel["Title"]}
                             </Text>
                         </div>
                         <div className="col-span-6 hidden md:flex md:col-span-2 items-center justify-end gap-3 mt-4 md:mt-0 w-full md:w-auto">
@@ -136,7 +157,7 @@ const Article: React.FC<ArticleProps> = ({ title, HeaderModel }) => {
                         <div className="flex flex-col w-full md:w-3/4">
                             <Text className="text-[24px] md:text-[40px] font-[700]">{title}</Text>
                             <Text suppressHydrationWarning className="text-[16px] md:text-[18px] mt-2 md:mt-4 font-[400]">
-                                {t("artikel.Title")}
+                                {translations.artikel["Title"]}
                             </Text>
                         </div>
                         <div className="hidden md:flex items-center gap-3 mt-4 md:mt-0 w-full md:w-auto">
