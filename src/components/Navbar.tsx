@@ -297,7 +297,15 @@ const Navbar = () => {
       <div className={`fixed top-0 right-0 h-full bg-white z-30 shadow-lg transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300`}>
         <div className="flex flex-col p-[20px]">
           <Link suppressHydrationWarning href="/about-us" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{translations.navbar.TentangKami}</Link>
-          <Link suppressHydrationWarning href="/layanan" className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300" onClick={() => setIsMobileMenuOpen(false)}>{translations.navbar.Layanan}</Link>
+          <Link 
+            suppressHydrationWarning 
+            href="/layanan" 
+            className="text-[14px] md:text-[20px] py-[10px] hover:bg-gray-100 hover:text-orange px-5 rounded-lg transition-all duration-300"
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              showModal();
+            }}
+          >{translations.navbar.Layanan}</Link>
           <Dropdown menu={{ items }} onVisibleChange={handleDropdownVisibleChange}>
             <div className='hover:text-orange hover:bg-gray-100 py-[10px] rounded-lg'>
               <span suppressHydrationWarning className='text-[14px] md:text-[20px] cursor-pointer px-5 py-[10px] text-start'>{translations.navbar.Informasi}</span>
