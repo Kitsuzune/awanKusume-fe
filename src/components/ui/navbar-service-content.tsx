@@ -4,7 +4,11 @@ import { useRouter } from 'next/navigation';
 
 const { Text } = Typography;
 
-const ModalNavbarServiceContent = () => {
+interface ModalNavbarServiceContentProps {
+  closeMenu?: () => void;
+}
+
+const ModalNavbarServiceContent: React.FC<ModalNavbarServiceContentProps> = ({ closeMenu }) => {
   const router = useRouter();
   const [language, setLanguage] = useState<number>(1);
 
@@ -21,6 +25,9 @@ const ModalNavbarServiceContent = () => {
 
   const handleRedirect = (baseId: number) => {
     const serviceId = getServiceId(baseId);
+    if (closeMenu) {
+      closeMenu();
+    }
     router.push(`/layanan/${serviceId}`);
   };
 
@@ -32,25 +39,25 @@ const ModalNavbarServiceContent = () => {
             Pendirian Perusahaan
           </Text>
           <div className='mt-1'>
-            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300">
+            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300" onClick={() => window.location.href = '/layanan/pendirian-perusahaan'}>
               <img src='/image/Office_building.png' alt='Office_building' className='w-4 h-4 md:w-5 md:h-5' />
               <Text className='text-sm md:text-base'>
                 Pendirian PT
               </Text>
             </div>
-            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300">
+            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300" onClick={() => window.location.href = '/layanan/pendirian-perusahaan'}>
               <img src='/image/City_store.png' alt='City_store' className='w-4 h-4 md:w-5 md:h-5' />
               <Text className='text-sm md:text-base'>
                 Pendirian CV
               </Text>
             </div>
-            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300">
+            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300" onClick={() => window.location.href = '/layanan/pendirian-perusahaan'}>
               <img src='/image/City_tower.png' alt='City_tower' className='w-4 h-4 md:w-5 md:h-5' />
               <Text className='text-sm md:text-base'>
                 Pendirian PT Perorangan
               </Text>
             </div>
-            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300">
+            <div className="flex items-center gap-2 hover:bg-gray-200 px-2 py-1 rounded-lg cursor-pointer transition-all duration-300" onClick={() => window.location.href = '/layanan/perizinan-bisnis'}>
               <img src='/image/Apartment_building.png' alt='Apartment_building' className='w-4 h-4 md:w-5 md:h-5' />
               <Text className='text-sm md:text-base'>
                 Pendirian Yayasan

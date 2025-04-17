@@ -395,7 +395,7 @@ const Navbar = () => {
         width='90vw'
         className='-mt-5'
       >
-        <ModalNavbarServiceContent />
+        <ModalNavbarServiceContent closeMenu={handleCancel} />
       </Modal>
     </div>
   );
