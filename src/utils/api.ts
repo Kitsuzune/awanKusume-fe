@@ -2,7 +2,8 @@ import { message } from 'antd';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const apiClient = axios.create({
-	baseURL: process.env.NEXT_PUBLIC_API_URL_CSM,
+	// baseURL: process.env.NEXT_PUBLIC_API_URL_CSM,
+	baseURL: '/api/v1',
 	withCredentials: true,
 });
 
